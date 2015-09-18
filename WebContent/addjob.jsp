@@ -29,7 +29,7 @@ function link1(){
 
 <body>
 <div id="man_zone">
-  <form action="sec1.html" method="post" name="fom" id="fom" target="manFrame" onsubmit="return link1();">
+  <form action="AddJobServlet" method="post" name="fom" id="fom" target="manFrame" onsubmit="return link1();">
     <div class="MainDiv">
       <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
         <tr>

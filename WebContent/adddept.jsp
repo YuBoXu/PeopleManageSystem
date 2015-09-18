@@ -101,11 +101,11 @@ function link1(){
                     <td><div align="center">
                       <label>
                       <select name="super">
-							<option value="1">行政部</option>
-							<option value="2">生产部</option>
-							<option value="3">技术部</option>
-							<option value="4">销售部</option>
-							<option value="5">财务部</option>
+							<option value="行政部">行政部</option>
+							<option value="生产部">生产部</option>
+							<option value="技术部">技术部</option>
+							<option value="销售部">销售部</option>
+							<option value="财务部">财务部</option>
 					  </select>
                       </label>
                     </div></td>
