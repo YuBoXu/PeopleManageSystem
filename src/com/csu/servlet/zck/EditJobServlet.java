@@ -2,7 +2,7 @@ package com.csu.servlet.zck;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,20 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.csu.biz.zck.DeptBiz;
-import com.csu.dao.zck.DeptDao;
+import com.csu.biz.zck.JobBiz;
 
 /**
- * Servlet implementation class SelectDeptServlet
+ * Servlet implementation class EditJobServlet
  */
-@WebServlet("/SelectDeptServlet")
-public class SelectDeptServlet extends HttpServlet {
+@WebServlet("/EditJobServlet")
+public class EditJobServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectDeptServlet() {
+    public EditJobServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,10 +39,10 @@ public class SelectDeptServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DeptBiz biz = new DeptBiz();
-		List<HashMap<String, String>> list = biz.findDept();
-		request.getSession().setAttribute("deptinfo", list);
-		response.sendRedirect("addselect.jsp");
+		Map<String, String[]> map = request.getParameterMap();	
+		JobBiz biz = new JobBiz();
+		biz.editJob(map);
+		response.sendRedirect("sec1.html");
 	}
 
 }

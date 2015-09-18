@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.csu.dao.zck.JobDao;
+
+import com.csu.biz.zck.JobBiz;
+
 
 /**
  * Servlet implementation class AddJobServlet
@@ -39,12 +41,9 @@ public class AddJobServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map<String, String[]> map = request.getParameterMap();
-		String name = map.get("jobname")[0];
-		String type = map.get("select")[0];
-		String count = map.get("size")[0];
-		String limit = map.get("select2")[0];
-		JobDao dao = new JobDao();
-		dao.addJob(name, type, count, limit);
+		
+		JobBiz biz = new JobBiz();
+		biz.addJob(map);
 		response.sendRedirect("sec1.html");
 	}
 

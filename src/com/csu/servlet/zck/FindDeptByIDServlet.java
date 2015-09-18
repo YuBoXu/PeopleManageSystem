@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.csu.biz.zck.DeptBiz;
 import com.csu.dao.zck.DeptDao;
 import com.sun.javafx.image.impl.ByteIndexed.Getter;
 
@@ -42,8 +43,8 @@ public class FindDeptByIDServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String number = request.getParameter("number");
-		DeptDao dao = new DeptDao();
-		List<HashMap<String,String>> dept = dao.findDeptById(number);
+		DeptBiz biz = new DeptBiz();
+		List<HashMap<String,String>> dept = biz.findDeptById(number);
 		Map<String,String> list = dept.get(0);
 		request.getSession().setAttribute("onedept", list);
 		response.sendRedirect("deptmod.jsp");
