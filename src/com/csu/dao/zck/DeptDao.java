@@ -21,5 +21,15 @@ public class DeptDao extends BaseDao{
 		return list;
 	}
 	
+	public List<HashMap<String, String>> findDeptById(String number){
+		String sql="select * from dept where state=1 and dept_number=?";
+		List<HashMap<String, String>> list = super.findBySQL(sql,number);
+		return list;
+	}
 	
+	public int editDept(){
+		String sql="";
+		int count =1;
+		return count;
+	}
 }

@@ -103,7 +103,7 @@ function unselectAll(){
                     <td><div align="center">${dept.dept_describe }</div></td>
                     <td><div align="center">${dept.dept_top }</div></td>
                     <td><div align="center">${dept.dept_date }</div></td>
-                    <td><div align="center"> <a href="deptmod.html">编辑 </a>|<a href="#" onclick="link1();"> 删除 </a>|<a href="depemplist.html"> 查询部门下员工</a></div></td>
+                    <td><div align="center"> <a href="FindDeptByIDServlet?number=${dept.dept_number }">编辑 </a>|<a href="#" onclick="link1();"> 删除 </a>|<a href="depemplist.html"> 查询部门下员工</a></div></td>
                   </tr>
 				</c:forEach>   
             </table></td>
