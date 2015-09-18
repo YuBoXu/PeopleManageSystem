@@ -1,5 +1,8 @@
 package com.csu.dao.zck;
 
+import java.util.HashMap;
+import java.util.List;
+
 import com.neu.dao.BaseDao;
 
 public class JobDao extends BaseDao{
@@ -9,5 +12,9 @@ public class JobDao extends BaseDao{
 		int counts =super.exeuteUpdate(sql, name,type,count,limit);
 		return counts;
 	}
-  
+  public List<HashMap<String, String>> findAllJob(){
+	  String sql = "select *from job where state=1";
+	  List<HashMap<String, String>> list = super.findBySQL(sql);
+	  return list;
+  }
 }
