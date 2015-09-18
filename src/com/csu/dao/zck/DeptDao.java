@@ -16,7 +16,7 @@ public class DeptDao extends BaseDao{
 	}
 
 	public List<HashMap<String, String>> findDept(){
-		String sql="select * from dept";
+		String sql="select * from dept where state=1";
 		List<HashMap<String, String>> list = super.findBySQL(sql);
 		return list;
 	}
