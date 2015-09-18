@@ -9,5 +9,5 @@ public class JobDao extends BaseDao{
 		int counts =super.exeuteUpdate(sql, name,type,count,limit);
 		return counts;
 	}
-
+  
 }
