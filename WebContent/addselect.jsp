@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=GB18030"
     pageEncoding="GB18030"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -84,88 +85,27 @@ function unselectAll(){
 					<td width="13%"><div align="center">成立日期</div></td>
 					<td width="19%"><div align="center">操作</div></td>
                   </tr>
+               <c:forEach var="dept" items="${sessionScope.deptinfo }" varStatus="state">   
                   <tr bgcolor="#FFFFFF">
 				    <td height="20"><div align="center">
 				      <input type="checkbox" name="delid"/>
 				      </div></td>
-                    <td ><div align="center">1</div></td>
-                    <td ><div align="center"><a href="listmokuaimingxi.htm" onclick=""></a>行政部</div></td>
+                    <td ><div align="center">${state.index+1 }</div></td>
+                    <td ><div align="center"><a href="listmokuaimingxi.htm" onclick=""></a>${dept.dept_name }</div>
+                    </td>
 					<td>
 					  <div align="center">
-					  公司
+					  ${dept.dept_type }
 					      </div>
 			</td>
-                    <td><div align="center">64275088</div></td>
-                    <td><div align="center">64275080</div></td>
-                    <td><div align="center">行政管理</div></td>
-                    <td><div align="center">总经办</div></td>
-                    <td><div align="center">1997-08-06</div></td>
+                    <td><div align="center">${dept.dept_phone }</div></td>
+                    <td><div align="center">${dept.dept_fax }</div></td>
+                    <td><div align="center">${dept.dept_describe }</div></td>
+                    <td><div align="center">${dept.dept_top }</div></td>
+                    <td><div align="center">${dept.dept_date }</div></td>
                     <td><div align="center"> <a href="deptmod.html">编辑 </a>|<a href="#" onclick="link1();"> 删除 </a>|<a href="depemplist.html"> 查询部门下员工</a></div></td>
                   </tr>
-				  <tr bgcolor="#FFFFFF">
-				    <td height="20"><div align="center">
-				      <input type="checkbox" name="delid"/>
-				      </div></td>
-                    <td ><div align="center">2</div></td>
-                    <td ><div align="center">生产部</div></td>
-					<td><div align="center">
-					公司
-					  </div></td>
-                    <td><div align="center">64275087</div></td>
-                    <td><div align="center">64275089</div></td>
-                    <td><div align="center">产品生产</div></td>
-                    <td><div align="center">总公司</div></td>
-                    <td><div align="center">1997-08-06</div></td>
-                    <td><div align="center"><a href="editrenwu.htm">编辑 | </a><a href="deldept.html">删除</a> |<a href="depemplist1.html">查询部门下员工</a></div></td>
-                  </tr>
-				  <tr bgcolor="#FFFFFF">
-				    <td height="20"><div align="center">
-				      <input type="checkbox" name="delid"/>
-				      </div></td>
-                    <td ><div align="center">3</div></td>
-                    <td ><div align="center">技术部</div></td>
-					<td><div align="center">
-					部门
-					  </div></td>
-                    <td><div align="center">64275086</div></td>
-                    <td><div align="center">64275084</div></td>
-                    <td><div align="center">技术设计</div></td>
-                    <td><div align="center">生产部</div></td>
-                    <td><div align="center">1997-08-06</div></td>
-                    <td><div align="center"><a href="editrenwu.htm">编辑 | </a><a href="listrenwumingxi.htm">删除 | 查询部门下员工</a></div></td>
-                  </tr>
-				  <tr bgcolor="#FFFFFF">
-				    <td height="20"><div align="center">
-				      <input type="checkbox" name="delid"/>
-				      </div></td>
-                    <td ><div align="center">4</div></td>
-                    <td ><div align="center"><a href="listmokuaimingxi.htm" onclick=""></a>销售部</div></td>
-					<td><div align="center">
-					部门
-					  </div></td>
-                    <td><div align="center">64275085</div></td>
-                    <td><div align="center">64275083</div></td>
-                    <td><div align="center">市场销售</div></td>
-                    <td><div align="center">生产部</div></td>
-                    <td><div align="center">1997-12-06</div></td>
-                    <td><div align="center"><a href="editrenwu.htm">编辑 | </a><a href="listrenwumingxi.htm">删除 | 查询部门下员工</a></div></td>
-                  </tr>
-				  <tr bgcolor="#FFFFFF">
-				    <td height="20"><div align="center">
-				      <input type="checkbox" name="delid"/>
-				      </div></td>
-                    <td ><div align="center">5</div></td>
-                    <td ><div align="center">财务部</div></td>
-					<td><div align="center">
-					  公司
-					  </div></td>
-                    <td><div align="center">64275082</div></td>
-                    <td><div align="center">64275081</div></td>
-                    <td><div align="center">财务</div></td>
-                    <td><div align="center">行政部</div></td>
-                    <td><div align="center">1997-08-06</div></td>
-                    <td><div align="center"><a href="editrenwu.htm">编辑 | </a><a href="listrenwumingxi.htm">删除 | 查询部门下员工</a></div></td>
-                  </tr>
+				</c:forEach>   
             </table></td>
         </tr>
       </table>

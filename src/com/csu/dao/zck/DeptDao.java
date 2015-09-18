@@ -10,7 +10,7 @@ public class DeptDao extends BaseDao{
 	public int addDept(String name,String type,String phone,String fax,String describe,String top,String date){
 		String sql="insert into dept"
 				+ " (dept_number,dept_name,dept_type,dept_phone,dept_fax,dept_describe,dept_top,dept_date)"
-				+ " values (?,?,?,?,?,?,?,?)";
+				+ " values (seq_dept_id.nextval,?,?,?,?,?,?,?)";
 		int count = super.exeuteUpdate(sql,name,type,phone,fax,describe,top,date);
 		return count;
 	}

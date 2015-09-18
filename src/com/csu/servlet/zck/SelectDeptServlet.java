@@ -42,7 +42,7 @@ public class SelectDeptServlet extends HttpServlet {
 		DeptDao dao = new DeptDao();
 		List<HashMap<String, String>> list = dao.findDept();
 		request.getSession().setAttribute("deptinfo", list);
-		response.sendRedirect("select.jsp");
+		response.sendRedirect("addselect.jsp");
 	}
 
 }
