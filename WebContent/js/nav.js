@@ -3,12 +3,10 @@ var outlookbar=new outlook();
 var t;
 t=outlookbar.addtitle('部门管理','组织管理',1)
 outlookbar.additem('部门添加',t,'adddept.jsp')
-outlookbar.additem('部门查询',t,'addselect.jsp')
+outlookbar.additem('部门查询',t,'SelectDeptServlet')
 t=outlookbar.addtitle('岗位管理','组织管理',1)
-outlookbar.additem('岗位添加',t,'addjob.html')
-outlookbar.additem('岗位查询',t,'jobselec.html')
-t=outlookbar.addtitle('设置关系','组织管理',1)
-outlookbar.additem('设置关系',t,'addjobdept_r.html')
+outlookbar.additem('岗位添加',t,'addjob.jsp')
+outlookbar.additem('岗位查询',t,'SelectAllJobServlet')
 
 
 t=outlookbar.addtitle('入职管理','人员管理',1)
