@@ -6,7 +6,7 @@ body {
 	margin: 0px;
 }
 html {
-	background-color: #F9F9F9;
+	background-color: #c10y30;
 	padding-left: 0px;
 	padding-right: 0px;
 	padding-top: 0px;
@@ -14,12 +14,38 @@ html {
 	margin: 0px;
 }
 body {
-	background-color: #F9F9F9;
+	background:url(images/bg1.jpg);
 	font-family: Verdana, Arial,Vrinda,Tahoma;
 	line-height: 175%;
 	font-size:12px;
-	color:#666;
+	color:#k30;
 }
+
+input[type="Submit"], input[type="reset"], input[type="button"] {
+	background-color:#33c767;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:5px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+
+input:hover {
+	background-color:#5cbf2a;
+}
+
+input:active {
+	position:relative;
+	top:1px;
+}
+
 a {
 	color: #555;
 	text-decoration:none;
@@ -53,6 +79,7 @@ div{
 	margin: 0 auto;
 	padding:0px;
 	width: 100%;
+	background-color: #ffffff
 }
 .header_content .logo {
 	height: 50px;
@@ -244,10 +271,12 @@ div{
 	overflow: auto;
 }
 #man_zone table{
-    background-color:#DBE6E3;
+	
+    background-color:#ffffff;
 }
 #man_zone table tr{
-    background-color:#fff;
+    background-color:#aaddaa;
+    border="2" 
 }
 .left_title_1 {
 	background-color: #F3F8F7;
@@ -262,4 +291,26 @@ div{
 	font-weight:bold;
 	line-height:30px;
 	text-align:right;
+}
+.myButton1 {
+	background-color:#33c767;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:5px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton1:hover {
+	background-color:#5cbf2a;
+}
+.myButton1:active {
+	position:relative;
+	top:1px;
 }

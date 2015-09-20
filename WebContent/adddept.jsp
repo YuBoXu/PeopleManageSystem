@@ -119,7 +119,7 @@ function link1(){
                       <input name="Submit" type="submit" value="±£´æ"  /> 
                       </label>
                       <label>
-                      <input name="reset" type="reset" value="ÖØÖÃ" />
+                      <input name="Submit" type="reset" value="ÖØÖÃ" />
                       </label>
                     </div>
 		   </td>
