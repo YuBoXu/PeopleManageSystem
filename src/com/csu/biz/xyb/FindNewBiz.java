@@ -1,0 +1,29 @@
+package com.csu.biz.xyb;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.csu.dao.xyb.FindLeaveDao;
+import com.csu.dao.xyb.FindNewDao;
+public class FindNewBiz {
+	private FindNewDao dao;
+	
+	public FindNewBiz(){
+		dao=new FindNewDao();
+	}
+	public List<HashMap<String, String>> findNewByTime(Map<String, String[]> map) {
+		// TODO Auto-generated method stub
+		String starttime=map.get("starttime")[0];
+		
+		String endtime=map.get("endtime")[0];
+	
+		String deptname=map.get("deptname")[0];
+		
+		List<HashMap<String, String>> list=
+				dao.findNewByTime(starttime,endtime,deptname);
+		System.out.println(list.toString());
+		return dao.findNewByTime(starttime,endtime,deptname);
+	}
+
+}
