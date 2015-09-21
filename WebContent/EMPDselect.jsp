@@ -31,7 +31,7 @@ if(document.fom.id.value.length==""||document.fom.id.value.length=='15'||documen
 
 <body>
 <div id="man_zone">
-  <form action="ygxx.html" onsubmit="return link();" method="post" name="fom" id="fom" target="manFrame" >
+  <form action="YgxxServlet" onsubmit="return link();" method="post" name="fom" id="fom" target="manFrame" >
     <div class="MainDiv">
       <table width="97%" border="0" cellpadding="0" cellspacing="0" class="CContent">
         <tr>
