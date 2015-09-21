@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=GB18030"
     pageEncoding="GB18030"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -56,22 +57,30 @@ function unselectAll(){
             <td width="10%">岗位名称</td>
             <td width="10%">姓名 </td>
             <td width="5%">性别</td>
-            <td width="12%">入职日期</td>
-            <td width="12%">学历</td>
+            <td width="12%">离职日期</td>
+            <td width="12%">原因</td>
           </tr>
+          <c:forEach var="info" items="${sessionScope.info }">
           <tr bgcolor="#FFFFFF">
             <td height="20"><input type="checkbox" name="delid"/></td>
-            <td >1</td>
-            <td>软件开发</td>
-            <td>java工程师</td>
-            <td>tom</td>
-            <td>女</td>
-            <td>2001</td>
-            <td>本科</td>
+            <td>${info.emp_number}
+            </td>
+            <td>${info.place}
+            </td>
+            <td>${info.job_name}
+            </td>
+            <td>${info.emp_name }
+            </td>
+            <td>${info.emp_sex}
+            </td>
+            <td>${info.leave_time}
+            </td>
+            <td>${info.reason }
+            </td>
           </tr>
-         
+         </c:forEach>
           <tr bgcolor="#FFFFFF">
-            <td height="20" colspan="7">共 <span class="right-text09">5</span> 页 | 第 <span class="right-text09">1</span> 页
+            <td height="20" colspan="7">共 <span class="right-text09">1</span> 页 | 第 <span class="right-text09">1</span> 页
               <div align="right"></div></td>
             <td>[<a href="#" class="right-font08">首页</a> | <a href="#" class="right-font08">上一页</a> | <a href="#" class="right-font08">下一页</a> | <a href="#" class="right-font08">末页</a>]</td>
           </tr>

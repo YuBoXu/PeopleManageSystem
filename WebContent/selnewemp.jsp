@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GB18030">
-<link rel="stylesheet" href="css/common.css" type="text/css" />
-<title>离职员工查询</title>
+<title>新聘员工报表</title>
 <script language="javascript" type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
 <style type="text/css">
 body {
@@ -25,11 +24,11 @@ body {
 
 <body>
 <div id="man_zone">
-<form id="form" name="form" method="post"  action="FindLeaveServlet" >
-  <p><span class="STYLE5">离职员工查询</span></p>
+<form id="form1" name="form1" method="post" action="newemplist.html"  >
+  <p><span class="STYLE5">新聘员工查询</span></p>
   <table width="100%" border="0">
     <tr>
-      <td><div align="center"><span class="STYLE5">离职员工查询</span></div></td>
+      <td><div align="center"><span class="STYLE5">新聘员工查询</span></div></td>
     </tr>
   </table>
   <label><br />
@@ -41,22 +40,22 @@ body {
     
     <tr>
       <td width="43%"><span class="STYLE4">统计开始时间：</span></td>
-      <td width="57%"><input type="text" id="starttime"  onClick="WdatePicker()" readonly="readonly"  name="starttime" />
+      <td width="57%"><input type="text" id="starttime"onClick="WdatePicker()" readonly="readonly" name="statrtime"/>
         <span class="STYLE6">*必填</span></td>
       </tr>
     <tr>
       <td><span class="STYLE4">统计结束时间：</span></td>
-      <td><input type="text"  onClick="WdatePicker()" readonly="readonly"  name="endtime" id="endtime"/>
+      <td><input type="text"  onClick="WdatePicker()" readonly="readonly"  name="endtime" />
         <span class="STYLE6">        *必填</span></td>
       </tr>
     <tr>
       <td><span class="STYLE4">指定部门：</span></td>
-      <td> <select name="deptname" id="deptname">
-							<option value="行政部">行政部</option>
-							<option value="生产部">生产部</option>
-							<option value="技术部">技术部</option>
-							<option value="销售部">销售部</option>
-							<option value="财务部">财务部</option>
+      <td><select name="deptId">
+							<option value="1">行政部</option>
+							<option value="2">生产部</option>
+							<option value="3">技术部</option>
+							<option value="4">销售部</option>
+							<option value="5">财务部</option>
 					  </select>
         <span class="STYLE8">        选填</span></td>
     </tr>
@@ -69,6 +68,5 @@ body {
   <p>&nbsp;</p>
 </form>
 </div>
-
 </body>
 </html>

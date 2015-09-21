@@ -37,8 +37,8 @@ outlookbar.additem('入职员工查询',t,'EMPDselect.html')
 
 
 t=outlookbar.addtitle('报表管理','报表管理',1)
-outlookbar.additem('新聘员工报表',t,'selnewemp.html')
-outlookbar.additem('离职员工报表',t,'selretireemp.html')
+outlookbar.additem('新聘员工报表',t,'selnewemp.jsp')
+outlookbar.additem('离职员工报表',t,'selretireemp.jsp')
 outlookbar.additem('部门调动员工报表',t,'selmodeptemp.html')
 outlookbar.additem('岗位调动员工报表',t,'selmobmemp.html')
 outlookbar.additem('人事月报',t,'selmothlist.html')
