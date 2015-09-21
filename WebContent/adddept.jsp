@@ -11,7 +11,7 @@
 <SCRIPT language=JavaScript>
 
 
-function link1(){
+function link1(){ 
    if(document.fom.deptname.value==""){
    	alert("您没有输入部门名称");
 	return false;
