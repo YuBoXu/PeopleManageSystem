@@ -12,8 +12,7 @@ public class YgxxBiz {
 	private YgxxDao dao=new YgxxDao();
 	
 	
-    public List<HashMap<String, String>> find(Map<String, String[]> map) {
-		
+    public List<HashMap<String, String>> find(Map<String, String[]> map) {		
 		String idcard=null;
 		String emp_number=null;
 		
@@ -28,4 +27,23 @@ public class YgxxBiz {
 		return list;
 	}
 
+    
+    
+
+	public List<HashMap<String, String>> findEmpByIdCard(String id) {
+		List<HashMap<String,String>> list = dao.findEmpByIdCard(id);
+		return list;
+	}
+
+
+	public List<HashMap<String, String>> findRlationByNumber(String number) {
+		List<HashMap<String,String>> list = dao.findRelationByNumber(number);
+		return list;
+	}
+
+
+	public List<HashMap<String, String>> findOccupationByNumber(String number) {
+		List<HashMap<String,String>> list = dao.findOccupationByNumber(number);
+		return list;
+	}
 }
