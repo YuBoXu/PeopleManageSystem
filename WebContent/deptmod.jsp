@@ -102,8 +102,8 @@ function link2(){
 					  <div align="center">
 					    <label>
 					    <select name="select">
-					      <option value="公司">${sessionScope.onedept.dept_type }</option>
-					      <option value="部门">部门</option>
+					      <option value="公司" ${sessionScope.onedept.dept_type=='公司'?"selected='selected'":"" }>公司</option>
+					      <option value="部门" ${sessionScope.onedept.dept_type=='部门'?"selected='selected'":"" }>部门</option>
 					      </select>
 					    </label>
 </div>			</td>

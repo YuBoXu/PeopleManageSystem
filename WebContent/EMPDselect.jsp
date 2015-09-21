@@ -18,12 +18,17 @@
 	alert("您必须选择一项！");
 	return false;
 }
-if(document.fom.id.value.length==""||document.fom.id.value.length=='15'||document.fom.id.value.length=='18'&&document.fom.id2.value.length>0){
+if(document.fom.id.value.length==""||document.fom.id.value.length=='15'||document.fom.id.value.length=='18' && document.fom.id2.value.length>0){
 			}else{
 		
 		alert("您输入的身份证不正确！");
 		return false;
 		}
+	if(document.fom.id2.value.length>0){		
+	}else{
+		alert("您输入的员工编号不正确！");
+		return false;
+	}
 		return true;
 }
 </script>
