@@ -14,16 +14,14 @@
 <script language="javascript" type="text/javascript">
 
 function link1(){                                                                                                  
-	location.href="ygxx.html"
-	 
+	location.href="ygxx.html"	 
 		}    
-
 </script>
 </head>
 
 <body>
 <div id="man_zone">
-  <form action="tianjia.html" onsubmit="return link();" method="post" name="fom" id="fom" target="manFrame" >
+  <form action="YgxxServlet" onsubmit="return link();" method="post" name="fom" id="fom" target="manFrame" >
     <div class="MainDiv">
       <table width="97%" border="0" cellpadding="0" cellspacing="0" class="CContent">
         <tr>
@@ -40,23 +38,23 @@ function link1(){
                 </div></td>
               <td width="84">员工编号</td>
               <td width="107"><label>
-               ${sessionScope.empinfo.emp_number }
+               ${sessionScope.ygxx.emp_number }
               </label></td>
               <td width="84">姓名</td>
               <td width="87"><label>
-               ${sessionScope.empinfo.emp_name }
+               ${sessionScope.ygxx.emp_name }
               </label></td>
               <td width="84">性别</td>
               <td width="89"><label>
-               ${sessionScope.empinfo.emp_sex }
+               ${sessionScope.ygxx.emp_sex }
               </label></td>
               <td width="84">出生日期*</td>
               <td width="88"><label>
-               ${sessionScope.empinfo.birthday }
+               ${sessionScope.ygxx.birthday }
               </label></td>
               <td width="84">身份证号*</td>
               <td width="179"><label>
-			  ${sessionScope.empinfo.idcard }
+			  ${sessionScope.ygxx.idcard }
               </label></td>
             </tr>
             <tr bgcolor="#EEEEEE">
@@ -70,74 +68,74 @@ function link1(){
               </label></td>
               <td>民族*</td>
               <td><label>
-               ${sessionScope.empinfo.national}
+               ${sessionScope.ygxx.national}
               </label></td>
               <td>入职日期*</td>
               <td><label>
-                ${sessionScope.occupationcareer.begintime }
+                ${sessionScope.ygxx.begintime }
               </label></td>
               <td>参加工作日期*</td>
               <td><label>
-                 ${sessionScope.occupationcareer.begintime }
+                 ${sessionScope.ygxx.begintime }
               </label></td>
             </tr>
             <tr bgcolor="#EEEEEE">
               <td>用工形式*</td>
               <td><label>
-                 ${sessionScope.empinfo.emptype }
+                 ${sessionScope.ygxx.emptype }
               </label></td>
               <td>人员来源*</td>
               <td><label>
-                 ${sessionScope.empinfo.empfrom }
+                 ${sessionScope.ygxx.empfrom }
               </label></td>
               <td>政治面貌</td>
               <td><label>
-                 ${sessionScope.empinfo.politic }
+                 ${sessionScope.ygxx.politic }
               </label></td>
               <td>出生地</td>
               <td><label>
-                  ${sessionScope.empinfo.birthplace }
+                  ${sessionScope.ygxx.birthplace }
               </label></td>
               <td>籍贯</td>
               <td><label>
-                  ${sessionScope.empinfo.native }
+                  ${sessionScope.ygxx.native }
               </label></td>
             </tr>
             <tr bgcolor="#EEEEEE">
               <td>联系电话</td>
-              <td>  ${sessionScope.empinfo.phone }</td>
+              <td>  ${sessionScope.ygxx.phone }</td>
               <td>电子邮件</td>
-              <td>  ${sessionScope.empinfo.email}</td>
+              <td>  ${sessionScope.ygxx.email}</td>
               <td>身高</td>
-              <td>  ${sessionScope.empinfo.height }</td>
+              <td>  ${sessionScope.ygxx.height }</td>
               <td>血型</td>
               <td><label>
-                 ${sessionScope.empinfo.blood }
+                 ${sessionScope.ygxx.blood }
               </label></td>
               <td>婚姻状况</td>
               <td><label>
-                  ${sessionScope.empinfo.marital }
+                  ${sessionScope.ygxx.marital }
               </label></td>
             </tr>
             
             <tr bgcolor="#EEEEEE">
               <td>户口所在地</td>
-              <td>  ${sessionScope.empinfo.home }</td>
+              <td>  ${sessionScope.ygxx.home }</td>
               <td>最高学历</td>
               <td><label>
-              ${sessionScope.empinfo.education }
+              ${sessionScope.ygxx.education }
               </label></td>
               <td>最高学位</td>
               <td><label>
-               ${sessionScope.empinfo.degree }
+               ${sessionScope.ygxx.degree }
               </label></td>
               <td>毕业院校</td>
               <td>  
-              ${sessionScope.empinfo.school}
+              ${sessionScope.ygxx.school}
               </td>
               <td>所学专业</td>
 			   <td>  
-			   ${sessionScope.empinfo.major }
+			   ${sessionScope.ygxx.major }
 			   </td>
               
             </tr>
@@ -146,26 +144,26 @@ function link1(){
               <td colspan="10"><strong>职业生涯</strong></td>
               </tr>
             <tr bgcolor="#EEEEEE">
-              <td> ${sessionScope.occupationinfo.begintime }</td>
-              <td> ${sessionScope.occupationinfo.endtime }</td>
-              <td>${sessionScope.occupationinfo.company }</td>
-              <td>${sessionScope.occupationinfo.jobdescribe }</td>
-              <td>${sessionScope.occupationinfo.position }</td>
-              <td>${sessionScope.occupationinfo.salary }</td>
-              <td>${sessionScope.occupationinfo.referencepeople }</td>
-              <td>${sessionScope.occupationinfo.referenceposition }</td>
-              <td>${sessionScope.occupationinfo.referencephone }</td>
-              <td colspan="3">${sessionScope.occupationinfo.explanation }</td>
+              <td> ${sessionScope.ygxx.begintime }</td>
+              <td> ${sessionScope.ygxx.endtime }</td>
+              <td>${sessionScope.ygxx.company }</td>
+              <td>${sessionScope.ygxx.jobdescribe }</td>
+              <td>${sessionScope.ygxx.position }</td>
+              <td>${sessionScope.ygxx.salary }</td>
+              <td>${sessionScope.ygxx.referencepeople }</td>
+              <td>${sessionScope.ygxx.referenceposition }</td>
+              <td>${sessionScope.ygxx.referencephone }</td>
+              <td colspan="3">${sessionScope.ygxx.explanation }</td>
             </tr>
              
             <tr bgcolor="#EEEEEE">
               <td colspan="2"><strong>外国语种*</strong></td>
               <td colspan="3"><label>
-               ${sessionScope.empinfo.language}
+               ${sessionScope.ygxx.language}
               </label></td>
               <td colspan="2">外国语种熟练程度</td>
               <td colspan="5"><label>
-               ${sessionScope.empinfo.languageskill}
+               ${sessionScope.ygxx.languageskill}
         	</label></td>
               </tr>
             <tr bgcolor="#EEEEEE">
@@ -180,13 +178,12 @@ function link1(){
               </tr>
             <tr bgcolor="#EEEEEE">
               <td colspan="2"><label>
-               ${sessionScope.ralationinfo.ralation }
+               ${sessionScope.ygxx.ralation }
               </label></td>
-              <td colspan="2">${sessionScope.ralationinfo.sname }</td>
-              <td colspan="3">${sessionScope.ralationinfo.job }</td>
-              <td>${sessionScope.ralationinfo.position }</td>
-              <td colspan="4">${sessionScope.ralationinfo.phone }</td>
-            
+              <td colspan="2">${sessionScope.ygxx.sname }</td>
+              <td colspan="3">${sessionScope.ygxx.job }</td>
+              <td>${sessionScope.ygxx.position }</td>
+              <td colspan="4">${sessionScope.ygxx.phone }</td>
           </table></td>
         </tr>
       </table>

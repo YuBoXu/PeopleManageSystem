@@ -6,10 +6,10 @@ import java.util.List;
 import com.neu.dao.BaseDao;
 
 public class YgxxDao extends BaseDao {
-	public HashMap<String, String> findYgxx(String idcard, String emp_number){
+	public List<HashMap<String, String>> findYgxx(String idcard, String emp_number){
 		String sql="select e.emp_number,e.emp_name,e.emp_sex,e.birthday,e.idcard,"
 				+ "e.emptype,e.empfrom,e.politic,e.birthplace,e.phone,e.email,"
-				+ "e.height,e.blood,e.marital,e.home,e.education,"
+				+ "e.height,e.blood,e.marital,e.home,e.education,e.native,e.national"
 				+ "e.degree,e.school,e.major,e.language,e.languageskill,"
 				+ "o.begintime,o.endtime,o.company,"
 				+ "o.jobdescribe,o.position,o.salary,o.referencepeople,"
@@ -26,17 +26,14 @@ public class YgxxDao extends BaseDao {
 				+ "inner join societyrelation sr on sr.emp_number = e.emp_number"
 				+ "where 1=1";
 		if(idcard!=null){
-			sql+=" and  idcard ="+idcard;
+			sql+=" and  idcard ="+"'"+idcard+"'";
 		}
 		if(emp_number!=null){
-			sql+=" and emp_number"+emp_number;
+			sql+=" and emp_number"+"'"+emp_number+"'";
 		}			
 		
 		List<HashMap<String, String>> list = super.findBySQL(sql);
-		if(list!=null && list.size()>0){
-			return list.get(0);
-		}
-		return null;
+		return list;
 	}
 
 
