@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.csu.biz.zck.DeptBiz;
-import com.csu.dao.zck.DeptDao;
-import com.sun.javafx.image.impl.ByteIndexed.Getter;
 
 /**
  * Servlet implementation class FindDeptByIDServlet

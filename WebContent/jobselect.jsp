@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=GB18030"
 	pageEncoding="GB18030"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,40 +8,41 @@
 <link rel="stylesheet" href="css/common.css" type="text/css" />
 <title>组织管理</title>
 <SCRIPT language=JavaScript>
-function selectAll(){
-	var obj = document.fom.elements;
-	for (var i=0;i<obj.length;i++){
-		if (obj[i].name == "delid"){
-			obj[i].checked = true;
+	function selectAll() {
+		var obj = document.fom.elements;
+		for (var i = 0; i < obj.length; i++) {
+			if (obj[i].name == "delid") {
+				obj[i].checked = true;
+			}
 		}
 	}
-}
 
-function unselectAll(){
-	var obj = document.fom.elements;
-	for (var i=0;i<obj.length;i++){
-		if (obj[i].name == "delid"){
-			if (obj[i].checked==true) obj[i].checked = false;
-			else obj[i].checked = true;
+	function unselectAll() {
+		var obj = document.fom.elements;
+		for (var i = 0; i < obj.length; i++) {
+			if (obj[i].name == "delid") {
+				if (obj[i].checked == true)
+					obj[i].checked = false;
+				else
+					obj[i].checked = true;
+			}
 		}
 	}
-}
 
-function link(){
-    document.getElementById("fom").action="addrenwu.htm";
-   document.getElementById("fom").submit();
-}
-function link1(){
-     location.href="adddept.html";
-}
-function link2(){
-      if (document.fom.delid.onchick==true){
-	  alert("您的选择没有可执行的操作！");
-	  }else {
-	   location.href="multimod.html";
-	  }
-}
-
+	function link() {
+		document.getElementById("fom").action = "addrenwu.htm";
+		document.getElementById("fom").submit();
+	}
+	function link1() {
+		location.href = "adddept.html";
+	}
+	function link2() {
+		if (document.fom.delid.onchick == true) {
+			alert("您的选择没有可执行的操作！");
+		} else {
+			location.href = "multimod.html";
+		}
+	}
 </SCRIPT>
 
 <style type="text/css">
@@ -55,7 +56,7 @@ function link2(){
 
 <body>
 	<div id="man_zone">
-		<form name="fom" id="fom" method="post" action="">
+		<form name="fom" id="fom" method="post" action="PageJobGoToServlet">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td height="30"><table width="100%" border="0" cellspacing="0"
@@ -108,27 +109,29 @@ function link2(){
 														<td width="8%"><div align="center">编制限定</div></td>
 														<td width="25%"><div align="center">操作</div></td>
 													</tr>
-											<c:forEach var="job" items="${sessionScope.jobinfo }" varStatus="state">	
-													<tr bgcolor="#FFFFFF">
-														<td><div align="center">
-																<input type="checkbox" name="delid" />
-															</div></td>
-														<td height="20"><div align="center">${state.index+1 }</div></td>
-														<td><div align="center">${job.job_number }</div></td>
-														<td><div align="center">
-																<a href="listmokuaimingxi.htm" onclick=""></a>${job.job_name }
-															</div></td>
-														<td><div align="center">${job.job_type }</div></td>
-														<td><div align="center">${job.dept_name }</div></td>
-														<td><div align="center">${job.dept_number }</div></td>
-														<td><div align="center">${job.job_count }</div></td>
-														<td><div align="center">${job.job_limit }</div></td>
-														<td><div align="center">
-																<a href="FindJobByIdServlet?number=${job.job_number }">编辑 </a>| <a href="deljob.html">删除</a>
-																| <a href="FindJobEmpInfoServlet?jobnumber=${job.job_number }">查询岗位下员工</a>
-															</div></td>
-													</tr>
-											</c:forEach>			
+													<c:forEach var="job" items="${sessionScope.jobinfo }"
+														varStatus="state">
+														<tr bgcolor="#FFFFFF">
+															<td><div align="center">
+																	<input type="checkbox" name="delid" />
+																</div></td>
+															<td height="20"><div align="center">${state.index+1 }</div></td>
+															<td><div align="center">${job.job_number }</div></td>
+															<td><div align="center">
+																	<a href="listmokuaimingxi.htm" onclick=""></a>${job.job_name }
+																</div></td>
+															<td><div align="center">${job.job_type }</div></td>
+															<td><div align="center">${job.dept_name }</div></td>
+															<td><div align="center">${job.dept_number }</div></td>
+															<td><div align="center">${job.job_count }</div></td>
+															<td><div align="center">${job.job_limit }</div></td>
+															<td><div align="center">
+																	<a href="FindJobByIdServlet?number=${job.job_number }">编辑
+																	</a>| <a href="deljob.html">删除</a> | <a
+																		href="FindJobEmpInfoServlet?jobnumber=${job.job_number }">查询岗位下员工</a>
+																</div></td>
+														</tr>
+													</c:forEach>
 												</table></td>
 										</tr>
 									</table>
@@ -143,22 +146,41 @@ function link2(){
 													align="center" cellpadding="0" cellspacing="0"
 													class="right-font08">
 													<tr>
-														<td width="50%">共 <span class="right-text09">2</span>
-															页 | 第 <span class="right-text09">1</span> 页
-														</td>
-														<td width="49%" align="right">[<a href="#"
-															class="right-font08">首页</a> | <a href="#"
-															class="right-font08">上一页</a> | <a href="#"
-															class="right-font08">下一页</a> | <a href="#"
-															class="right-font08">末页</a>] 转至：
-														</td>
+													
+													
+													
+														 <td width="49%">共 <span class="right-text09">${sessionScope.pagenumber }</span> 页 | 第 
+                <span class="right-text09">${sessionScope.pageindex }</span> 页</td>
+                <td width="48%" align="right">[
+                
+            <c:if test="${sessionScope.pageindex==1 }">  
+                <a  class="right-font08">首页</a> |
+                <a  class="right-font08">上一页</a> | 
+             </c:if> 
+             
+             <c:if test="${sessionScope.pageindex>1 }">    
+                [<a href="PageJobServlet?index=1" class="right-font08">首页</a> |                 
+                  <a href="PageJobServlet?index=${sessionScope.pageindex-1 }" class="right-font08">上一页</a> |
+             </c:if> 
+                 
+              <c:if test="${sessionScope.pageindex < sessionScope.pagenumber }">      
+                 <a href="PageJobServlet?index=${sessionScope.pageindex+1 }" class="right-font08">下一页</a> |                 
+                  <a href="PageJobServlet?index=${sessionScope.pagenumber }" class="right-font08">末页</a>]
+               </c:if>  
+               
+               <c:if test="${sessionScope.pageindex==sessionScope.pagenumber }">   
+                   <a  class="right-font08">下一页</a> |
+                   <a  class="right-font08">末页</a>]
+               </c:if>  
+               
+                   转至：</td>
 														<td width="1%"><table width="20" border="0"
 																cellspacing="0" cellpadding="0">
 																<tr>
-																	<td width="1%"><input name="textfield3"
+																	<td width="1%"><input name="jobpage"
 																		type="text" class="right-textfield03" size="3" /></td>
-																	<td width="87%"><input name="Submit"
-																		type="submit" value="GO" /></td>
+																	<td width="87%"><input name="Submit" type="submit"
+																		value="GO" /></td>
 																</tr>
 															</table></td>
 													</tr>

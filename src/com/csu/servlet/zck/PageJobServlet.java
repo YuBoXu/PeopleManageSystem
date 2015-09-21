@@ -13,16 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.csu.biz.zck.DeptBiz;
 
 /**
- * Servlet implementation class SelectDeptServlet
+ * Servlet implementation class PageJobServlet
  */
-@WebServlet("/SelectDeptServlet")
-public class SelectDeptServlet extends HttpServlet {
+@WebServlet("/PageJobServlet")
+public class PageJobServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectDeptServlet() {
+    public PageJobServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,12 +39,13 @@ public class SelectDeptServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String page = request.getParameter("index");
 		DeptBiz biz = new DeptBiz();
-		List<HashMap<String, String>> list = biz.findDeptByPage("1");
+		List<HashMap<String, String>> list = biz.findDeptByPage(page);
 		request.getSession().setAttribute("deptinfo", list);
-		request.getSession().setAttribute("pageindex", 1);
+		request.getSession().setAttribute("pageindex", page);
 		request.getSession().setAttribute("pagenumber", biz.getpagenumber());
-		response.sendRedirect("addselect.jsp");
+		response.sendRedirect("jobselect.jsp");
 	}
 
 }

@@ -12,11 +12,19 @@ public class JobDao extends BaseDao{
 		int counts =super.exeuteUpdate(sql, name,type,count,limit);
 		return counts;
 	}
-  public List<HashMap<String, String>> findAllJob(){
-	  String sql = "select j.job_number,j.job_name,j.job_type,j.job_count,j.job_limit,d.dept_number,d.dept_name from job j "
+  public List<HashMap<String, String>> findJobByPage(int pageindex,int pageCount){
+	/*  String sql = "select j.job_number,j.job_name,j.job_type,j.job_count,j.job_limit,d.dept_number,d.dept_name from job j "
 	  		+ " left join relationship r on r.job_number=j.job_number and j.state=1 and r.state=1 "
-	  		+ " left join dept d on d.dept_number=r.dept_number and d.state=1 order by j.job_number";
-	  List<HashMap<String, String>> list = super.findBySQL(sql);
+	  		+ " left join dept d on d.dept_number=r.dept_number and d.state=1 order by j.job_number";*/
+	 String sql="select * from "
+	 		+ " (select a.*,rownum r from (select j.job_number,j.job_name,j.job_type,"
+	 		+ " j.job_count,j.job_limit,d.dept_number,d.dept_name from job j left join relationship r "
+	 		+ " on r.job_number=j.job_number and j.state=1 and r.state=1 left join dept d on "
+	 		+ " d.dept_number=r.dept_number and d.state=1 order by j.job_number) a "
+	 		+ " where rownum<=?) b  where r>?";
+	 int min =(pageindex-1)*pageCount;
+	 int max =pageindex*pageCount;
+	  List<HashMap<String, String>> list = super.findBySQL(sql,max,min);
 	  return list;
   }
   
@@ -49,5 +57,22 @@ public List<HashMap<String, String>> findJonEmpInfoByJobNumber(String jobnumber)
 			+ " where a.job_name=b.job_name and a.job_number=?";
 	List<HashMap<String, String>> list = super.findBySQL(sql, jobnumber);
 	return list;
+}
+
+/**
+ * 
+ * @return
+ * 查询岗位的记录条数
+ */
+public int getPageNumber() {
+	String sql="select count(*) quantity "
+			+ " from job j left join relationship r on r.job_number=j.job_number "
+			+ " and j.state=1 and r.state=1left join dept d on d.dept_number=r.dept_number "
+			+ " and d.state=1 order by j.job_number";
+	List<HashMap<String, String>> list = super.findBySQL(sql);
+	HashMap<String, String> map = list.get(0);
+	String quality = map.get("quantity");
+	int count = Integer.parseInt(quality);
+	return count;
 }
 }

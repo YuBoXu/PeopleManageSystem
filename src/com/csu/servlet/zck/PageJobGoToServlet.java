@@ -11,18 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.csu.biz.zck.DeptBiz;
+import com.csu.biz.zck.JobBiz;
 
 /**
- * Servlet implementation class SelectDeptServlet
+ * Servlet implementation class PageJobGoToServlet
  */
-@WebServlet("/SelectDeptServlet")
-public class SelectDeptServlet extends HttpServlet {
+@WebServlet("/PageJobGoToServlet")
+public class PageJobGoToServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectDeptServlet() {
+    public PageJobGoToServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,12 +40,13 @@ public class SelectDeptServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DeptBiz biz = new DeptBiz();
-		List<HashMap<String, String>> list = biz.findDeptByPage("1");
+		String page = request.getParameter("jobpage");
+		JobBiz biz = new JobBiz();
+		List<HashMap<String, String>> list = biz.findJobByPage(page);
 		request.getSession().setAttribute("deptinfo", list);
-		request.getSession().setAttribute("pageindex", 1);
+		request.getSession().setAttribute("pageindex", page);
 		request.getSession().setAttribute("pagenumber", biz.getpagenumber());
-		response.sendRedirect("addselect.jsp");
+		response.sendRedirect("jobselect.jsp");
 	}
 
 }

@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.csu.biz.zck.JobBiz;
-import com.csu.dao.zck.JobDao;
 
-import sun.tools.jar.resources.jar;
 
 /**
  * Servlet implementation class SelectAllJobServlet
@@ -43,8 +41,10 @@ public class SelectAllJobServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		JobBiz biz = new JobBiz();
-		List<HashMap<String, String>> list = biz.findAllJob();
+		List<HashMap<String, String>> list = biz.findJobByPage("1");
 		request.getSession().setAttribute("jobinfo", list);
+		request.getSession().setAttribute("pageindex", 1);
+		request.getSession().setAttribute("pagenumber", biz.getpagenumber());
 		response.sendRedirect("jobselect.jsp");
 	}
 

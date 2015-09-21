@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.csu.dao.zck.DeptDao;
+import com.sun.javafx.geom.AreaOp.IntOp;
 
 public class DeptBiz {
 	private DeptDao dao;
@@ -46,15 +47,32 @@ public class DeptBiz {
 		return list;
 	}
 
-
-	public List<HashMap<String, String>> findDept() {
+	/**
+	 * 
+	 * @param page
+	 * @return
+	 * 查询分页记录，为第一页，10条记录
+	 */
+	public List<HashMap<String, String>> findDeptByPage(String page) {
+		int pageIndex = Integer.parseInt(page);
 		
-		return dao.findDept();
+		return dao.findDeptByPage(pageIndex,10);
 	}
 
 
 	public List<HashMap<String, String>> findDeptEmpInfoByDeptNumber(String deptnumber) {
 		List<HashMap<String, String>> list = dao.findDeptEmpInfoByDeptNumber(deptnumber);
 		return list;
+	}
+
+	/**
+	 * 
+	 * @return
+	 * 得到分页数，每页10条记录
+	 */
+	public int getpagenumber() {
+		int count = dao.getPageNumber();
+		int sum= count%10==0?count/10:count/10+1;
+		return sum;
 	}
 }

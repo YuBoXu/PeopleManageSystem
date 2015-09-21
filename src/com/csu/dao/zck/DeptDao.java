@@ -15,9 +15,22 @@ public class DeptDao extends BaseDao{
 		return count;
 	}
 
-	public List<HashMap<String, String>> findDept(){
-		String sql="select * from dept where state=1 order by dept_number";
-		List<HashMap<String, String>> list = super.findBySQL(sql);
+	/**
+	 * 
+	 * @param pageIndex 
+	 * @param pageCount
+	 * @return
+	 * 按分页查询
+	 */
+	public List<HashMap<String, String>> findDeptByPage(int pageIndex,int pageCount){
+	//	String sql="select * from dept where state=1 order by dept_number";
+		String sql ="select * from  "
+				+ " (select rownum r ,a.* from "
+				+ " (select * from dept where state=1) a where rownum<=?)"
+				+ "  b where r>?";
+		int min = (pageIndex-1)*pageCount;
+		int max =pageIndex*pageCount;
+		List<HashMap<String, String>> list = super.findBySQL(sql,max,min);
 		return list;
 	}
 	
@@ -51,5 +64,19 @@ public class DeptDao extends BaseDao{
 				+ "  where a.dept_name=b.dept_name and a.dept_number=?";
 		List<HashMap<String, String>> list = super.findBySQL(sql, deptnumber);
 		return list;
+	}
+
+	/**
+	 * 
+	 * @return
+	 * 查询dept表中的记录数，查询有多少条记录
+	 */
+	public int getPageNumber() {
+		String sql = " select count(*）quantity from dept";
+		List<HashMap<String, String>> list = super.findBySQL(sql);
+		HashMap<String, String> map = list.get(0);
+		String quality = map.get("quantity");
+		int count = Integer.parseInt(quality);
+		return count;
 	}
 }

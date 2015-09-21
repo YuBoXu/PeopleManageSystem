@@ -25,9 +25,9 @@ public class JobBiz {
 
 
 
-	public List<HashMap<String, String>> findAllJob() {
-		
-		return dao.findAllJob();
+	public List<HashMap<String, String>> findJobByPage(String page) {
+		int pagenumber = Integer.parseInt(page);
+		return dao.findJobByPage(pagenumber,10);
 	}
 
 
@@ -59,6 +59,19 @@ public class JobBiz {
 	public List<HashMap<String, String>> findJonEmpInfoByJobNumber(String jobnumber) {
 		List<HashMap<String, String>> list= dao.findJonEmpInfoByJobNumber(jobnumber);
 		return list;
+	}
+
+
+
+	/**
+	 * 
+	 * @return
+	 * 得到分页数，每页10条记录
+	 */
+	public int getpagenumber() {
+		int count = dao.getPageNumber();
+		int sum= count%10==0?count/10:count/10+1;
+		return sum;
 	}
 
 }

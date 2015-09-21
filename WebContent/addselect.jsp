@@ -42,7 +42,7 @@ function unselectAll(){
 
 <body>
 <div id="man_zone">
-<form name="fom" id="fom" method="post" action="">
+<form name="fom" id="fom" method="post" action="PageDeptGoTOServlet">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
   
   <tr>
@@ -117,14 +117,39 @@ function unselectAll(){
           <td height="6"><img src="../images/spacer.gif" width="1" height="1" /></td>
         </tr>
         <tr>
-          <td height="33"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">
+          <td height="33">
+          <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">
               <tr>
-                <td width="49%">共 <span class="right-text09">5</span> 页 | 第 <span class="right-text09">1</span> 页</td>
-                <td width="48%" align="right">[<a href="#" class="right-font08">首页</a> | <a href="#" class="right-font08">上一页</a> | <a href="#" class="right-font08">下一页</a> | <a href="#" class="right-font08">末页</a>] 转至：</td>
+                <td width="49%">共 <span class="right-text09">${sessionScope.pagenumber }</span> 页 | 第 
+                <span class="right-text09">${sessionScope.pageindex }</span> 页</td>
+                <td width="48%" align="right">[
+                
+            <c:if test="${sessionScope.pageindex==1 }">  
+                <a  class="right-font08">首页</a> |
+                <a  class="right-font08">上一页</a> | 
+             </c:if> 
+             
+             <c:if test="${sessionScope.pageindex>1 }">    
+                [<a href="PageDeptServlet?index=1" class="right-font08">首页</a> |                 
+                  <a href="PageDeptServlet?index=${sessionScope.pageindex-1 }" class="right-font08">上一页</a> |
+             </c:if> 
+                 
+              <c:if test="${sessionScope.pageindex < sessionScope.pagenumber }">      
+                 <a href="PageDeptServlet?index=${sessionScope.pageindex+1 }" class="right-font08">下一页</a> |                 
+                  <a href="PageDeptServlet?index=${sessionScope.pagenumber }" class="right-font08">末页</a>]
+               </c:if>  
+               
+               <c:if test="${sessionScope.pageindex==sessionScope.pagenumber }">   
+                   <a  class="right-font08">下一页</a> |
+                   <a  class="right-font08">末页</a>]
+               </c:if>  
+               
+                   转至：</td>
+                   
                 <td width="5%"><table width="20" border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                      <td width="1%"><input name="textfield3" type="text" class="right-textfield03" size="3" /></td>
-                      <td width="87%"><input name="Submit23222" type="button" class="button08" value="GO" />
+                      <td width="1%"><input name="gotopage" type="text" class="right-textfield03" size="3" /></td>
+                      <td width="87%"><input name="Submit23222" type="submit" class="button08" value="GO" />
                       </td>
                     </tr>
                 </table></td>
