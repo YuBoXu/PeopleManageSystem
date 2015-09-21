@@ -44,7 +44,7 @@ outlookbar.additem('岗位调动员工报表',t,'selmobmemp.html')
 outlookbar.additem('人事月报',t,'selmothlist.html')
 
 t=outlookbar.addtitle('系统管理','系统管理',1)
-outlookbar.additem('添加管理员',t,'addmanager.html')
-outlookbar.additem('查询管理员',t,'selectmanager.html')
+outlookbar.additem('添加管理员',t,'addmanager.jsp')
+outlookbar.additem('查询管理员',t,'selectmanager.jsp')
 
-outlookbar.additem('退出登录',t,'out.html')
+outlookbar.additem('退出登录',t,'out.jsp')
