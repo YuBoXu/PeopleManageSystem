@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.csu.dao.zck.DeptDao;
-import com.sun.javafx.geom.AreaOp.IntOp;
 
 public class DeptBiz {
 	private DeptDao dao;

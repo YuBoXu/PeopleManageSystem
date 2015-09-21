@@ -125,11 +125,11 @@ function link2(){
                     <td><div align="center">
                       <label>
                       <select name="super">
-							<option value="行政部">${sessionScope.onedept.dept_top }</option>
-							<option value="生产部">生产部</option>
-							<option value="技术部">技术部</option>
-							<option value="销售部">销售部</option>
-							<option value="财务部">财务部</option>
+							<option value="行政部" ${sessionScope.onedept.dept_top=='行政部'?"selected='selected'":"" }>行政部</option>
+							<option value="生产部" ${sessionScope.onedept.dept_top=='生产部'?"selected='selected'":"" }>生产部</option>
+							<option value="技术部" ${sessionScope.onedept.dept_top=='技术部'?"selected='selected'":"" }>技术部</option>
+							<option value="销售部" ${sessionScope.onedept.dept_top=='销售部'?"selected='selected'":"" }>销售部</option>
+							<option value="财务部" ${sessionScope.onedept.dept_top=='财务部'?"selected='selected'":"" }>财务部</option>
 					  </select>
                       </label>
                     </div></td>

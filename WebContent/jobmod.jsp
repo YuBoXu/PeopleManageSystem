@@ -69,19 +69,19 @@ function link1(){
     </div></td>
      <td><div align="center">
                     <select name="select" >
-                      <option value="管理">管理</option>
-                      <option value="技术">技术</option>
-                      <option value="营销">营销</option>
-                      <option value="市场">市场</option>
+                      <option value="管理" ${sessionScope.job.job_type=='管理'?"selected='selected'":"" }>管理</option>
+                      <option value="技术" ${sessionScope.job.job_type=='技术'?"selected='selected'":"" }>技术</option>
+                      <option value="营销" ${sessionScope.job.job_type=='营销'?"selected='selected'":"" }>营销</option>
+                      <option value="市场" ${sessionScope.job.job_type=='市场'?"selected='selected'":"" }>市场</option>
                     </select>
                 </div></td>
                 <td><div align="center"><label>
 						<select name="deptId">
-							<option value="行政部">行政部</option>
-							<option value="生产部">生产部</option>
-							<option value="技术部">技术部</option>
-							<option value="销售部">销售部</option>
-							<option value="财务部">财务部</option>
+							<option value="行政部" ${sessionScope.job.dept_name=='行政部'?"selected='selected'":"" }>行政部</option>
+							<option value="生产部" ${sessionScope.job.dept_name=='生产部'?"selected='selected'":"" }>生产部</option>
+							<option value="技术部" ${sessionScope.job.dept_name=='技术部'?"selected='selected'":"" }>技术部</option>
+							<option value="销售部" ${sessionScope.job.dept_name=='销售部'?"selected='selected'":"" }>销售部</option>
+							<option value="财务部" ${sessionScope.job.dept_name=='财务部'?"selected='selected'":"" }>财务部</option>
 					  </select>
                 </label></div></td>
     <td><div align="center">
