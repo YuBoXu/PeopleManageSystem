@@ -119,8 +119,8 @@ function link2(){
 																<a href="listmokuaimingxi.htm" onclick=""></a>${job.job_name }
 															</div></td>
 														<td><div align="center">${job.job_type }</div></td>
-														<td><div align="center">ÐÐÕþ²¿</div></td>
-														<td><div align="center">1</div></td>
+														<td><div align="center">${job.dept_name }</div></td>
+														<td><div align="center">${job.dept_number }</div></td>
 														<td><div align="center">${job.job_count }</div></td>
 														<td><div align="center">${job.job_limit }</div></td>
 														<td><div align="center">

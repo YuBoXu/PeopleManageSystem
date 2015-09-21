@@ -10,20 +10,20 @@ outlookbar.additem('岗位查询',t,'SelectAllJobServlet')
 
 
 t=outlookbar.addtitle('入职管理','人员管理',1)
-outlookbar.additem('输入员工',t,'writeinfo.html')
-outlookbar.additem('查询人才库',t,'newempinsert.html')
+outlookbar.additem('输入员工',t,'writeinfo.jsp')
+outlookbar.additem('查询人才库',t,'newempinsert.jsp')
 
 
 
 
 
 t=outlookbar.addtitle('试用期管理','人员管理',1)
-outlookbar.additem('试用期审查',t,'showselect.html')
-outlookbar.additem('已转正员工查询',t,'showselectzs.html')
+outlookbar.additem('试用期审查',t,'showselect.jsp')
+outlookbar.additem('已转正员工查询',t,'showselectzs.jsp')
 
 t=outlookbar.addtitle('离职管理','人员管理',1)
-outlookbar.additem('员工离职办理',t,'leavingselect.html')
-outlookbar.additem('已离职员工查询',t,'leavingse.html')
+outlookbar.additem('员工离职办理',t,'leavingselect.jsp')
+outlookbar.additem('已离职员工查询',t,'leavingse.jsp')
 
 
 t=outlookbar.addtitle('调动管理','调动管理',1)
