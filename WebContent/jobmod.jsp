@@ -102,7 +102,7 @@ function link1(){
       <input name="Submit" type="submit" value="保存" />
       </label>
       <label>
-      <input name="reset" type="reset" value="取消" />
+      <input name="Submit" type="reset" value="取消" />
       </label>
     </div></td>
   </tr>

@@ -157,8 +157,8 @@ function link2(){
 																<tr>
 																	<td width="1%"><input name="textfield3"
 																		type="text" class="right-textfield03" size="3" /></td>
-																	<td width="87%"><input name="Submit23222"
-																		type="submit" class="right-button06" value="GO" /></td>
+																	<td width="87%"><input name="Submit"
+																		type="submit" value="GO" /></td>
 																</tr>
 															</table></td>
 													</tr>
