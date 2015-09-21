@@ -43,5 +43,23 @@ public class YgxxDao extends BaseDao {
 		return list;
 	}
 
+	public List<HashMap<String, String>> findEmpByIdCard(String id) {
+		String sql ="select * from empinfo where state=1 and idcard=?";
+		List<HashMap<String, String>> list = super.findBySQL(sql, id);
+		return list;
+	}
+
+	public List<HashMap<String, String>> findRelationByNumber(String number) {
+		String sql ="select * from societyrelation where state = 1 and emp_number=?";
+		List<HashMap<String, String>> list = super.findBySQL(sql, number);
+		return list;
+	}
+
+	public List<HashMap<String, String>> findOccupationByNumber(String number) {
+		String sql = "select * from occupationcareer where state = 1 and emp_number=?";
+		List<HashMap<String, String>> list = super.findBySQL(sql, number);
+		return list;
+	}
+
 
 }

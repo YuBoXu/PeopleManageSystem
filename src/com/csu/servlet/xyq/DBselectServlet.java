@@ -1,4 +1,4 @@
-package com.csu.servlet.zck;
+package com.csu.servlet.xyq;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -11,21 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.csu.biz.xyq.YgxxBiz;
 import com.csu.biz.zck.EmpInfoBiz;
 
-
-
 /**
- * Servlet implementation class FindEmpByIdcardServlet
+ * Servlet implementation class DBselectServlet
  */
-@WebServlet("/FindEmpByIdcardServlet")
-public class FindEmpByIdcardServlet extends HttpServlet {
+@WebServlet("/DBselectServlet")
+public class DBselectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindEmpByIdcardServlet() {
+    public DBselectServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,7 +42,7 @@ public class FindEmpByIdcardServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id= request.getParameter("id");
-		EmpInfoBiz biz = new EmpInfoBiz();
+		YgxxBiz biz = new YgxxBiz();
 		List<HashMap<String, String>> list = biz.findEmpByIdCard(id);
 		if(!list.isEmpty()){
 		Map<String, String> map = list.get(0);

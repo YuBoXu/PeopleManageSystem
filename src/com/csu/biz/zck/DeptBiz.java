@@ -51,4 +51,10 @@ public class DeptBiz {
 		
 		return dao.findDept();
 	}
+
+
+	public List<HashMap<String, String>> findDeptEmpInfoByDeptNumber(String deptnumber) {
+		List<HashMap<String, String>> list = dao.findDeptEmpInfoByDeptNumber(deptnumber);
+		return list;
+	}
 }
