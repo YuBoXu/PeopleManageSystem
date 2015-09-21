@@ -7,7 +7,7 @@ import com.neu.dao.BaseDao;
 
 public class YgxxDao extends BaseDao {
 	public List<HashMap<String, String>> findYgxx(String idcard, String emp_number){
-		String sql="select e.emp_number,e.emp_name,e.emp_sex,e.birthday,e.idcard,"
+		/*String sql="select e.emp_number,e.emp_name,e.emp_sex,e.birthday,e.idcard,"
 				+ "e.emptype,e.empfrom,e.politic,e.birthplace,e.phone,e.email,"
 				+ "e.height,e.blood,e.marital,e.home,e.education,e.native,e.national"
 				+ "e.degree,e.school,e.major,e.language,e.languageskill,"
@@ -24,7 +24,14 @@ public class YgxxDao extends BaseDao {
 				+ "inner join job j on ss.job_number = j.job_number"
 				+ "inner join dept d on j.dept_number = d.dept_number"
 				+ "inner join societyrelation sr on sr.emp_number = e.emp_number"
-				+ "where 1=1";
+				+ "where 1=1";*/
+		
+		String sql="  select e.*,d.dept_name,j.job_name,o.*,s.* from empinfo e "
+				+ " inner join  occupationcareer o on e.emp_number=o.emp_number "
+				+ " inner join  societyrelation s on e.emp_number=s.emp_number   "
+				+ " inner join relationship r on r.emp_number =e.emp_number "
+				+ " inner join dept d on r.dept_number=d.dept_number  "
+				+ " inner join job j on j.job_number=r.job_number ";
 		if(idcard!=null){
 			sql+=" and  idcard ="+"'"+idcard+"'";
 		}
