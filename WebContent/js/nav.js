@@ -31,8 +31,8 @@ outlookbar.additem('部门岗位调动',t,'movecheck.html')
 outlookbar.additem('已调动员工查询',t,'sourchmeth.html')
 
 t=outlookbar.addtitle('员工信息中心','信息管理',1)
-outlookbar.additem('人才库查询',t,'DBselect.html')
-outlookbar.additem('入职员工查询',t,'EMPDselect.html')
+outlookbar.additem('人才库查询',t,'DBselect.jsp')
+outlookbar.additem('入职员工查询',t,'EMPDselect.jsp')
 
 
 

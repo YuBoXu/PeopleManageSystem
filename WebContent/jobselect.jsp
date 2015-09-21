@@ -125,7 +125,7 @@ function link2(){
 														<td><div align="center">${job.job_limit }</div></td>
 														<td><div align="center">
 																<a href="FindJobByIdServlet?number=${job.job_number }">编辑 </a>| <a href="deljob.html">删除</a>
-																| <a href="jobemplist.html">查询岗位下员工</a>
+																| <a href="FindJobEmpInfoServlet?jobnumber=${job.job_number }">查询岗位下员工</a>
 															</div></td>
 													</tr>
 											</c:forEach>			

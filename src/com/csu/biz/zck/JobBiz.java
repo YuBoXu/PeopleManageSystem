@@ -49,4 +49,16 @@ public class JobBiz {
 		return dao.editJob(name,type,count,limit,deptname,number);
 	}
 
+
+	/**
+	 * 
+	 * @param jobnumber 岗位编号
+	 * @return list
+	 * 此方法用于查询岗位下的员工，
+	 */
+	public List<HashMap<String, String>> findJonEmpInfoByJobNumber(String jobnumber) {
+		List<HashMap<String, String>> list= dao.findJonEmpInfoByJobNumber(jobnumber);
+		return list;
+	}
+
 }

@@ -33,4 +33,21 @@ public int editJob(String name, String type, String count, String limit, String 
 	int row = super.exeuteUpdate(sql, name,type,count,limit,deptname,number);
 	return row;
 }
+
+/**
+ * 
+ * @param jobnumber 岗位编号
+ * @return list
+ * 此方法用于查询岗位下的员工，
+ */
+public List<HashMap<String, String>> findJonEmpInfoByJobNumber(String jobnumber) {
+	String sql =" select * from  (select dept.dept_number,dept.dept_name,empinfo.*,job.job_number,job.job_name from "
+			+ " empinfo,relationship,dept,job where empinfo.emp_number=relationship.emp_number and "
+			+ " dept.dept_number=relationship.dept_number   and job.job_number=relationship.job_number) a,"
+			+ " (select j.job_name,count(j.job_name) job_sum from job j left join relationship r on "
+			+ " r.job_number=j.job_number group by j.job_name) b "
+			+ " where a.job_name=b.job_name and a.job_number=?";
+	List<HashMap<String, String>> list = super.findBySQL(sql, jobnumber);
+	return list;
+}
 }
