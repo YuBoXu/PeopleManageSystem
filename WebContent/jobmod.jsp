@@ -37,7 +37,7 @@ function link1(){
 
 <body>
 <div id="man_zone">
-<form action="EditJobServlet" onsubmit="return link1(); " target="manFrame" name="fom"  id="fom">
+<form action="EditJobServlet" method="post"  onsubmit="return link1(); " target="manFrame" name="fom"  id="fom">
 <table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
   <tr class="CTitle" >岗位信息修改
     <td height="22" colspan="9" align="center" style="font-size:16px"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
