@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=GB18030"
+    pageEncoding="GB18030"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
 <link rel="stylesheet" href="css/common.css" type="text/css" />
-<title>ç®¡ç†åŒºåŸŸ</title>
+<title>¹ÜÀíÇøÓò</title>
 <style type="text/css">
 <!--
 .STYLE3 {font-size: 10; }
@@ -15,13 +15,13 @@
 
   function link(){
   if(document.fom.id.value==""&&document.fom.id2.value==""){
-	alert("æ‚¨å¿…é¡»é€‰æ‹©ä¸€é¡¹ï¼");
+	alert("Äú±ØÐëÑ¡ÔñÒ»Ïî£¡");
 	return false;
 }
 if(document.fom.id.value.length==""||document.fom.id.value.length=='15'||document.fom.id.value.length=='18'&&document.fom.id2.value.length>0){
 			}else{
 		
-		alert("æ‚¨è¾“å…¥çš„èº«ä»½è¯ä¸æ­£ç¡®ï¼");
+		alert("ÄúÊäÈëµÄÉí·ÝÖ¤²»ÕýÈ·£¡");
 		return false;
 		}
 		return true;
@@ -35,22 +35,22 @@ if(document.fom.id.value.length==""||document.fom.id.value.length=='15'||documen
     <div class="MainDiv">
       <table width="97%" border="0" cellpadding="0" cellspacing="0" class="CContent">
         <tr>
-          <th class="tablestyle_title" ><div align="left">åœ¨èŒäººå‘˜æŸ¥è¯¢é¡µé¢</div></th>
+          <th class="tablestyle_title" ><div align="left">ÔÚÖ°ÈËÔ±²éÑ¯Ò³Ãæ</div></th>
         </tr>
         <tr>
           <td class="CPanel"><table width="99%" border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
             <tr class="CTitle" >
-              <td height="22" colspan="16" align="center" style="font-size:16px">æŸ¥è¯¢åœ¨èŒäººå‘˜ä¿¡æ¯</td>
+              <td height="22" colspan="16" align="center" style="font-size:16px">²éÑ¯ÔÚÖ°ÈËÔ±ÐÅÏ¢</td>
             </tr>
             <tr bgcolor="#EEEEEE">
               <td colspan="16" align="center"><div align="center">
-                <p>è¯·è¾“å…¥æ‚¨è¦æŸ¥è¯¢çš„ä¿¡æ¯ï¼ˆè‡³å°‘æ·»ä¸€é¡¹ï¼‰</p>
+                <p>ÇëÊäÈëÄúÒª²éÑ¯µÄÐÅÏ¢£¨ÖÁÉÙÌíÒ»Ïî£©</p>
                 <p>
-                  <label>èº«ä»½è¯å·ï¼š
+                  <label>Éí·ÝÖ¤ºÅ£º
                     <input type="text" name="id" />
                     </label>
                 </p>
-                <p>å‘˜å·¥ç¼–å·ï¼š
+                <p>Ô±¹¤±àºÅ£º
                   <input type="text" name="id2" />
                 </p>
               </div>
@@ -66,10 +66,10 @@ if(document.fom.id.value.length==""||document.fom.id.value.length=='15'||documen
       </table>
       <br />
       <div align="center">
-        <input type="submit" name="Submit"  class= "myButton1" value="æŸ¥è¯¢" />
+        <input type="submit" name="Submit"  class= "myButton1" value="²éÑ¯" />
         &nbsp;&nbsp;
         &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="reset" name="Submit"  class= "myButton1" value="å–æ¶ˆ" />
+        <input type="reset" name="Submit"  class= "myButton1" value="È¡Ïû" />
       </div>
     </div>
   </form>

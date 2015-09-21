@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=GB18030"
+    pageEncoding="GB18030"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
 <link rel="stylesheet" href="css/common.css" type="text/css" />
-<title>ç®¡ç†åŒºåŸŸ</title>
+<title>¹ÜÀíÇøÓò</title>
 <style type="text/css">
 <!--
 .STYLE3 {font-size: 10; }
@@ -25,127 +25,139 @@ function link1(){
     <div class="MainDiv">
       <table width="97%" border="0" cellpadding="0" cellspacing="0" class="CContent">
         <tr>
-          <th class="tablestyle_title" ><div align="left">åœ¨èŒäººå‘˜ä¿¡æ¯é¡µé¢</div></th>
+          <th class="tablestyle_title" ><div align="left">ÔÚÖ°ÈËÔ±ÐÅÏ¢Ò³Ãæ</div></th>
         </tr>
         <tr>
           <td class="CPanel"><table width="95%" border="0" align="center" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
             <tr class="CTitle" >
-              <td height="22" colspan="11" align="center" style="font-size:16px"><p>åœ¨èŒäººå‘˜ä¿¡æ¯è¡¨</p>                </td>
+              <td height="22" colspan="11" align="center" style="font-size:16px"><p>ÔÚÖ°ÈËÔ±ÐÅÏ¢±í</p>                </td>
             </tr>
             <tr bgcolor="#EEEEEE">
               <td rowspan="5" align="center"><div align="center">
-                <p>å‘˜å·¥åŸºæœ¬ä¿¡æ¯</p>
+                <p>Ô±¹¤»ù±¾ÐÅÏ¢</p>
                 </div></td>
-              <td width="84">å‘˜å·¥ç¼–å·</td>
+              <td width="84">Ô±¹¤±àºÅ</td>
               <td width="107"><label>
                ${sessionScope.ygxx.emp_number }
               </label></td>
-              <td width="84">å§“å</td>
+              <td width="84">ÐÕÃû</td>
               <td width="87"><label>
                ${sessionScope.ygxx.emp_name }
               </label></td>
-              <td width="84">æ€§åˆ«</td>
+              <td width="84">ÐÔ±ð</td>
               <td width="89"><label>
                ${sessionScope.ygxx.emp_sex }
               </label></td>
-              <td width="84">å‡ºç”Ÿæ—¥æœŸ*</td>
+              <td width="84">³öÉúÈÕÆÚ*</td>
               <td width="88"><label>
                ${sessionScope.ygxx.birthday }
               </label></td>
-              <td width="84">èº«ä»½è¯å·*</td>
+              <td width="84">Éí·ÝÖ¤ºÅ*</td>
               <td width="179"><label>
 			  ${sessionScope.ygxx.idcard }
               </label></td>
             </tr>
             <tr bgcolor="#EEEEEE">
-              <td>éƒ¨é—¨*</td>
+              <td>²¿ÃÅ*</td>
               <td><label>
-                ${sessionScope.dept.emp_name }
+                ${sessionScope.ygxx.dept_name }
               </label></td>
-              <td>å²—ä½*</td>
+              <td>¸ÚÎ»*</td>
               <td><label>
-                ${sessionScope.job.job_name }
+                ${sessionScope.ygxx.job_name }
               </label></td>
-              <td>æ°‘æ—*</td>
+              <td>Ãñ×å*</td>
               <td><label>
-               ${sessionScope.ygxx.national}
+               ${sessionScope.ygxx.emp_national}
               </label></td>
-              <td>å…¥èŒæ—¥æœŸ*</td>
+              <td>ÈëÖ°ÈÕÆÚ*</td>
               <td><label>
-                ${sessionScope.ygxx.begintime }
+                ${sessionScope.ygxx.toworktime }
               </label></td>
-              <td>å‚åŠ å·¥ä½œæ—¥æœŸ*</td>
+              <td>²Î¼Ó¹¤×÷ÈÕÆÚ*</td>
               <td><label>
                  ${sessionScope.ygxx.begintime }
               </label></td>
             </tr>
             <tr bgcolor="#EEEEEE">
-              <td>ç”¨å·¥å½¢å¼*</td>
+              <td>ÓÃ¹¤ÐÎÊ½*</td>
               <td><label>
                  ${sessionScope.ygxx.emptype }
               </label></td>
-              <td>äººå‘˜æ¥æº*</td>
+              <td>ÈËÔ±À´Ô´*</td>
               <td><label>
                  ${sessionScope.ygxx.empfrom }
               </label></td>
-              <td>æ”¿æ²»é¢è²Œ</td>
+              <td>ÕþÖÎÃæÃ²</td>
               <td><label>
                  ${sessionScope.ygxx.politic }
               </label></td>
-              <td>å‡ºç”Ÿåœ°</td>
+              <td>³öÉúµØ</td>
               <td><label>
                   ${sessionScope.ygxx.birthplace }
               </label></td>
-              <td>ç±è´¯</td>
+              <td>¼®¹á</td>
               <td><label>
-                  ${sessionScope.ygxx.native }
+                  ${sessionScope.ygxx.nativehome }
               </label></td>
             </tr>
             <tr bgcolor="#EEEEEE">
-              <td>è”ç³»ç”µè¯</td>
+              <td>ÁªÏµµç»°</td>
               <td>  ${sessionScope.ygxx.phone }</td>
-              <td>ç”µå­é‚®ä»¶</td>
+              <td>µç×ÓÓÊ¼þ</td>
               <td>  ${sessionScope.ygxx.email}</td>
-              <td>èº«é«˜</td>
+              <td>Éí¸ß</td>
               <td>  ${sessionScope.ygxx.height }</td>
-              <td>è¡€åž‹</td>
+              <td>ÑªÐÍ</td>
               <td><label>
                  ${sessionScope.ygxx.blood }
               </label></td>
-              <td>å©šå§»çŠ¶å†µ</td>
+              <td>»éÒö×´¿ö</td>
               <td><label>
                   ${sessionScope.ygxx.marital }
               </label></td>
             </tr>
             
             <tr bgcolor="#EEEEEE">
-              <td>æˆ·å£æ‰€åœ¨åœ°</td>
+              <td>»§¿ÚËùÔÚµØ</td>
               <td>  ${sessionScope.ygxx.home }</td>
-              <td>æœ€é«˜å­¦åŽ†</td>
+              <td>×î¸ßÑ§Àú</td>
               <td><label>
               ${sessionScope.ygxx.education }
               </label></td>
-              <td>æœ€é«˜å­¦ä½</td>
+              <td>×î¸ßÑ§Î»</td>
               <td><label>
-               ${sessionScope.ygxx.degree }
+               ${sessionScope.ygxx.heightdegree }
               </label></td>
-              <td>æ¯•ä¸šé™¢æ ¡</td>
+              <td>±ÏÒµÔºÐ£</td>
               <td>  
               ${sessionScope.ygxx.school}
               </td>
-              <td>æ‰€å­¦ä¸“ä¸š</td>
+              <td>ËùÑ§×¨Òµ</td>
 			   <td>  
 			   ${sessionScope.ygxx.major }
 			   </td>
               
             </tr>
             <tr bgcolor="#EEEEEE">
-              <td width="55" rowspan="8" align="center">å…¶ä»–ä¿¡æ¯</td>
-              <td colspan="10"><strong>èŒä¸šç”Ÿæ¶¯</strong></td>
+              <td width="55" rowspan="8" align="center">ÆäËûÐÅÏ¢</td>
+              <td colspan="10"><strong>Ö°ÒµÉúÑÄ</strong></td>
               </tr>
-            <tr bgcolor="#EEEEEE">
-              <td> ${sessionScope.ygxx.begintime }</td>
-              <td> ${sessionScope.ygxx.endtime }</td>
+               <tr bgcolor="#EEEEEE">
+              <td>ÆðÊ¼ÄêÔÂ*</td>
+              <td>½ØÖÁÄêÔÂ*</td>
+              <td>ËùÔÚµ¥Î»</td>
+              <td>¹¤×÷ÄÚÈÝ</td>
+              <td>µ£ÈÎÖ°Îñ</td>
+              <td>ÔÂÐ½/ÄêÐ½</td>
+              <td>Ö¤Ã÷ÈË</td>
+              <td>Ö¤Ã÷ÈËÖ°Îñ</td>
+              <td>Ö¤Ã÷ÈËµç»°</td>
+              <td><p>±¸×¢</p>                </td>
+             </tr>
+             <tr bgcolor="#EEEEEE">
+              <td>${sessionScope.ygxx.begintime }</td>
+              <td>${sessionScope.ygxx.endtime }</td>
               <td>${sessionScope.ygxx.company }</td>
               <td>${sessionScope.ygxx.jobdescribe }</td>
               <td>${sessionScope.ygxx.position }</td>
@@ -157,24 +169,24 @@ function link1(){
             </tr>
              
             <tr bgcolor="#EEEEEE">
-              <td colspan="2"><strong>å¤–å›½è¯­ç§*</strong></td>
+              <td colspan="2"><strong>Íâ¹úÓïÖÖ*</strong></td>
               <td colspan="3"><label>
                ${sessionScope.ygxx.language}
               </label></td>
-              <td colspan="2">å¤–å›½è¯­ç§ç†Ÿç»ƒç¨‹åº¦</td>
+              <td colspan="2">Íâ¹úÓïÖÖÊìÁ·³Ì¶È</td>
               <td colspan="5"><label>
                ${sessionScope.ygxx.languageskill}
         	</label></td>
               </tr>
             <tr bgcolor="#EEEEEE">
-              <td colspan="12"><strong>å®¶åº­æˆå‘˜åŠç¤¾ä¼šå…³ç³»</strong></td>
+              <td colspan="12"><strong>¼ÒÍ¥³ÉÔ±¼°Éç»á¹ØÏµ</strong></td>
               </tr>
             <tr bgcolor="#EEEEEE">
-              <td colspan="2">ä¸Žæœ¬äººå…³ç³»*</td>
-              <td colspan="2">å§“å*</td>
-              <td colspan="3">æ‰€åœ¨å•ä½</td>
-              <td>èŒä½</td>
-              <td colspan="4">è”ç³»ç”µè¯</td>
+              <td colspan="2">Óë±¾ÈË¹ØÏµ*</td>
+              <td colspan="2">ÐÕÃû*</td>
+              <td colspan="3">ËùÔÚµ¥Î»</td>
+              <td>Ö°Î»</td>
+              <td colspan="4">ÁªÏµµç»°</td>
               </tr>
             <tr bgcolor="#EEEEEE">
               <td colspan="2"><label>
