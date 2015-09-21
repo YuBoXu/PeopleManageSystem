@@ -1,4 +1,4 @@
-package com.neu.servlet.hy;
+package com.csu.servlet.hy;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.neu.biz.hy.hyManagerInfoBiz;
+import com.csu.biz.hy.hyManagerInfoBiz;
 
 /**
  * Servlet implementation class FindPwdServlet

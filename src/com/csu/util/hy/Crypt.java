@@ -1,4 +1,4 @@
-package com.neu.util.hy;
+package com.csu.util.hy;
 
 public class Crypt {
 	// md5()信息摘要, 不可逆

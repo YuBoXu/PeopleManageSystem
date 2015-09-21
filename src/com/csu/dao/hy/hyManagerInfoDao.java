@@ -1,4 +1,4 @@
-package com.neu.dao.hy;
+package com.csu.dao.hy;
 
 import java.util.HashMap;
 import java.util.List;
