@@ -17,9 +17,7 @@ public class FindNewDao extends BaseDao{
 		        +"  and dept_name=? "
 		        +"  order by emp.emp_number ";    
 
-		System.out.println(starttime+"---"+endtime+"----"+deptname);
-		System.out.println(sql);
-System.out.println(super.findBySQL(sql, starttime,endtime,deptname).toString());
+		
 				return super.findBySQL(sql, starttime,endtime,deptname);
 	}
 
