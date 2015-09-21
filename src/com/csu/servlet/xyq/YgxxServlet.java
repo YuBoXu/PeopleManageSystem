@@ -1,4 +1,4 @@
-package com.csu.servlet.zck;
+package com.csu.servlet.xyq;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -10,20 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.csu.biz.zck.DeptBiz;
-import com.csu.dao.zck.DeptDao;
+import com.csu.biz.xyq.YgxxBiz;
 
 /**
- * Servlet implementation class SelectDeptServlet
+ * Servlet implementation class YgxxServlet
  */
-@WebServlet("/SelectDeptServlet")
-public class SelectDeptServlet extends HttpServlet {
+@WebServlet("/YgxxServlet")
+public class YgxxServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectDeptServlet() {
+    public YgxxServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +31,7 @@ public class SelectDeptServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -40,10 +39,9 @@ public class SelectDeptServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DeptBiz biz = new DeptBiz();
-		List<HashMap<String, String>> list = biz.findDept();
-		request.getSession().setAttribute("deptinfo", list);
-		response.sendRedirect("addselect.jsp");
+		// TODO Auto-generated method stub
+		YgxxBiz biz=new YgxxBiz();
+		List<HashMap<String,String>> list=biz.find(request.getParameterMap());
 	}
 
 }

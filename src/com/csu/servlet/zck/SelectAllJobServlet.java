@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.csu.biz.zck.JobBiz;
 import com.csu.dao.zck.JobDao;
 
 import sun.tools.jar.resources.jar;
@@ -41,8 +42,8 @@ public class SelectAllJobServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		JobDao dao = new JobDao();
-		List<HashMap<String, String>> list = dao.findAllJob();
+		JobBiz biz = new JobBiz();
+		List<HashMap<String, String>> list = biz.findAllJob();
 		request.getSession().setAttribute("jobinfo", list);
 		response.sendRedirect("jobselect.jsp");
 	}

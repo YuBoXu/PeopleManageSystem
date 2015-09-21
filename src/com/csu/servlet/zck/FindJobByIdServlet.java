@@ -10,20 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.csu.biz.zck.DeptBiz;
-import com.csu.dao.zck.DeptDao;
+import com.csu.biz.zck.JobBiz;
 
 /**
- * Servlet implementation class SelectDeptServlet
+ * Servlet implementation class FindJobByIdServlet
  */
-@WebServlet("/SelectDeptServlet")
-public class SelectDeptServlet extends HttpServlet {
+@WebServlet("/FindJobByIdServlet")
+public class FindJobByIdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectDeptServlet() {
+    public FindJobByIdServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,10 +39,12 @@ public class SelectDeptServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DeptBiz biz = new DeptBiz();
-		List<HashMap<String, String>> list = biz.findDept();
-		request.getSession().setAttribute("deptinfo", list);
-		response.sendRedirect("addselect.jsp");
+		String number = request.getParameter("number");
+		JobBiz biz = new JobBiz();
+		List<HashMap<String, String>> list = biz.findJobById(number);
+		HashMap<String, String> map = list.get(0);
+		request.getSession().setAttribute("job", map);
+		response.sendRedirect("jobmod.jsp");
 	}
 
 }

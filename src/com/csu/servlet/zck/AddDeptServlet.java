@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.csu.biz.zck.DeptBiz;
 import com.csu.dao.zck.DeptDao;
 
 /**
@@ -38,15 +39,9 @@ public class AddDeptServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map<String, String[]> map = request.getParameterMap();
-		String deptname= map.get("deptname")[0];
-		String type = map.get("select")[0];
-		String phone = map.get("tele")[0];
-		String fax = map.get("fax")[0];
-		String describ = map.get("discrip")[0];
-		String sueper = map.get("super")[0];
-		String date = map.get("createtime")[0];
-		DeptDao dao = new DeptDao();
-		dao.addDept(deptname, type, phone, fax, describ,sueper, date);
+	
+		DeptBiz biz = new DeptBiz();
+		biz.addDept(map);
 		response.sendRedirect("sec.html");
 	
 	}

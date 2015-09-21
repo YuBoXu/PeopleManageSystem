@@ -71,17 +71,18 @@ function unselectAll(){
                 <td height="40" colspan="2" class="font42">
 				<table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
 				 <tr class="CTitle" >
-                    	<td height="22" colspan="10" align="center" style="font-size:16px">部门详细列表</td>
+                    	<td height="22" colspan="11" align="center" style="font-size:16px">部门详细列表</td>
                   </tr>
                   <tr bgcolor="#EEEEEE">
 				    <td width="4%" align="center" height="30"><div align="center">选择</div></td>
-                    <td width="8%"><div align="center">部门编号</div></td>
+				     <td width="4%"><div align="center">序号</div></td>
+                    <td width="7%"><div align="center">部门编号</div></td>
                     <td width="10%"><div align="center">部门名称</div></td>
 					<td width="7%"><div align="center">类型</div></td>
                     <td width="11%"><div align="center">电话</div></td>
 					<td width="9%"><div align="center">传真</div></td>
 					<td width="9%"><div align="center">描述</div></td>
-					<td width="10%"><div align="center">上级部门</div></td>
+					<td width="9%"><div align="center">上级部门</div></td>
 					<td width="13%"><div align="center">成立日期</div></td>
 					<td width="19%"><div align="center">操作</div></td>
                   </tr>
@@ -91,6 +92,7 @@ function unselectAll(){
 				      <input type="checkbox" name="delid"/>
 				      </div></td>
                     <td ><div align="center">${state.index+1 }</div></td>
+                    <td ><div align="center">${dept.dept_number }</div></td>
                     <td ><div align="center"><a href="listmokuaimingxi.htm" onclick=""></a>${dept.dept_name }</div>
                     </td>
 					<td>
@@ -103,7 +105,7 @@ function unselectAll(){
                     <td><div align="center">${dept.dept_describe }</div></td>
                     <td><div align="center">${dept.dept_top }</div></td>
                     <td><div align="center">${dept.dept_date }</div></td>
-                    <td><div align="center"> <a href="deptmod.html">编辑 </a>|<a href="#" onclick="link1();"> 删除 </a>|<a href="depemplist.html"> 查询部门下员工</a></div></td>
+                    <td><div align="center"> <a href="FindDeptByIDServlet?number=${dept.dept_number }">编辑 </a>|<a href="#" onclick="link1();"> 删除 </a>|<a href="depemplist.html"> 查询部门下员工</a></div></td>
                   </tr>
 				</c:forEach>   
             </table></td>

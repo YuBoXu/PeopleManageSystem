@@ -3,6 +3,7 @@ package com.csu.servlet.zck;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,18 +13,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.csu.biz.zck.DeptBiz;
 import com.csu.dao.zck.DeptDao;
+import com.sun.javafx.image.impl.ByteIndexed.Getter;
 
 /**
- * Servlet implementation class SelectDeptServlet
+ * Servlet implementation class FindDeptByIDServlet
  */
-@WebServlet("/SelectDeptServlet")
-public class SelectDeptServlet extends HttpServlet {
+@WebServlet("/FindDeptByIDServlet")
+public class FindDeptByIDServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectDeptServlet() {
+    public FindDeptByIDServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,10 +42,12 @@ public class SelectDeptServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String number = request.getParameter("number");
 		DeptBiz biz = new DeptBiz();
-		List<HashMap<String, String>> list = biz.findDept();
-		request.getSession().setAttribute("deptinfo", list);
-		response.sendRedirect("addselect.jsp");
+		List<HashMap<String,String>> dept = biz.findDeptById(number);
+		Map<String,String> list = dept.get(0);
+		request.getSession().setAttribute("onedept", list);
+		response.sendRedirect("deptmod.jsp");
 	}
 
 }

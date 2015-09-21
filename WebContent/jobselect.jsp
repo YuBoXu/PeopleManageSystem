@@ -121,10 +121,10 @@ function link2(){
 														<td><div align="center">${job.job_type }</div></td>
 														<td><div align="center">行政部</div></td>
 														<td><div align="center">1</div></td>
-														<td><div align="center">${job.count }</div></td>
+														<td><div align="center">${job.job_count }</div></td>
 														<td><div align="center">${job.job_limit }</div></td>
 														<td><div align="center">
-																<a href="jobmod.html">编辑 </a>| <a href="deljob.html">删除</a>
+																<a href="FindJobByIdServlet?number=${job.job_number }">编辑 </a>| <a href="deljob.html">删除</a>
 																| <a href="jobemplist.html">查询岗位下员工</a>
 															</div></td>
 													</tr>
@@ -157,8 +157,8 @@ function link2(){
 																<tr>
 																	<td width="1%"><input name="textfield3"
 																		type="text" class="right-textfield03" size="3" /></td>
-																	<td width="87%"><input name="Submit23222"
-																		type="submit" class="right-button06" value="GO" /></td>
+																	<td width="87%"><input name="Submit"
+																		type="submit" value="GO" /></td>
 																</tr>
 															</table></td>
 													</tr>
