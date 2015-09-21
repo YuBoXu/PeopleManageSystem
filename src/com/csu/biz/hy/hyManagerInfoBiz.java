@@ -1,12 +1,12 @@
-package com.neu.biz.hy;
+package com.csu.biz.hy;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.neu.dao.hy.hyManagerInfoDao;
-import com.neu.util.hy.Crypt;
+import com.csu.dao.hy.hyManagerInfoDao;
+import com.csu.util.hy.Crypt;
 
 public class hyManagerInfoBiz {
 	private hyManagerInfoDao dao=new hyManagerInfoDao();

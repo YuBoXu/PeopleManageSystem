@@ -1,4 +1,4 @@
-package com.neu.servlet.hy;
+package com.csu.servlet.hy;
 
 
 import java.io.IOException;
@@ -13,20 +13,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.neu.biz.hy.hyManagerInfoBiz;
+import com.csu.biz.hy.hyManagerInfoBiz;
+
 
 /**
- * Servlet implementation class DeleteServlet
- * 删除管理员
+ * Servlet implementation class PageServlet
+ * 分页
+ * 
  */
-@WebServlet("/hyDeleteManagerServlet")
-public class hyDeleteManagerServlet extends HttpServlet {
+@WebServlet("/hyPageServlet")
+public class hyPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public hyDeleteManagerServlet() {
+    public hyPageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,6 +37,7 @@ public class hyDeleteManagerServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		this.doPost(request, response);
 	}
 
@@ -42,21 +45,18 @@ public class hyDeleteManagerServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String index=request.getParameter("index");
+		HttpSession session=
+				request.getSession();
+		Map<String, String[]> managerMap=(Map<String, String[]>) session.getAttribute("managerMap");
 		hyManagerInfoBiz biz=new hyManagerInfoBiz();
-		boolean flag=biz
-				.doDeleteManager(request.getParameterMap());
-		if(flag){
-			HttpSession session=request.getSession();
-			String pageIndex=(String) session.getAttribute("pageIndex");
-			List<HashMap<String, String>> list=
-					biz.findSignById((Map<String,String[]>)session.getAttribute("mm"), Integer.parseInt(pageIndex));
-			
-			session.setAttribute("signs", list);
-			
-			response.sendRedirect("del_manager_success.jsp");
-		}else{
-			response.sendRedirect("del_manager_error.jsp");
-		}
+		List<HashMap<String, String>> map=
+				biz.findSignById(managerMap,Integer.parseInt(index));
+		
+		session.setAttribute("pageIndex", index);
+		session.setAttribute("users", map);
+		response.sendRedirect("admin_main.jsp");
 	}
 
 }

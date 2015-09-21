@@ -1,11 +1,9 @@
-package com.neu.servlet.hy;
-
+package com.csu.servlet.hy;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,22 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.neu.biz.hy.hyManagerInfoBiz;
-
+import com.csu.biz.hy.hyManagerInfoBiz;
 
 /**
- * Servlet implementation class PageServlet
- * 分页
- * 
+ * Servlet implementation class hyLoginServlet
+ * @param <SignInfoBiz>
+ * 管理员登录
  */
-@WebServlet("/hyPageServlet")
-public class hyPageServlet extends HttpServlet {
+@WebServlet("/hyLoginServlet")
+public class hyLoginServlet<SignInfoBiz> extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public hyPageServlet() {
+    public hyLoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,26 +35,28 @@ public class hyPageServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		this.doPost(request, response);
+		hyManagerInfoBiz biz=new hyManagerInfoBiz();
+		HashMap<String, String> item=biz
+				.checkLogin(request.getParameterMap());
+		if(item!=null && item.size()>0){
+			HttpSession session=request.getSession();
+			session.setAttribute("info", item);
+			response.sendRedirect("index.html");
+			
+		}else{
+			//从服务中获取存储数据的空间
+		//	request.getRequestDispatcher("login.jsp").forward(request, response);
+		//	RequestDispatcher.f
+		//	response.("login_error.jsp");
+			response.sendRedirect("login_error.jsp");
+		}
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String index=request.getParameter("index");
-		HttpSession session=
-				request.getSession();
-		Map<String, String[]> managerMap=(Map<String, String[]>) session.getAttribute("managerMap");
-		hyManagerInfoBiz biz=new hyManagerInfoBiz();
-		List<HashMap<String, String>> map=
-				biz.findSignById(managerMap,Integer.parseInt(index));
-		
-		session.setAttribute("pageIndex", index);
-		session.setAttribute("users", map);
-		response.sendRedirect("admin_main.jsp");
+		doGet(request, response);
 	}
 
 }
-

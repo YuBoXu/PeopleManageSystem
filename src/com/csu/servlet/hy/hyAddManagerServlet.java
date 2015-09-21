@@ -1,4 +1,4 @@
-package com.neu.servlet.hy;
+package com.csu.servlet.hy;
 
 import java.io.IOException;
 import java.util.Map;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.neu.biz.hy.hyManagerInfoBiz;
+import com.csu.biz.hy.hyManagerInfoBiz;
 
 /**
  * Servlet implementation class RegServlet

@@ -1,6 +1,9 @@
-package com.neu.servlet.hy;
+package com.csu.servlet.hy;
+
+
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -10,19 +13,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.neu.biz.hy.hyManagerInfoBiz;
+import com.csu.biz.hy.hyManagerInfoBiz;
+
 /**
- * Servlet implementation class RegServlet
- * 修改管理员信息
+ * Servlet implementation class DeleteServlet
+ * 删除管理员
  */
-@WebServlet("/hyUpdateManagerServlet")
-public class hyUpdateManagerServlet extends HttpServlet{
+@WebServlet("/hyDeleteManagerServlet")
+public class hyDeleteManagerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public hyUpdateManagerServlet() {
+    public hyDeleteManagerServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,27 +35,29 @@ public class hyUpdateManagerServlet extends HttpServlet{
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		hyManagerInfoBiz biz=new hyManagerInfoBiz();
-		HashMap<String, String> flag=biz.updateManager(request.getParameterMap());
-		if(flag!=null){
-			HttpSession session=request.getSession();
-			Map<String, String[]> map=(Map<String, String[]>) session.getAttribute("mm");
-			System.out.println("keys"+map.keySet());
-			System.out.println("update:"+map.get("manager_name"));
-			session.setAttribute("manager_info", flag);
-			response.sendRedirect("updatemanager.jsp");
-		}else{
-			response.sendRedirect("upmanager_error.jsp");
-		}
+		this.doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		hyManagerInfoBiz biz=new hyManagerInfoBiz();
+		boolean flag=biz
+				.doDeleteManager(request.getParameterMap());
+		if(flag){
+			HttpSession session=request.getSession();
+			String pageIndex=(String) session.getAttribute("pageIndex");
+			List<HashMap<String, String>> list=
+					biz.findSignById((Map<String,String[]>)session.getAttribute("mm"), Integer.parseInt(pageIndex));
+			
+			session.setAttribute("signs", list);
+			
+			response.sendRedirect("del_manager_success.jsp");
+		}else{
+			response.sendRedirect("del_manager_error.jsp");
+		}
 	}
 
 }
+
