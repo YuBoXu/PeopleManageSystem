@@ -14,7 +14,11 @@ public class FindLeaveBiz{
 	public FindLeaveBiz(){
 		dao=new FindLeaveDao();
 	}
-	//根据时间查找离职信息
+	/**根据时间查找离职信息
+	 * 
+	 * @param map
+	 * @return List<HashMap<String, String>>
+	 */
 	public List<HashMap<String, String>> findLeaveByTime(Map<String, String[]> map) {
 		// TODO Auto-generated method stub
 		String starttime=map.get("starttime")[0];

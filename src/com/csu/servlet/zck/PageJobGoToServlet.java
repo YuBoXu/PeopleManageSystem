@@ -14,6 +14,7 @@ import com.csu.biz.zck.JobBiz;
 
 /**
  * Servlet implementation class PageJobGoToServlet
+ * 输入页码分页查询岗位信息
  */
 @WebServlet("/PageJobGoToServlet")
 public class PageJobGoToServlet extends HttpServlet {

@@ -15,7 +15,9 @@ import com.csu.biz.zck.StaffBiz;
 
 /**
  * Servlet implementation class PageLeavingInfoServlet
+ * 分页查询离职人员信息
  */
+
 @WebServlet("/PageUpLeavingInfoServlet")
 public class PageUpLeavingInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

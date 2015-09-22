@@ -15,6 +15,7 @@ import com.csu.biz.zck.JobBiz;
 
 /**
  * Servlet implementation class AddJobServlet
+ * Ìí¼Ó¸ÚÎ»
  */
 @WebServlet("/AddJobServlet")
 public class AddJobServlet extends HttpServlet {

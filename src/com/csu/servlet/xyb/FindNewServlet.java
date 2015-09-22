@@ -47,9 +47,12 @@ public class FindNewServlet extends HttpServlet {
 		Map<String, String[]> map=request.getParameterMap();
 		FindNewBiz biz=new FindNewBiz();
 		List<HashMap<String, String>> item=
-				biz.findNewByTime(map);
+				biz.findNewByTime(map,"1");
 		HttpSession session=request.getSession();
+		session.setAttribute("findnewmap", map);
 		session.setAttribute("info", item);
+		session.setAttribute("pageindex", 1);
+		session.setAttribute("pagenumber", biz.getPageFindNewByTime(map));
 		response.sendRedirect("newemplist.jsp");
 	}
 

@@ -14,6 +14,7 @@ import com.csu.biz.zck.DeptBiz;
 
 /**
  * Servlet implementation class SelectDeptServlet
+ * 查询部门信息
  */
 @WebServlet("/SelectDeptServlet")
 public class SelectDeptServlet extends HttpServlet {

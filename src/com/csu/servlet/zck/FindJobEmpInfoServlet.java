@@ -14,6 +14,7 @@ import com.csu.biz.zck.JobBiz;
 
 /**
  * Servlet implementation class FindJobEmpInfoServlet
+ * 查询员工岗位信息
  */
 @WebServlet("/FindJobEmpInfoServlet")
 public class FindJobEmpInfoServlet extends HttpServlet {

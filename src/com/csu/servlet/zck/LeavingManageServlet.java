@@ -13,6 +13,7 @@ import com.csu.biz.zck.StaffBiz;
 
 /**
  * Servlet implementation class LeavingManageServlet
+ * 调动管理信息
  */
 @WebServlet("/LeavingManageServlet")
 public class LeavingManageServlet extends HttpServlet {

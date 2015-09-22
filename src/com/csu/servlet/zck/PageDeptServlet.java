@@ -14,6 +14,7 @@ import com.csu.biz.zck.DeptBiz;
 
 /**
  * Servlet implementation class PageDeptServlet
+ * 部门信息分页
  */
 @WebServlet("/PageDeptServlet")
 public class PageDeptServlet extends HttpServlet {

@@ -14,6 +14,7 @@ import com.csu.biz.zck.DeptBiz;
 
 /**
  * Servlet implementation class FindDeptEmpInfoServlet
+ * 查询部门和员工信息
  */
 @WebServlet("/FindDeptEmpInfoServlet")
 public class FindDeptEmpInfoServlet extends HttpServlet {

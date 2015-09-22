@@ -15,6 +15,7 @@ import com.csu.biz.zck.JobBiz;
 
 /**
  * Servlet implementation class SelectAllJobServlet
+ * 查询所有岗位信息
  */
 @WebServlet("/SelectAllJobServlet")
 public class SelectAllJobServlet extends HttpServlet {

@@ -13,6 +13,7 @@ import com.csu.biz.zck.EmpInfoBiz;
 
 /**
  * Servlet implementation class EditTemporaryInfoServlet
+ * 编辑员工信息与岗位表关联信息
  */
 @WebServlet("/EditTemporaryInfoServlet")
 public class EditTemporaryInfoServlet extends HttpServlet {

@@ -32,21 +32,48 @@ public class EmpInfoDao extends BaseDao {
 		return row;
 	}
 
-	
+	/**
+	 * 通过员工姓名查找员工信息
+	 * @param empname
+	 * @return list
+	 */
 	public List<HashMap<String, String>> findEmpByName(String empname) {
 		String sql="select *from empinfo where emp_name=? and state=1";
 		List<HashMap<String, String>> list = super.findBySQL(sql,empname);
 		return list;
 	}
 
-	
+	/**
+	 * 添加员工信息与岗位表关联信息
+	 * @param empnumber
+	 * @param job_number
+	 * @param starttime
+	 * @param endtime
+	 * @param other
+	 * @param state
+	 * @return row
+	 */
 	public int addTemporaryInfo(String empnumber,String job_number, String starttime, String endtime, String other,String state) {
 		String sql ="insert into temporaryinfo (emp_number,job_number,begintime,endtime,explanation,trystate) values (?,?,?,?,?,?)";
 		int row = super.exeuteUpdate(sql, empnumber,job_number,starttime,endtime,other,state);
 		return row;
 	}
 
-
+    /**
+     * 添加职业生涯信息
+     * @param empnumber
+     * @param begintime
+     * @param lasttime
+     * @param company
+     * @param jobdescribe
+     * @param position
+     * @param slary
+     * @param referencepeople
+     * @param referenceposition
+     * @param referencephone
+     * @param explannation
+     * @return row
+     */
 	public int addOccupationCareer(String empnumber, String begintime, String lasttime, String company,
 			String jobdescribe, String position, String slary, String referencepeople, String referenceposition,
 			String referencephone, String explannation) {
@@ -59,7 +86,16 @@ public class EmpInfoDao extends BaseDao {
 		
 	}
 
-
+    /**
+     * 添加社会关系信息
+     * @param empnumber
+     * @param ralation
+     * @param ralationname
+     * @param ralationjob
+     * @param ralationposition
+     * @param ralationphone
+     * @return row
+     */
 	public int addSocialRelation(String empnumber, String ralation, String ralationname, String ralationjob,
 			String ralationposition, String ralationphone) {
 		String sql ="insert into societyrelation (ralation,sname,job,position,phone,emp_number) values"
@@ -68,33 +104,60 @@ public class EmpInfoDao extends BaseDao {
 		return row;
 		
 	}
-
+    /**
+     * 向关系表中添加员工
+     * 部门和岗位的关系
+     * @param empnumber
+     * @param deptnumber
+     * @param jobnumber
+     * @return row
+     */
 	public int addRelationship(String empnumber, String deptnumber, String jobnumber) {
 			String sql="insert into relationship (emp_number,dept_number,job_number) values (?,?,?)";
 			int row = super.exeuteUpdate(sql, empnumber,deptnumber,jobnumber);
 			return row;
 		}
-
+    /**
+     * 添加正式员工
+     * @param jobnumber
+     * @param starttime
+     * @param empfrom
+     * @param empnumber
+     * @param state
+     * @return row
+     */
 	public int addSkstaff(String jobnumber, String starttime, String empfrom, String empnumber,String state) {
 		String sql = "insert into skstaff (job_number,cometime,peoplefrom,emp_number,workstate) values(?,?,?,?,?)";
 		int row = super.exeuteUpdate(sql, jobnumber,starttime,empfrom,empnumber,state);
 		return row;
 	}
-
+    /**
+     * 通过编号查找员工信息
+     * @param id
+     * @return list
+     */
 	public List<HashMap<String, String>> findEmpByIdCard(String id) {
 		String sql ="select * from empinfo where state=1 and idcard=?";
 		List<HashMap<String, String>> list = super.findBySQL(sql, id);
 		return list;
 	}
 
-
+    /**
+     * 通过编号查找社会关系
+     * @param number
+     * @return list
+     */
 	public List<HashMap<String, String>> findRelationByNumber(String number) {
 		String sql ="select * from societyrelation where state = 1 and emp_number=?";
 		List<HashMap<String, String>> list = super.findBySQL(sql, number);
 		return list;
 	}
 
-
+    /**
+     * 通过编号查找员工职业生涯信息
+     * @param number
+     * @return list
+     */
 	public List<HashMap<String, String>> findOccupationByNumber(String number) {
 		String sql = "select * from occupationcareer where state = 1 and emp_number=?";
 		List<HashMap<String, String>> list = super.findBySQL(sql, number);
@@ -149,7 +212,7 @@ public class EmpInfoDao extends BaseDao {
 
 	/**
 	 * 
-	 * @return
+	 * @return count
 	 * 查询记录数
 	 */
 	public int getEmppagenumber(String number, String name, String starttime, String endtime) {
@@ -186,7 +249,11 @@ public class EmpInfoDao extends BaseDao {
 		return count;
 	}
 
-
+    /**
+     * 通过员工编号查找员工信息与岗位表关联信息表
+     * @param number
+     * @return list
+     */
 	public List<HashMap<String, String>> findTemporaryInfoByNumber(String number) {
 		String sql ="select * from temporaryinfo where state=1 and emp_number=?";
 		List<HashMap<String, String>> list = super.findBySQL(sql, number);
@@ -200,21 +267,33 @@ public class EmpInfoDao extends BaseDao {
 	 * @param reslut
 	 * @param explanation
 	 * @param number
-	 * @return
+	 * @return row
 	 */
 	public int editTemproryInfo(String state, String dealtime, String reslut, String explanation, String number) {
 		String sql = "update temporaryinfo set trystate=?,dealtime=?,checkresult=?,checkexplanation=? where emp_number=?";
 		int row = super.exeuteUpdate(sql, state, dealtime, reslut, explanation, number);
 		return row;
 	}
-
+    /**
+     * 通过员工编号查找员工信息
+     * @param number
+     * @return list
+     */
 	public List<HashMap<String, String>> findEmpByNumber(String number) {
 		String sql = "select e.emp_number,e.empfrom,r.job_number  from empinfo e,relationship r  where e.emp_number=r.emp_number and e.emp_number=?";
 		List<HashMap<String, String>> list = super.findBySQL(sql, number);
 		return list;
 	}
 
-
+    /**
+     * 添加员工信息与岗位表关联信息
+     * @param jobnumber
+     * @param empfrom
+     * @param number
+     * @param dealtime
+     * @param state
+     * @return row
+     */
 	public int addEmpSkstaff(String jobnumber, String empfrom, String number,String dealtime,String state) {
 		String sql="insert into skstaff (job_number,cometime,peoplefrom,emp_number,workstate) values(?,?,?,?,?)";
 		int row = super.exeuteUpdate(sql,jobnumber,dealtime,empfrom,number,state);
@@ -229,7 +308,7 @@ public class EmpInfoDao extends BaseDao {
 	 * @param time
 	 * @param pageindex
 	 * @param pagecount
-	 * @return
+	 * @return list
 	 * 
 	 * 按分页、条件查询
 	 */
@@ -269,7 +348,7 @@ public class EmpInfoDao extends BaseDao {
 	 * @param name
 	 * @param deptname
 	 * @param time
-	 * @return
+	 * @return count
 	 * 查询转正员工的记录数
 	 */
 	public int getSkStaffpagenumber(String number, String name, String deptname, String time) {
