@@ -43,7 +43,7 @@ public class MoveEmpDao extends BaseDao {
 		        +"order by jobtime   ";    
 
 		
-				return super.findBySQL(sql, starttime,endtime);
+				return super.findBySQL(sql, deptname,jobname,empid);
 	}
 
 }
