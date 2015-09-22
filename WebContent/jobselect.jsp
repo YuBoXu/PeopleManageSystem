@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=GB18030">
 <link rel="stylesheet" href="css/common.css" type="text/css" />
 <title>组织管理</title>
-<SCRIPT language=JavaScript>
+<script type="text/javascript">
 	function selectAll() {
 		var obj = document.fom.elements;
 		for (var i = 0; i < obj.length; i++) {
@@ -43,8 +43,25 @@
 			location.href = "multimod.html";
 		}
 	}
-</SCRIPT>
+</script>
+<script type="text/javascript">
+function mySubmit(url){
+	var f=document.forms[0];
+	f.action=url;
+	f.submit();
+	
+}
 
+function deletejob(id){
+	var info =window.confirm("你确定要删除吗？");
+	if (info) {
+		window.location.href="UpdateDeleteJobServlet?jobnumber="+id;
+		
+			alert("删除失败该岗位下有员工！");
+		
+	}
+}
+</script>
 <style type="text/css">
 <!--
 .STYLE2 {
@@ -56,7 +73,7 @@
 
 <body>
 	<div id="man_zone">
-		<form name="fom" id="fom" method="post" action="PageJobGoToServlet">
+		<form name="fom" id="fom" method="post" action="">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td height="30"><table width="100%" border="0" cellspacing="0"
@@ -84,8 +101,8 @@
 											<td height="20"><span class="newfont07">批处理：<a
 													href="#" class="right-font08 STYLE2" onclick="selectAll();">全选</a>-<a
 													href="#" class="right-font08 STYLE2"
-													onclick="unselectAll();">反选 </a><a href="multidel.html"
-													class="right-font08 STYLE2"> 删除</a></span></td>
+													onclick="unselectAll();">反选 </a>
+													<a href="javascript:mySubmit('JobSelectAllUnSelectAllServlet');" class="right-font08 STYLE2"> 删除</a></span></td>
 											<td align="right"></td>
 										</tr>
 										<tr>
@@ -113,7 +130,7 @@
 														varStatus="state">
 														<tr bgcolor="#FFFFFF">
 															<td><div align="center">
-																	<input type="checkbox" name="delid" />
+																	<input type="checkbox" name="delid" value="${job.job_number }"/>
 																</div></td>
 															<td height="20"><div align="center">${state.index+1 }</div></td>
 															<td><div align="center">${job.job_number }</div></td>
@@ -127,7 +144,7 @@
 															<td><div align="center">${job.job_limit }</div></td>
 															<td><div align="center">
 																	<a href="FindJobByIdServlet?number=${job.job_number }">编辑
-																	</a>| <a href="deljob.html">删除</a> | <a
+																	</a>| <a href="javascript:deletejob('${job.job_number }')">删除</a> | <a
 																		href="FindJobEmpInfoServlet?jobnumber=${job.job_number }">查询岗位下员工</a>
 																</div></td>
 														</tr>
@@ -146,41 +163,43 @@
 													align="center" cellpadding="0" cellspacing="0"
 													class="right-font08">
 													<tr>
-													
-													
-													
-														 <td width="49%">共 <span class="right-text09">${sessionScope.pagenumber }</span> 页 | 第 
-                <span class="right-text09">${sessionScope.pageindex }</span> 页</td>
-                <td width="48%" align="right">[
-                
-            <c:if test="${sessionScope.pageindex==1 }">  
-                <a  class="right-font08">首页</a> |
-                <a  class="right-font08">上一页</a> | 
-             </c:if> 
-             
-             <c:if test="${sessionScope.pageindex>1 }">    
+
+
+
+														<td width="49%">共 <span class="right-text09">${sessionScope.pagenumber }</span>
+															页 | 第 <span class="right-text09">${sessionScope.pageindex }</span>
+															页
+														</td>
+														<td width="48%" align="right">[ <c:if
+																test="${sessionScope.pageindex==1 }">
+																<a class="right-font08">首页</a> |
+                <a class="right-font08">上一页</a> | 
+             </c:if> <c:if test="${sessionScope.pageindex>1 }">    
                 [<a href="PageJobServlet?index=1" class="right-font08">首页</a> |                 
-                  <a href="PageJobServlet?index=${sessionScope.pageindex-1 }" class="right-font08">上一页</a> |
-             </c:if> 
-                 
-              <c:if test="${sessionScope.pageindex < sessionScope.pagenumber }">      
-                 <a href="PageJobServlet?index=${sessionScope.pageindex+1 }" class="right-font08">下一页</a> |                 
-                  <a href="PageJobServlet?index=${sessionScope.pagenumber }" class="right-font08">末页</a>]
-               </c:if>  
-               
-               <c:if test="${sessionScope.pageindex==sessionScope.pagenumber }">   
-                   <a  class="right-font08">下一页</a> |
-                   <a  class="right-font08">末页</a>]
-               </c:if>  
-               
-                   转至：</td>
+                  <a
+																	href="PageJobServlet?index=${sessionScope.pageindex-1 }"
+																	class="right-font08">上一页</a> |
+             </c:if> <c:if
+																test="${sessionScope.pageindex < sessionScope.pagenumber }">
+																<a
+																	href="PageJobServlet?index=${sessionScope.pageindex+1 }"
+																	class="right-font08">下一页</a> |                 
+                  <a
+																	href="PageJobServlet?index=${sessionScope.pagenumber }"
+																	class="right-font08">末页</a>]
+               </c:if> <c:if
+																test="${sessionScope.pageindex==sessionScope.pagenumber }">
+																<a class="right-font08">下一页</a> |
+                   <a class="right-font08">末页</a>]
+               </c:if> 转至：
+														</td>
 														<td width="1%"><table width="20" border="0"
 																cellspacing="0" cellpadding="0">
 																<tr>
-																	<td width="1%"><input name="jobpage"
-																		type="text" class="right-textfield03" size="3" /></td>
-																	<td width="87%"><input name="Submit" type="submit"
-																		value="GO" /></td>
+																	<td width="1%">
+																	<input name="jobpage" type="text" class="right-textfield03" size="3" /></td>
+																	<td width="87%">
+																	<input name="Submit" type="submit"	value="GO" onclick="mySubmit('PageJobGoToServlet')" /></td>
 																</tr>
 															</table></td>
 													</tr>
@@ -194,4 +213,5 @@
 		</form>
 	</div>
 </body>
+
 </html>

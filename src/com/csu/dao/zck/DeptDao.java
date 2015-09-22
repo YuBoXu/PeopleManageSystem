@@ -112,7 +112,7 @@ public class DeptDao extends BaseDao{
 		/*String sql="select d.* from dept d,relationship r where "
 				+ " d.state=1 and d.dept_number in "+deptnumbet+""
 						+ "  and r.dept_number not in "+deptnumbet;*/
-		String sql="select d.* from dept d where d.dept_number in"+deptnumbet+" and "
+		String sql="select d.* from dept d where d.dept_number in"+deptnumbet+"and d.state=1 and "
 				+ " d.dept_number not in (select r.dept_number from  relationship r "
 				+ " where r.dept_number in "+deptnumbet+")";
 		

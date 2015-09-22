@@ -102,4 +102,21 @@ public int getPageNumber() {
 	int count = Integer.parseInt(quality);
 	return count;
 }
+public List<HashMap<String, String>> findDropJobInfo(String jobnumbet) {
+	String sql = "select j.* from job j where j.job_number in "+jobnumbet+" and j.state=1 and "
+			+ " j.job_number not in (select r.job_number from  relationship r "
+			+ " where r.job_number in "+jobnumbet+")";
+	List<HashMap<String, String>> list = super.findBySQL(sql);
+	return list;
+}
+
+public int updateJonInfo(String jobnumber) {
+	String sql="update job set state=0 where job_number=? ";
+	return super.exeuteUpdate(sql, jobnumber);
+}
+public List<HashMap<String, String>> findJobByRelationship(String jobnumber) {
+	String sql ="select * from relationship where job_number=?";
+	List<HashMap<String, String>>  list = super.findBySQL(sql, jobnumber);
+	return list;
+}
 }
