@@ -11,19 +11,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.csu.biz.zck.EmpInfoBiz;
+import com.csu.biz.zck.StaffBiz;
 
 /**
- * Servlet implementation class FindSkStaffServlet
+ * Servlet implementation class PageLeavingInfoServlet
  */
-@WebServlet("/FindSkStaffServlet")
-public class FindSkStaffServlet extends HttpServlet {
+@WebServlet("/PageUpLeavingInfoServlet")
+public class PageUpLeavingInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindSkStaffServlet() {
+    public PageUpLeavingInfoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,14 +40,16 @@ public class FindSkStaffServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Map<String, String[]> map = request.getParameterMap();
-		EmpInfoBiz biz = new EmpInfoBiz();
-		List<HashMap<String, String>> list =biz.findSkStaffEmp(map,"1");
-		request.getSession().setAttribute("staffinfo", list);
-		request.getSession().setAttribute("staffmap", map);
-		request.getSession().setAttribute("pagenumber", biz.getSkStaffpagenumber(map));
-		request.getSession().setAttribute("pageindex", 1);
-		response.sendRedirect("showzsemp.jsp");
+		String page = request.getParameter("pagetext");
+		int pageindex = Integer.parseInt(page);
+		Map<String, String[]> map = 
+				(Map<String, String[]>) request.getSession().getAttribute("leavingmap");
+		StaffBiz biz = new StaffBiz();
+		List<HashMap<String, String>> list = biz.findLeavingInfo(map,String.valueOf(pageindex-1));
+		request.getSession().setAttribute("leavinginfo", list);
+		request.getSession().setAttribute("pageindex", pageindex-1);
+		response.sendRedirect("leavingInformation.jsp");
+		
 	}
 
 }

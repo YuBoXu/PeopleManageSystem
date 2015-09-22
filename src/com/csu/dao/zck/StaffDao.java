@@ -2,13 +2,24 @@ package com.csu.dao.zck;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.neu.dao.BaseDao;
 
 public class StaffDao extends BaseDao {
-
+	/**
+	 * 
+	 * @param deptnumber
+	 * @param deptname
+	 * @param empnumber
+	 * @param empname
+	 * @param pageindex
+	 * @param pagecount
+	 * @return
+	 * 按条件分页组合查询
+	 */
 	public List<HashMap<String, String>> findLeavingInfo(String deptnumber, String deptname, String empnumber,
-			String empname) {
+			String empname,int pageindex,int pagecount) {
 		StringBuffer sql = new StringBuffer("select e.emp_name,e.emp_number,e.idcard,d.dept_name,d.dept_number,r.job_number from "
 				+ " empinfo e,dept d,relationship r,skstaff s where e.emp_number=r.emp_number and "
 				+ " e.emp_number=s.emp_number and d.dept_number=r.dept_number and r.job_number=s.job_number "
@@ -46,10 +57,51 @@ public class StaffDao extends BaseDao {
 			add.append(" and e.emp_name like  "+"'%"+empname+"%'");
 			}
 //	System.out.println(sql.append(add).toString());
-		List<HashMap<String, String>> list = super.findBySQL(sql.append(add).toString());
+		int min =(pageindex-1)*pagecount;
+		int max=pageindex*pagecount;
+		String addsql=sql.append(add).toString();
+		String finallysql = "select * from (select rownum r ,a.* from ("+addsql+") a where rownum<=?) b where r>?";
+	//	List<HashMap<String, String>> list = super.findBySQL(sql.append(add).toString());
+		List<HashMap<String, String>> list = super.findBySQL(finallysql,max,min);
 		return list;
 	}
 
+	/**
+	 * 
+	 * @param deptnumber
+	 * @param deptname
+	 * @param empnumber
+	 * @param empname
+	 * @return
+	 */
+	public int getPageLeavingInfo(String deptnumber, String deptname, String empnumber, String empname) {
+		StringBuffer sql = new StringBuffer("select count(*) quantity from "
+				+ " empinfo e,dept d,relationship r,skstaff s where e.emp_number=r.emp_number and "
+				+ " e.emp_number=s.emp_number and d.dept_number=r.dept_number and r.job_number=s.job_number "
+				+ " and s.workstate='正常' ");
+		StringBuffer add = new StringBuffer();
+		if( deptname!=null && !deptname.trim().isEmpty()){
+			add.append(" and d.dept_name= "+"'"+deptname+"'");		
+		}
+		if( deptnumber!=null && !deptnumber.trim().isEmpty()){
+			add.append(" and d.dept_number= "+"'"+deptnumber+"'");			
+		}
+		if( empnumber!=null && !empnumber.trim().isEmpty()){
+			add.append(" and e.emp_number= "+"'"+empnumber+"'");
+		}
+		if( empname!=null && !empname.trim().isEmpty()){
+			add.append(" and e.emp_name like  "+"'%"+empname+"%'");
+			}
+		List<HashMap<String, String>> list = super.findBySQL(sql.append(add).toString());
+		int count =0;
+		if(!list.isEmpty()){
+			Map<String, String> sum = list.get(0);
+			String page = sum.get("quantity");
+			count = Integer.parseInt(page);
+		}
+		
+		return count;
+	}
 	
 	public int leavingOperate(String empnumber, String jobnumber, String place, String leavetime, String reason,
 			String radiobutton) {
@@ -103,5 +155,7 @@ System.err.println(sql.append(add).toString());
 		List<HashMap<String, String>> list = super.findBySQL(sql.append(add).toString());
 		return list;
 	}
+
+
 
 }
