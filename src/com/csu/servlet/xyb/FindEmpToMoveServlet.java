@@ -1,4 +1,4 @@
-package com.csu.servlet;
+package com.csu.servlet.xyb;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -47,9 +47,12 @@ public class FindEmpToMoveServlet extends HttpServlet {
 		MoveEmpBiz biz=new MoveEmpBiz();
 		List<HashMap<String, String>> item=
 				biz.FindEmpToMove(map);
+		List<HashMap<String, String>> moveInfo=
+				biz.FindJobToMove(map);
 		HttpSession session=request.getSession();
 		session.setAttribute("info", item);
-		response.sendRedirect("movedeptlist.jsp");
+		session.setAttribute("moveInfo", moveInfo);
+		response.sendRedirect("updatesel.jsp");
 	}
 
 }

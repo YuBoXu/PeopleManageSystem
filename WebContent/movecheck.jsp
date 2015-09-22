@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GB18030">
+<link rel="stylesheet" href="css/common.css" type="text/css" />
 <title>部门岗位调动</title>
 <style type="text/css">
 <!--
@@ -52,27 +53,11 @@ function link1(){
                       <td colspan="4"><div align="left"><span class="STYLE3">请输入查询条件：</span></div></td>
                     </tr>
                     <tr>
-                      <td width="23%">
-                      <div align="left"><span class="STYLE3">部门名称：</span></div>                     </td>
-                      <td width="77%" colspan="3"><div align="left">
-                        <label>
-                        <select name="deptname">
-						<option value="">请选择</option>
-                          <option value="设计部">设计部</option>
-                          <option value="行政部">行政部</option>
-                          <option value="人事部">人事部</option>
-                          <option value="技术开发部">技术开发部</option>
-                          <option value="销售部">销售部</option>
-                        
-                        </select>
-                        </label>
-                      </div></td>
+                     
+                     
                     </tr>
                     <tr>
-                      <td><div align="left"><span class="STYLE3">岗位名称：</span></div></td>
-                      <td colspan="3"><div align="left">
-                          <input name="jobname" type="text" size="15" />
-                      </div></td>
+                      
                     </tr>
                     
                     <tr>
