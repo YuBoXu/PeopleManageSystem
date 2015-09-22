@@ -32,7 +32,7 @@ function link1(){
             <tr class="CTitle" >
               <td height="22" colspan="11" align="center" style="font-size:16px"><p>在职人员信息表</p>                </td>
             </tr>
-            <tr bgcolor="#EEEEEE">
+            <tr >
               <td rowspan="5" align="center"><div align="center">
                 <p>员工基本信息</p>
                 </div></td>

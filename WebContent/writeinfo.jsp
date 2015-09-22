@@ -59,7 +59,7 @@ function link(){
 <div id="man_zone">
   <form action="AddEmpInfoServlet" onsubmit="return link();" method="post" name="fom" id="fom" target="manFrame" >
     <div class="MainDiv">
-      <table width="97%" border="0" cellpadding="0" cellspacing="0" class="CContent">
+   <table width="97%" border="0" cellpadding="0" cellspacing="0" class="CContent">
         <tr>
           <th class="tablestyle_title" ><div align="left">员工入职页面</div></th>
         </tr>
