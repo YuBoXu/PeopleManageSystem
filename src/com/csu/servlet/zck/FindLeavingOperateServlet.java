@@ -42,8 +42,11 @@ public class FindLeavingOperateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map<String, String[]> map = request.getParameterMap();
 		StaffBiz biz = new StaffBiz();
-		List<HashMap<String, String>> list = biz.findLeavingInfo(map);
+		List<HashMap<String, String>> list = biz.findLeavingInfo(map,"1");
+		request.getSession().setAttribute("leavingmap", map);
 		request.getSession().setAttribute("leavinginfo", list);
+		request.getSession().setAttribute("pageindex", 1);
+		request.getSession().setAttribute("pagenumber", biz.getPageLeavingInfo(map));
 		response.sendRedirect("leavingInformation.jsp");
 	}
 

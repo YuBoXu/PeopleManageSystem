@@ -1,4 +1,4 @@
-package com.csu.servlet.zck;
+package com.csu.servlet;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -10,20 +10,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.csu.biz.zck.EmpInfoBiz;
+import com.csu.biz.xyb.MoveEmpBiz;
 
 /**
- * Servlet implementation class FindSkStaffServlet
+ * Servlet implementation class FindEmpToMoveServlet
  */
-@WebServlet("/FindSkStaffServlet")
-public class FindSkStaffServlet extends HttpServlet {
+@WebServlet("/FindEmpToMoveServlet")
+public class FindEmpToMoveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindSkStaffServlet() {
+    public FindEmpToMoveServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,22 +33,23 @@ public class FindSkStaffServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Map<String, String[]> map = request.getParameterMap();
-		EmpInfoBiz biz = new EmpInfoBiz();
-		List<HashMap<String, String>> list =biz.findSkStaffEmp(map,"1");
-		request.getSession().setAttribute("staffinfo", list);
-		request.getSession().setAttribute("staffmap", map);
-		request.getSession().setAttribute("pagenumber", biz.getSkStaffpagenumber(map));
-		request.getSession().setAttribute("pageindex", 1);
-		response.sendRedirect("showzsemp.jsp");
+		// TODO Auto-generated method stub
+		Map<String, String[]> map=request.getParameterMap();
+		MoveEmpBiz biz=new MoveEmpBiz();
+		List<HashMap<String, String>> item=
+				biz.FindEmpToMove(map);
+		HttpSession session=request.getSession();
+		session.setAttribute("info", item);
+		response.sendRedirect("movedeptlist.jsp");
 	}
 
 }

@@ -33,4 +33,17 @@ public class MoveEmpDao extends BaseDao {
 				return super.findBySQL(sql, starttime,endtime);
 	}
 
+	public List<HashMap<String, String>> FindEmpToMove(String deptname, String jobname, String empid) {
+		// TODO Auto-generated method stub
+		String sql="select newdept,oldjob,newjob,emp_name,emp_sex,jobtime,jobreason " 
+		        +"from EMPINFO emp,Changeinfo ci "
+		       +"where ci.emp_number=emp.emp_number " 
+		       +"and to_date(jobtime,'YYYY-MM-DD ')>=to_date(?,'YYYY-MM-DD') "
+		        +"and to_date(jobtime,'YYYY-MM-DD')<=to_date(?,'YYYY-MM-DD')  "
+		        +"order by jobtime   ";    
+
+		
+				return super.findBySQL(sql, starttime,endtime);
+	}
+
 }

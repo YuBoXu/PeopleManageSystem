@@ -151,8 +151,10 @@ function unselectAll(){
                    
                 <td width="5%"><table width="20" border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                      <td width="1%"><input name="gotopage" type="text" class="right-textfield03" size="3" /></td>
-                      <td width="87%"><input name="Submit23222" type="button" class="button08" value="GO" onclick="mySubmit('PageDeptGoTOServlet')" />
+                      <td width="1%">
+                      <input name="gotopage" type="text" class="right-textfield03" size="3" /></td>
+                      <td width="87%">
+                      <input name="Submit23222" type="button" class="button08" value="GO" onclick="mySubmit('PageDeptGoTOServlet')" />
                       </td>
                     </tr>
                 </table></td>

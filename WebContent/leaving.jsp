@@ -69,18 +69,6 @@
   </p>
 </form>
 </div>
- <DIV id="Layer1" style="position:absolute; left:109px;  
-   top:233px; width:523px; height:202px; z-index:1; " >
-  
-   
 
-   
-<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="523" height="202" align="middle">
-	<param name="allowScriptAccess" value="sameDomain" />
-	<param name="allowFullScreen" value="false" />
-	<param name="movie" value="27.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#FFFFFF" />	<embed src="27.swf" quality="high" bgcolor="#FFFFFF" width="523" height="202" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_cn" />
-   </object>
-  
-</DIV>
 </body>
 </html>

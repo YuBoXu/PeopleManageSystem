@@ -16,6 +16,7 @@ import com.csu.biz.xyb.FindLeaveBiz;
 
 /**
  * Servlet implementation class FindLeaveServlet
+ * 查找离职人员信息
  */
 @WebServlet("/FindLeaveServlet")
 public class FindLeaveServlet extends HttpServlet {

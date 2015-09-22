@@ -13,14 +13,35 @@ public class StaffBiz {
 		dao = new StaffDao();
 	}
 
-
-	public List<HashMap<String, String>> findLeavingInfo(Map<String, String[]> map) {
+	/**
+	 * 
+	 * @param map
+	 * @param page
+	 * @return
+	 * 
+	 */
+	public List<HashMap<String, String>> findLeavingInfo(Map<String, String[]> map, String page) {
 		String deptnumber = map.get("bmnum")[0];
 		String deptname = map.get("bmname")[0];
 		String empnumber = map.get("ygnum")[0];
 		String empname = map.get("ygname")[0];
-		List<HashMap<String, String>> list = dao.findLeavingInfo(deptnumber,deptname,empnumber,empname);
+		int pageindex = Integer.parseInt(page);
+		List<HashMap<String, String>> list = dao.findLeavingInfo(deptnumber,deptname,empnumber,empname,pageindex,10);
 		return list;
+	}
+	/**
+	 * 
+	 * @param map
+	 * @return
+	 */
+	public int getPageLeavingInfo(Map<String, String[]> map) {
+		String deptnumber = map.get("bmnum")[0];
+		String deptname = map.get("bmname")[0];
+		String empnumber = map.get("ygnum")[0];
+		String empname = map.get("ygname")[0];
+		int count = dao.getPageLeavingInfo(deptnumber,deptname,empnumber,empname);
+		int sum = count%10==0?count/10:count/10+1;
+		return sum;
 	}
 
 
@@ -54,6 +75,9 @@ public class StaffBiz {
 		List<HashMap<String, String>> list = dao.findLeavedEmpInfo(empnumber,empname,deptname,jobname,leavtype);
 		return list;
 	}
+
+
+	
 
 
 
