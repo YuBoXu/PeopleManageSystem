@@ -80,7 +80,10 @@ function unselectAll(){
          
           <tr bgcolor="#FFFFFF">
             <td height="20" colspan="5">共 <span class="right-text09">1</span> 页 | 第 <span class="right-text09">1</span> 页</td>
-            <td colspan="2">[<a href="#" class="right-font08">首页</a> | <a href="#" class="right-font08">上一页</a> | <a href="#" class="right-font08">下一页</a> | <a href="#" class="right-font08">末页</a>]</td>
+            <td colspan="2">[<a href="#" class="right-font08">首页</a> | 
+            <a href="#" class="right-font08">上一页</a> | <a href="#" class="right-font08">下一页</a> |
+             <a href="#" class="right-font08">末页</a>
+             ]</td>
             </tr>
         </table></td>
       </tr>

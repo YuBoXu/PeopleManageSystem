@@ -97,7 +97,7 @@ public class DeptDao extends BaseDao{
 	 * 查询dept表中的记录数，查询有多少条记录
 	 */
 	public int getPageNumber() {
-		String sql = " select count(*）quantity from dept";
+		String sql = " select count(*) quantity from dept where state=1";
 		List<HashMap<String, String>> list = super.findBySQL(sql);
 		HashMap<String, String> map = list.get(0);
 		String quality = map.get("quantity");

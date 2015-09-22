@@ -80,9 +80,35 @@ function unselectAll(){
           </tr>
          </c:forEach>
           <tr bgcolor="#FFFFFF">
-            <td height="20" colspan="7">共 <span class="right-text09">1</span> 页 | 第 <span class="right-text09">1</span> 页
+            <!-- <td height="20" colspan="7">共 <span class="right-text09">1</span> 页 | 第 <span class="right-text09">1</span> 页
               <div align="right"></div></td>
-            <td>[<a href="#" class="right-font08">首页</a> | <a href="#" class="right-font08">上一页</a> | <a href="#" class="right-font08">下一页</a> | <a href="#" class="right-font08">末页</a>]</td>
+            <td>[<a href="#" class="right-font08">首页</a> | <a href="#" 
+            class="right-font08">上一页</a> | <a href="#" class="right-font08">下一页</a> | 
+            <a href="#" class="right-font08">末页</a> -->
+            <td height="20" colspan="7">共 <span class="right-text09">${sessionScope.pagenumber }</span> 页 |
+            					 第 <span class="right-text09">${sessionScope.pageindex }</span> 页
+              <div align="right"></div></td>
+            <td>[
+           <c:if test="${sessionScope.pageindex==1 }">  
+                <a  class="right-font08">首页</a> |
+                <a  class="right-font08">上一页</a> | 
+             </c:if> 
+             
+             <c:if test="${sessionScope.pageindex>1 }">    
+                [<a href="PageFindLeaveServlet?index=1" class="right-font08">首页</a> |                 
+                  <a href="PageFindLeaveServlet?index=${sessionScope.pageindex-1 }" class="right-font08">上一页</a> |
+             </c:if> 
+                 
+              <c:if test="${sessionScope.pageindex < sessionScope.pagenumber }">      
+                 <a href="PageFindLeaveServlet?index=${sessionScope.pageindex+1 }" class="right-font08">下一页</a> |                 
+                  <a href="PageFindLeaveServlet?index=${sessionScope.pagenumber }" class="right-font08">末页</a>
+               </c:if>  
+               
+               <c:if test="${sessionScope.pageindex==sessionScope.pagenumber }">   
+                   <a  class="right-font08">下一页</a> |
+                   <a  class="right-font08">末页</a>
+               </c:if>  
+            ]</td>
           </tr>
         </table></td>
       </tr>
