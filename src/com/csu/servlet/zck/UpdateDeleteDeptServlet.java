@@ -1,6 +1,9 @@
 package com.csu.servlet.zck;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,17 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.csu.biz.zck.DeptBiz;
 
 /**
- * Servlet implementation class UpdateDropDeptServlet
- * 修改部门信息
+ * Servlet implementation class UpdateDeleteDeptServlet
  */
-@WebServlet("/UpdateDropDeptServlet")
-public class UpdateDropDeptServlet extends HttpServlet {
+@WebServlet("/UpdateDeleteDeptServlet")
+public class UpdateDeleteDeptServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateDropDeptServlet() {
+    public UpdateDeleteDeptServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,9 +41,16 @@ public class UpdateDropDeptServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String deptnumber = request.getParameter("deptnumber");
 		DeptBiz biz = new DeptBiz();
-		biz.updateDeptInfo(deptnumber);
+		List<HashMap<String, String>> list = biz.findRelationship(deptnumber);
+		int row=0;
+		if(list.isEmpty()){
+		 row = biz.updateDeptInfo(deptnumber);
+		response.getWriter().write(row);
 		response.sendRedirect("delsec.html");
 		
+		}else {
+			response.getWriter().write(row);
+		}
 	}
 
 }

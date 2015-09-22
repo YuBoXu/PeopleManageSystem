@@ -106,4 +106,9 @@ public class DeptBiz {
 		int row = dao.updateDeptInfo(deptnumber);
 		return row;
 	}
+
+	public List<HashMap<String, String>> findRelationship(String deptnumber) {
+		
+		return dao.findRelationship(deptnumber);
+	}
 }

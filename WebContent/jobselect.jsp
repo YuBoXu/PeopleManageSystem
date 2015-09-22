@@ -90,7 +90,7 @@
 										</tr>
 										<tr>
 											<td height="40" colspan="2" class="font42"><table
-													width="100%" border="0" cellpadding="4" cellspacing="1"
+													width="100%" border="1" cellpadding="4" cellspacing="1"
 													class="newfont03">
 													<tr class="CTitle">
 														<td height="22" colspan="10" align="center"

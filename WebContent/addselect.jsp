@@ -9,8 +9,17 @@
 <title>部门管理</title>
 <SCRIPT language=JavaScript>
 
-function link1(){
-     alert("该部门下有员工，不能删除！");
+function link1(id){
+	
+	var info =window.confirm("你确定要删除吗？");
+	if (info) {
+		window.location.href="UpdateDeleteDeptServlet?deptnumber="+id;
+		
+			alert("删除失败该部门下有员工！");
+		
+	}
+     
+     
 }
 function selectAll(){
 	var obj = document.fom.elements;
@@ -62,7 +71,7 @@ function unselectAll(){
   <tr>
     <td><table id="subtree1" style="DISPLAY: " width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <td><table width="95%" border="1" align="center" cellpadding="4" cellspacing="1">
           	 <tr>
                <td height="20"><span class="newfont07">批处理：
                <a href="#" class="right-font08 STYLE1" onclick="selectAll();">全选</a>-
@@ -108,7 +117,8 @@ function unselectAll(){
                     <td><div align="center">${dept.dept_describe }</div></td>
                     <td><div align="center">${dept.dept_top }</div></td>
                     <td><div align="center">${dept.dept_date }</div></td>
-                    <td><div align="center"> <a href="FindDeptByIDServlet?number=${dept.dept_number }">编辑 </a>|<a href="javascript:link1()"> 删除 </a>|
+                    <td><div align="center"> <a href="FindDeptByIDServlet?number=${dept.dept_number }">编辑 </a>|
+                    <a href="javascript:link1('${dept.dept_number }')"> 删除 </a>|
                     <a href="FindDeptEmpInfoServlet?deptnumber=${dept.dept_number }"> 查询部门下员工</a></div></td>
                   </tr>
 				</c:forEach>   

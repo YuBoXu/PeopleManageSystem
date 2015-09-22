@@ -125,4 +125,9 @@ public class DeptDao extends BaseDao{
 		int row = super.exeuteUpdate(sql, deptnumber);
 		return row;
 	}
+
+	public List<HashMap<String, String>> findRelationship(String deptnumber) {
+		String sql ="select * from relationship where dept_number=?";
+		return super.findBySQL(sql, deptnumber);
+	}
 }
