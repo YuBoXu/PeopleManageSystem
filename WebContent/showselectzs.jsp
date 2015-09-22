@@ -61,9 +61,9 @@ body {
       <td><input type="text" name="time" onClick="WdatePicker()" readonly="readonly" /></td>
       </tr>
     <tr>
-      <td><input type="submit" name="buttion" value="查询" />&nbsp;
+      <td colspan="2" align="center"><input type="submit" name="buttion" value="查询" />&nbsp;
         <input type="submit" name="Submit2" value="取消"  onclick=" return cancle()" />     </td>
-      <td>&nbsp;</td>
+     
       </tr>
   </table>
 

@@ -38,7 +38,6 @@ if(document.fom.id.value.length=='15'||document.fom.id.value.length=='18'){
 
 <body>
 
-<DIV id="Layer1" style="position:absolute; left:366px; top:256px; width:523px; height:202px; z-index:1; background-color: #FFFFFF; layer-background-color: #FFFFFF; border: 1px none #000000;" ></DIV>
 <div id="man_zone">
 <!--   <form action="FindEmpByIdcardServlet" onsubmit="return link();" method="post" enctype="multipart/form-data" name="fom" id="fom" target="manFrame" >
  -->  
@@ -82,15 +81,6 @@ if(document.fom.id.value.length=='15'||document.fom.id.value.length=='18'){
     </div>
   </form>
 </div>
-<span style="position:absolute; left:383px; top:281px; width:523px; height:202px; z-index:1; background-color: #FFFFFF; layer-background-color: #FFFFFF; border: 1px none #000000;">
-<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="523" height="202" align="middle">
-  <param name="allowScriptAccess" value="sameDomain" />
-  <param name="allowFullScreen" value="false" />
-  <param name="movie" value="17.swf" />
-  <param name="quality" value="high" />
-  <param name="bgcolor" value="#FFFFFF" />
-  <embed src="17.swf" quality="high" bgcolor="#FFFFFF" width="523" height="202" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_cn" />
-</object>
-</span>
+
 </body>
 </html>
