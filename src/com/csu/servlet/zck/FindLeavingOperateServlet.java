@@ -15,6 +15,7 @@ import com.csu.biz.zck.StaffBiz;
 
 /**
  * Servlet implementation class FindLeavingOperateServlet
+ * 查询离职操作人员信息
  */
 @WebServlet("/FindLeavingOperateServlet")
 public class FindLeavingOperateServlet extends HttpServlet {

@@ -15,6 +15,7 @@ import com.csu.biz.zck.EmpInfoBiz;
 
 /**
  * Servlet implementation class PageFind
+ * 分页查询员工信息与岗位表关联信息（正式员工）
  */
 @WebServlet("/PageFindSkStaffServlet")
 public class PageFindSkStaffServlet extends HttpServlet {

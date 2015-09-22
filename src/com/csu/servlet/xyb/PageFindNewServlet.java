@@ -1,4 +1,4 @@
-package com.csu.servlet.zck;
+package com.csu.servlet.xyb;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -10,21 +10,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.csu.biz.zck.EmpInfoBiz;
+import com.csu.biz.xyb.FindNewBiz;
+import com.sun.xml.internal.ws.developer.StreamingAttachment;
 
 /**
- * Servlet implementation class FindTemporaryByNumberServlet
- * 通过编号查询员工信息与岗位表关联信息
+ * Servlet implementation class PageFindNewServlet
  */
-@WebServlet("/FindTemporaryByNumberServlet")
-public class FindTemporaryByNumberServlet extends HttpServlet {
+@WebServlet("/PageFindNewServlet")
+public class PageFindNewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindTemporaryByNumberServlet() {
+    public PageFindNewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,6 +35,7 @@ public class FindTemporaryByNumberServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
+	
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -41,12 +43,17 @@ public class FindTemporaryByNumberServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String number = request.getParameter("empnumber");
-		EmpInfoBiz biz = new EmpInfoBiz();
-		List<HashMap<String, String>> list = biz.findTemporaryInfoByNumber(number);
-		Map<String, String> map = list.get(0);
-		request.getSession().setAttribute("temporaryinfo", map);
-		response.sendRedirect("syupdate.jsp");
+		HttpSession session = request.getSession();
+		String page = request.getParameter("index");
+		Map<String, String[]> map=
+				(Map<String, String[]>) session.getAttribute("findnewmap");
+		FindNewBiz biz=new FindNewBiz();
+		List<HashMap<String, String>> item=
+				biz.findNewByTime(map,page);
+		session.setAttribute("info", item);
+		session.setAttribute("pageindex", page);
+		response.sendRedirect("newemplist.jsp");
+		
 	}
 
 }

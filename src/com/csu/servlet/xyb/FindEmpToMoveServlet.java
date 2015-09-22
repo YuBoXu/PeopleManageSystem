@@ -1,4 +1,4 @@
-package com.csu.servlet;
+package com.csu.servlet.xyb;
 
 import java.io.IOException;
 import java.util.HashMap;

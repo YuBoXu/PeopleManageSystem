@@ -15,6 +15,7 @@ import com.csu.biz.zck.EmpInfoBiz;
 
 /**
  * Servlet implementation class FindSkStaffServlet
+ * 查询员工信息与岗位表关联信息
  */
 @WebServlet("/FindSkStaffServlet")
 public class FindSkStaffServlet extends HttpServlet {

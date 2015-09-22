@@ -13,6 +13,7 @@ import com.csu.biz.zck.DeptBiz;
 
 /**
  * Servlet implementation class AddDeptServlet
+ * 添加部门信息
  */
 @WebServlet("/AddDeptServlet")
 public class AddDeptServlet extends HttpServlet {

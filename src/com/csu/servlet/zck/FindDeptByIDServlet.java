@@ -15,6 +15,7 @@ import com.csu.biz.zck.DeptBiz;
 
 /**
  * Servlet implementation class FindDeptByIDServlet
+ * 通过编号查询部门信息
  */
 @WebServlet("/FindDeptByIDServlet")
 public class FindDeptByIDServlet extends HttpServlet {
