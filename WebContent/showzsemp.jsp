@@ -62,13 +62,28 @@ body {
     <td colspan="7" align="center" valign="middle"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">
       <tr>
         <td width="50%" height="34" align="left">
-        <span class="STYLE3">共 5 页 |
-        	 第 1 页</span></td>
+        <span class="STYLE3">共${sessionScope.pagenumber } 页 |
+        	 第${sessionScope.pageindex } 页</span></td>
         <td width="47%" align="right">[
-        <a href="#" class="right-font08">首页</a> | 
-        <a href="#" class="right-font08">上一页</a> | 
-        <a href="#" class="right-font08">下一页</a> |
-         <a href="#" class="right-font08">末页</a>
+        <c:if test="${sessionScope.pageindex==1 }">  
+                <a  class="right-font08">首页</a> |
+                <a  class="right-font08">上一页</a> | 
+             </c:if> 
+             
+             <c:if test="${sessionScope.pageindex>1 }">    
+                [<a href="PageFindSkStaffServlet?index=1" class="right-font08">首页</a> |                 
+                  <a href="PageFindSkStaffServlet?index=${sessionScope.pageindex-1 }" class="right-font08">上一页</a> |
+             </c:if> 
+                 
+              <c:if test="${sessionScope.pageindex < sessionScope.pagenumber }">      
+                 <a href="PageFindSkStaffServlet?index=${sessionScope.pageindex+1 }" class="right-font08">下一页</a> |                 
+                  <a href="PageFindSkStaffServlet?index=${sessionScope.pagenumber }" class="right-font08">末页</a>
+               </c:if>  
+               
+               <c:if test="${sessionScope.pageindex==sessionScope.pagenumber }">   
+                   <a  class="right-font08">下一页</a> |
+                   <a  class="right-font08">末页</a>
+               </c:if> 
          ] </td>
         <td width="3%">&nbsp;</td>
       </tr>
