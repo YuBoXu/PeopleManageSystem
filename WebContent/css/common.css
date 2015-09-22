@@ -6,7 +6,7 @@ body {
 	margin: 0px;
 }
 html {
-	background-color: #c10y30;
+	background-image: url(images/bg1.jpg);
 	padding-left: 0px;
 	padding-right: 0px;
 	padding-top: 0px;
@@ -21,37 +21,59 @@ body {
 	color:#k30;
 }
 
+
 input[type="Submit"], input[type="reset"], input[type="button"] {
-	background-color:#33c767;
-	-moz-border-radius:28px;
-	-webkit-border-radius:28px;
-	border-radius:28px;
-	border:1px solid #18ab29;
+	-moz-box-shadow: 0px 1px 0px 0px #1c1b18;
+	-webkit-box-shadow: 0px 1px 0px 0px #1c1b18;
+	box-shadow: 0px 1px 0px 0px #1c1b18;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #eae0c2), color-stop(1, #ccc2a6));
+	background:-moz-linear-gradient(top, #eae0c2 5%, #ccc2a6 100%);
+	background:-webkit-linear-gradient(top, #eae0c2 5%, #ccc2a6 100%);
+	background:-o-linear-gradient(top, #eae0c2 5%, #ccc2a6 100%);
+	background:-ms-linear-gradient(top, #eae0c2 5%, #ccc2a6 100%);
+	background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eae0c2', endColorstr='#ccc2a6',GradientType=0);
+	background-color:#eae0c2;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	border-radius:15px;
+	border:2px solid #333029;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
+	color:#505739;
 	font-family:Arial;
-	font-size:15px;
-	padding:5px 12px;
+	font-size:14px;
+	font-weight:bold;
+	padding:12px 16px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #2f6627;
+	text-shadow:0px 1px 0px #ffffff;
+
 }
 
 input:hover {
-	background-color:#5cbf2a;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ccc2a6), color-stop(1, #eae0c2));
+	background:-moz-linear-gradient(top, #ccc2a6 5%, #eae0c2 100%);
+	background:-webkit-linear-gradient(top, #ccc2a6 5%, #eae0c2 100%);
+	background:-o-linear-gradient(top, #ccc2a6 5%, #eae0c2 100%);
+	background:-ms-linear-gradient(top, #ccc2a6 5%, #eae0c2 100%);
+	background:linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccc2a6', endColorstr='#eae0c2',GradientType=0);
+	background-color:#ccc2a6;
+
 }
 
 input:active {
 	position:relative;
 	top:1px;
+
 }
 
 a {
-	color: #555;
+	color: #af9d99;
 	text-decoration:none;
 }
 a:hover {
-	color: #0099CC;
+	color: #af9d99;
 }
 
 img {
@@ -79,7 +101,7 @@ div{
 	margin: 0 auto;
 	padding:0px;
 	width: 100%;
-	background-color: #ffffff
+	background-color: #af9d99;
 }
 .header_content .logo {
 	height: 50px;
@@ -89,14 +111,14 @@ div{
 .header_content .right_nav {
 	float: right;
 	width: 80%;
-	height: 50px;
+	height: 60px;
 }
 
 .right_nav .text_left {
 	float: left;
 	width: 20%;
 	padding: 22px 0 0 0;
-	color: #CC3300;
+	color: #038787;
 }
 .right_nav .text_right {
 	float: right;
@@ -107,14 +129,14 @@ div{
 }
 .nav_list a {
 	display: inline;
-	color:#3399CC;
+	color:#ffffff;
 }
 .nav_list li {
       display:inline;
 	  }
 .nav_return a {
 	display: inline;
-	color:#3399CC;
+	color:#ffffff;
 }
 .nav_return li {
 	display: inline;
@@ -130,7 +152,7 @@ div{
 	padding: 10px 0 0 55px;
 }
 #left_content #user_info a{
-    color:#0099CC;
+    color:#aaaaaa;
 }
 #left_content #main_nav {
 	width: 199px;
@@ -141,13 +163,13 @@ div{
 	float: left;
 	width: 25px;
 	line-height: 13px;
-	color:#0099CC;
+	color:#af9d99;;
 }
 #left_main_nav li{
 	height:69px;
 	width:12px;
 	text-align: center;
-	padding: 7px 6px 0 7px;
+	padding: 10px 10px 0 7px;
 }
 .left_back{
 	background-image: url(../images/manage_r7_c2.jpg);
@@ -160,17 +182,18 @@ div{
 	color:#333333;
 }
 #left_main_nav a{
-    color:#0099CC;
-}#right_main_nav {
+    color:#ffffff;
+}
+#right_main_nav {
 	width: 173px;
 	border-top-width: 1px;
 	border-bottom-width: 1px;
 	border-top-style: solid;
 	border-bottom-style: solid;
 	border-top-color: #B4C9C6;
-	border-bottom-color: #B4C9C6;
+	border-bottom-color: #aaaaaa;
 	float: right;
-	background-color: #FFFFFF;
+	background-color: #757f85;
 	border-right-width: 1px;
 	border-right-style: solid;
 	border-right-color: #B4C9C6;
@@ -178,7 +201,7 @@ div{
 	text-align: left;
 }
 .list_tilte {
-	background-image: url(../images/list_title.gif);
+	background-image: url(../images/list_title.jpg);
 	background-repeat: no-repeat;
 	margin: 0 auto;
 	clear: both;
@@ -186,12 +209,12 @@ div{
 	width: 140px;
 	padding-left: 30px;
 	font-weight: bold;
-	color: #0099CC;
+	color: #ffffff;
 	margin-top: 9px;
 	cursor:pointer;
 }
 .list_tilte_onclick {
-	background-image: url(../images/list_title_onclick.gif);
+	background-image: url(../images/list_title_onclick.jpg);
 	background-repeat: no-repeat;
 	margin: 0 auto;
 	clear: both;
@@ -199,18 +222,25 @@ div{
 	width: 140px;
 	padding-left: 30px;
 	font-weight: bold;
-	color: #0099CC;
+	color: #161514;
 	margin-top: 9px;
 	cursor:pointer;
 }
 .list_detail {
-	margin: 0 auto;
+	margin:1 auto;
+	color:#ffffff
 }
 .list_detail li{
 	list-style-image: url(../images/direct_blue.gif);
 	list-style-position: inside;
-	padding: 0 0 0 4px;
+	padding:10px 4px 10px 4px;
+	color:#fcfbfb
+	
     }
+.list_detail li:HOVER{
+	background-color: #ffffff;
+	color:#ffffff
+}
 
 #switchpic {
 	width: 6px;
@@ -242,7 +272,7 @@ div{
 }
 .bg_image_onclick{
 	 background: url(../images/manage_r2_c13.jpg) no-repeat;
-	 color:#0099CC;
+	 color:#af9d99;
 }
 #sub_info {
 	width: 99%;
@@ -265,18 +295,19 @@ div{
 	height: 600px;
 	width: 99%;
 	border: 1px solid #B4C9C6;
-	margin: 6px 0 0 0;
-	background-color:#FFFFFF;
-	padding: 5px 0 5px 0;
+	margin: 6px 1px 1px 1px;
+	background-color:#ffffff;
+	padding: 5px 3px 5px 2px;
 	overflow: auto;
 }
 #man_zone table{
-	
-    background-color:#ffffff;
+	border:#aaaaaa
+    background-color:#e1dbd9;
+    
 }
 #man_zone table tr{
-    background-color:#aaddaa;
-    border="2" 
+    background-color:#e1dbd9;
+    border="4" 
 }
 .left_title_1 {
 	background-color: #F3F8F7;
@@ -291,26 +322,4 @@ div{
 	font-weight:bold;
 	line-height:30px;
 	text-align:right;
-}
-.myButton1 {
-	background-color:#33c767;
-	-moz-border-radius:28px;
-	-webkit-border-radius:28px;
-	border-radius:28px;
-	border:1px solid #18ab29;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	padding:5px 12px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #2f6627;
-}
-.myButton1:hover {
-	background-color:#5cbf2a;
-}
-.myButton1:active {
-	position:relative;
-	top:1px;
 }

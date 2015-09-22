@@ -41,7 +41,7 @@ function link1(){
           <th class="tablestyle_title" ><div align="left">部门岗位调动</div></th>
         </tr>
         <tr>
-          <td class="CPanel"><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
+          <td class="CPanel"><table width="100%" border="0" cellpadding="4" cellspacing="1" >
               <tr class="CTitle" >
                 <td height="22" align="center" style="font-size:16px"><div align="center">部门岗位调动</div></td>
               </tr>
