@@ -172,14 +172,14 @@ div{
 	padding: 10px 10px 0 7px;
 }
 .left_back{
+	background-image: url(../images/manage_r7_c2.jpg);
+	background-repeat: no-repeat;
 	cursor:pointer;
-	padding: 10px 10px 5px 7px;
-	background-color: #af9d99
 }
 .left_back_onclick{
-	background;
+	background-image: url(../images/manage_r6_c2.jpg);
 	background-repeat: no-repeat;
-	color:##af9d99;
+	color:#333333;
 }
 #left_main_nav a{
     color:#ffffff;
