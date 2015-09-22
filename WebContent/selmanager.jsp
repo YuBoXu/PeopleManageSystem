@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="man_zone">
-<form method="post" action="hySelectManagerServlet">
+<form method="post" action="hyPageServlet">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
   
   <tr>

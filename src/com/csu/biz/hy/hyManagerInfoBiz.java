@@ -7,12 +7,12 @@ import java.util.Map;
 
 import com.csu.dao.hy.hyManagerInfoDao;
 import com.csu.util.hy.Crypt;
-//注释
+
 public class hyManagerInfoBiz {
 	private hyManagerInfoDao dao=new hyManagerInfoDao();
-	
+	//添加管理员
 	public boolean doSave(Map<String, String[]> map){
-	   //获取输入的要添加的管理员的信息.
+	   //获取输入的要添加的管理员的信息
 		System.out.println(map);
 		String name=map.get("manager_name")[0];
 		String pwd=map.get("manager_pwd")[0];
@@ -41,7 +41,8 @@ public class hyManagerInfoBiz {
 		List<HashMap<String,String>> list=(List<HashMap<String, String>>) dao.selectManagerInfo(id,name,dept);
 		return list;
 	}
-
+//获取查询到的管理员信息的分页的页数
+	
 	public int getPageCount(Map<String, String[]> map) {
 		// TODO Auto-generated method stub
 		String id=null;
@@ -60,7 +61,7 @@ public class hyManagerInfoBiz {
 		int num=count%4==0?count/4:count/4+1;
 		return num;
 	}
-
+//获取分页中的第一页的管理员信息
 	public List<HashMap<String, String>> findSignById(Map<String, String[]> map,int pageIndex) {
 		
 		String id=null;
@@ -75,7 +76,7 @@ public class hyManagerInfoBiz {
 		if(map.get("manager_dept")!=null &&!"".equals(map.get("manager_dept")[0])){
 			dept=map.get("manager_dept")[0];
 		}
-		return dao.findSignById(id,name,dept,1);
+		return dao.findSignById(id,name,dept,pageIndex);
 	
 	}
 
