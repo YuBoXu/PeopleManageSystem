@@ -42,8 +42,10 @@ public class FindSkStaffServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map<String, String[]> map = request.getParameterMap();
 		EmpInfoBiz biz = new EmpInfoBiz();
-		List<HashMap<String, String>> list =biz.findSkStaffEmp(map);
+		List<HashMap<String, String>> list =biz.findSkStaffEmp(map,"1");
 		request.getSession().setAttribute("staffinfo", list);
+		request.getSession().setAttribute("pagenumber", biz.getSkStaffpagenumber(map));
+		request.getSession().setAttribute("pageindex", 1);
 		response.sendRedirect("showzsemp.jsp");
 	}
 

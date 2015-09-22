@@ -58,8 +58,29 @@ body {
     <tr>
       <td colspan="8"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">
         <tr>
-          <td width="41%" height="34">共 <span class="right-text09">5</span> 页 | 第 <span class="right-text09">1</span> 页</td>
-          <td width="57%" align="right"> [<a href="#" class="right-font08">首页</a> | <a href="#" class="right-font08">上一页</a> | <a href="#" class="right-font08">下一页</a> | <a href="#" class="right-font08">末页</a>] </td>
+          <td width="41%" height="34">共 <span class="right-text09">${sessionScope.pagenumber }</span> 页 |
+          	 第 <span class="right-text09">${sessionScope.pageindex }</span> 页</td>
+          <td width="57%" align="right"> [
+          <c:if test="${sessionScope.pageindex==1 }">  
+                <a  class="right-font08">首页</a> |
+                <a  class="right-font08">上一页</a> | 
+             </c:if> 
+             
+             <c:if test="${sessionScope.pageindex>1 }">    
+                [<a href="PageFindTemporaryByNumberServlet?index=1" class="right-font08">首页</a> |                 
+                  <a href="PageFindTemporaryByNumberServlet?index=${sessionScope.pageindex-1 }" class="right-font08">上一页</a> |
+             </c:if> 
+                 
+              <c:if test="${sessionScope.pageindex < sessionScope.pagenumber }">      
+                 <a href="PageFindTemporaryByNumberServlet?index=${sessionScope.pageindex+1 }" class="right-font08">下一页</a> |                 
+                  <a href="PageFindTemporaryByNumberServlet?index=${sessionScope.pagenumber }" class="right-font08">末页</a>
+               </c:if>  
+               
+               <c:if test="${sessionScope.pageindex==sessionScope.pagenumber }">   
+                   <a  class="right-font08">下一页</a> |
+                   <a  class="right-font08">末页</a>
+               </c:if> 
+           ] </td>
           <td width="2%">&nbsp;</td>
         </tr>
       </table></td>

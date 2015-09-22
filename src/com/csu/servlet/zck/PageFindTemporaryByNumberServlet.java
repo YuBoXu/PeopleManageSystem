@@ -3,6 +3,7 @@ package com.csu.servlet.zck;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,19 +11,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.csu.biz.zck.DeptBiz;
+import com.csu.biz.zck.EmpInfoBiz;
 
 /**
- * Servlet implementation class PageJobServlet
+ * Servlet implementation class PageFindTemporaryByNumberServlet
  */
-@WebServlet("/PageJobServlet")
-public class PageJobServlet extends HttpServlet {
+@WebServlet("/PageFindTemporaryByNumberServlet")
+public class PageFindTemporaryByNumberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PageJobServlet() {
+    public PageFindTemporaryByNumberServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,12 +41,14 @@ public class PageJobServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String page = request.getParameter("index");
-		DeptBiz biz = new DeptBiz();
-		List<HashMap<String, String>> list = biz.findDeptByPage(page);
-		request.getSession().setAttribute("deptinfo", list);
-		request.getSession().setAttribute("pageindex", page);
-//		request.getSession().setAttribute("pagenumber", biz.getpagenumber());
-		response.sendRedirect("jobselect.jsp");
+		Map<String, String[]> map = 
+				(Map<String, String[]>) request.getSession().getAttribute("map");
+		EmpInfoBiz biz = new EmpInfoBiz();
+		List<HashMap<String, String>> list=biz.findTemporaeyEmpInfo(map,page);
+		request.getSession().setAttribute("map",map);
+		request.getSession().setAttribute("pageindex", 1);
+		request.getSession().setAttribute("emp_t", list);
+		response.sendRedirect("showsyemp.jsp");
 	}
 
 }

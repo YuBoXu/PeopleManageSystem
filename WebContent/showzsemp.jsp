@@ -61,8 +61,15 @@ body {
   <tr>
     <td colspan="7" align="center" valign="middle"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="right-font08">
       <tr>
-        <td width="50%" height="34" align="left"><span class="STYLE3">共 5 页 | 第 1 页</span></td>
-        <td width="47%" align="right">[<a href="#" class="right-font08">首页</a> | <a href="#" class="right-font08">上一页</a> | <a href="#" class="right-font08">下一页</a> | <a href="#" class="right-font08">末页</a>] </td>
+        <td width="50%" height="34" align="left">
+        <span class="STYLE3">共 5 页 |
+        	 第 1 页</span></td>
+        <td width="47%" align="right">[
+        <a href="#" class="right-font08">首页</a> | 
+        <a href="#" class="right-font08">上一页</a> | 
+        <a href="#" class="right-font08">下一页</a> |
+         <a href="#" class="right-font08">末页</a>
+         ] </td>
         <td width="3%">&nbsp;</td>
       </tr>
     </table></td>

@@ -3,8 +3,10 @@ package com.csu.dao.zck;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.neu.dao.BaseDao;
+import com.sun.org.apache.bcel.internal.generic.Select;
 
 /**
  * 
@@ -99,8 +101,18 @@ public class EmpInfoDao extends BaseDao {
 		return list;
 	}
 
-
-	public List<HashMap<String, String>> findTemporaeyEmpInfo(String number, String name, String starttime, String endtime) {
+	/**
+	 * 
+	 * @param number
+	 * @param name
+	 * @param starttime
+	 * @param endtime
+	 * @param pageindex
+	 * @param pagecount
+	 * @return
+	 * 按条件   分页进行查询
+	 */
+	public List<HashMap<String, String>> findTemporaeyEmpInfo(String number, String name, String starttime, String endtime,int pageindex,int pagecount) {
 		StringBuffer sql=new StringBuffer("select e.emp_number,e.emp_name,d.dept_name,j.job_name,t.trystate,t.begintime,t.endtime "
 				+ " from empinfo e,job j,dept d,temporaryinfo t,relationship r "
 				+ " where e.emp_number=t.emp_number and e.emp_number=r.emp_number and "
@@ -126,8 +138,52 @@ public class EmpInfoDao extends BaseDao {
 		
 //		System.out.println(sql.append(addsql).toString());
 	//	System.out.println(parement.toString());
-		List<HashMap<String, String>> list = super.findBySQL(sql.append(addsql).toString());
+		int min=(pageindex-1)*pagecount;
+		int max=pageindex*pagecount;
+		String allsql = sql.append(addsql).toString();
+		String finallysal ="select * from (select rownum r,a.* from ("+allsql+") a where rownum<=?) b where r>?" ;
+	//	List<HashMap<String, String>> list = super.findBySQL(sql.append(addsql).toString());
+		List<HashMap<String, String>> list = super.findBySQL(finallysal,max,min);
 		return list;
+	}
+
+	/**
+	 * 
+	 * @return
+	 * 查询记录数
+	 */
+	public int getEmppagenumber(String number, String name, String starttime, String endtime) {
+		StringBuffer sql=new StringBuffer("select count(*) quantity "
+				+ " from empinfo e,job j,dept d,temporaryinfo t,relationship r "
+				+ " where e.emp_number=t.emp_number and e.emp_number=r.emp_number and "
+				+ " t.emp_number=r.emp_number and j.job_number=r.job_number and d.dept_number=r.dept_number ");
+		StringBuilder addsql = new StringBuilder();
+		List<Object> parement = new ArrayList<>();
+		if (number != null && !number.trim().isEmpty()) {
+			addsql.append(" and e.emp_number="+number);
+			parement.add(number);
+		}
+		if(name != null && !name.trim().isEmpty()){
+			addsql.append(" and e.emp_name like "+"'%"+name+"%'");
+			parement.add("%"+name+"%");
+		}
+		if(starttime != null && !starttime.trim().isEmpty()){
+			addsql.append(" and t.begintime="+"'"+starttime+"'");
+			parement.add(starttime);
+		}
+		if(endtime != null && !endtime.trim().isEmpty()){
+			addsql.append(" and t.endtime="+"'"+endtime+"'");
+			parement.add(endtime);
+		}
+		
+		List<HashMap<String, String>> list = super.findBySQL(sql.append(addsql).toString());
+		int count = 0;
+		if(!list.isEmpty()){
+		Map<String, String> map = list.get(0);
+		String quantity = map.get("quantity");
+		count = Integer.parseInt(quantity);
+		}
+		return count;
 	}
 
 
@@ -165,8 +221,19 @@ public class EmpInfoDao extends BaseDao {
 		return row;
 	}
 
-
-	public List<HashMap<String, String>> findSkStaffEmp(String number, String name, String deptname, String time) {
+	/**
+	 * 
+	 * @param number
+	 * @param name
+	 * @param deptname
+	 * @param time
+	 * @param pageindex
+	 * @param pagecount
+	 * @return
+	 * 
+	 * 按分页、条件查询
+	 */
+	public List<HashMap<String, String>> findSkStaffEmp(String number, String name, String deptname, String time,int pageindex,int pagecount) {
 		StringBuffer sql = new StringBuffer("select e.emp_number,e.emp_name,d.dept_name,j.job_name,t.begintime,t.endtime,s.cometime "
 				+ " from empinfo e,job j,dept d,temporaryinfo t,relationship r,skstaff s "
 				+ " where e.emp_number=t.emp_number and e.emp_number=r.emp_number and e.emp_number=s.emp_number "
@@ -186,10 +253,56 @@ public class EmpInfoDao extends BaseDao {
 		if(time!=null && !time.trim().isEmpty()){
 			add.append(" and s.cometime= "+"'"+time+"'");
 		}
+		
+		int min = (pageindex-1)*pagecount;
+		int max =pageindex*pagecount;
+		String allsql = sql.append(add).toString();
+		String finalsql="select * from (select rownum r,a.* from ("+allsql+") a where rownum<=?) b where r>?";
 //System.out.println(sql.append(add).toString());		
-		List<HashMap<String, String>> list = super.findBySQL(sql.append(add).toString());
+		List<HashMap<String, String>> list = super.findBySQL(finalsql,max,min);
 		return list;
 	}
+
+	/**
+	 * 
+	 * @param number
+	 * @param name
+	 * @param deptname
+	 * @param time
+	 * @return
+	 * 查询转正员工的记录数
+	 */
+	public int getSkStaffpagenumber(String number, String name, String deptname, String time) {
+		StringBuffer sql = new StringBuffer("select count(*) quantity "
+				+ " from empinfo e,job j,dept d,temporaryinfo t,relationship r,skstaff s "
+				+ " where e.emp_number=t.emp_number and e.emp_number=r.emp_number and e.emp_number=s.emp_number "
+				+ " and t.emp_number=r.emp_number and t.emp_number=s.emp_number and r.emp_number=s.emp_number and "
+				+ " j.job_number = r.job_number and j.job_number=s.job_number and r.job_number=s.job_number and "
+				+ " d.dept_number=r.dept_number and t.trystate='转正' ");
+		StringBuffer add = new StringBuffer();
+		if(number!=null && !number.trim().isEmpty()){
+			add.append(" and e.emp_number= "+number);
+		}
+		if(name!=null && !name.trim().isEmpty()){
+			add.append(" and e.emp_name like "+"'%"+name+"%'");
+		}
+		if(deptname!=null && !deptname.trim().isEmpty()){
+			add.append(" and d.dept_name= "+"'"+deptname+"'");
+		}
+		if(time!=null && !time.trim().isEmpty()){
+			add.append(" and s.cometime= "+"'"+time+"'");
+		}
+		
+		List<HashMap<String, String>> list = super.findBySQL(sql.append(add).toString());
+		int count = 0;
+		if(!list.isEmpty()){
+		Map<String, String> map = list.get(0);
+		String quantity = map.get("quantity");
+		count = Integer.parseInt(quantity);
+		}
+		return count;
+	}
+
 
 
 	

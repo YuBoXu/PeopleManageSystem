@@ -161,10 +161,15 @@
     <input type="submit" name="Submit" value="办理离职" />
     </label>
     <label>
-    <input type="reset" name="Submit2" value="返回" />
+    <input type="reset" name="Submit2" value="返回" onclick="history.go(-1)"/>
     </label>
   </p>
 </form>
 </div>
 </body>
+<!-- <script type="text/javascript">
+function back(){
+	window.back();
+}
+</script> -->
 </html>

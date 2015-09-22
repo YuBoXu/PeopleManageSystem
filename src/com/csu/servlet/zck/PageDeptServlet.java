@@ -44,7 +44,7 @@ public class PageDeptServlet extends HttpServlet {
 		List<HashMap<String, String>> list = biz.findDeptByPage(page);
 		request.getSession().setAttribute("deptinfo", list);
 		request.getSession().setAttribute("pageindex", page);
-		request.getSession().setAttribute("pagenumber", biz.getpagenumber());
+//		request.getSession().setAttribute("pagenumber", biz.getpagenumber());
 		response.sendRedirect("addselect.jsp");
 	}
 
