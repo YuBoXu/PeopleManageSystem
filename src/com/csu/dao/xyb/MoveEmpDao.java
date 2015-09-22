@@ -2,6 +2,7 @@ package com.csu.dao.xyb;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.neu.dao.BaseDao;
 
@@ -12,7 +13,8 @@ public class MoveEmpDao extends BaseDao {
      * @param endtime
      * @return List<HashMap<String, String>>
      */
-	public List<HashMap<String, String>> FindMoveDeptByTime(String starttime, String endtime) {
+	public List<HashMap<String, String>> FindMoveDeptByTime(String starttime, String endtime,
+			int pageindex, int pagecount ) {
 		// TODO Auto-generated method stub
 		String sql="select olddept,newdept,emp_name,emp_sex,depttime,deptreason " 
 		        +"from EMPINFO emp,Changeinfo ci "
@@ -22,8 +24,30 @@ public class MoveEmpDao extends BaseDao {
 		        +"order by depttime   ";    
 
 		
-				return super.findBySQL(sql, starttime,endtime);
+		//		return super.findBySQL(sql, starttime,endtime);
+		int min = (pageindex-1)*pagecount;
+		int max = pageindex*pagecount;
+		String pagesql = "select * from (select rownum r,a.* from ("+sql+") a where rownum<=?) b "
+				+ " where r>?";
+		return super.findBySQL(pagesql, starttime,endtime,max,min);
 	}
+	
+	public int getPageFindMoveDept(String starttime, String endtime) {
+		String sql="select count(*) quality " 
+		        +"from EMPINFO emp,Changeinfo ci "
+		       +"where ci.emp_number=emp.emp_number " 
+		       +"and to_date(depttime,'YYYY-MM-DD ')>=to_date(?,'YYYY-MM-DD') "
+		        +"and to_date(depttime,'YYYY-MM-DD')<=to_date(?,'YYYY-MM-DD')  "
+		        +"order by depttime   ";   
+		List<HashMap<String, String>> list = super.findBySQL(sql, starttime,endtime);
+		int sum = 0;
+		if(!list.isEmpty()){
+			Map<String, String> map = list.get(0);
+			sum = Integer.parseInt(map.get("quality"));
+		}
+		return sum;
+	}
+
 	/**
      * 根据时间查找岗位调动人员信息
      * @param starttime
@@ -73,5 +97,5 @@ public class MoveEmpDao extends BaseDao {
 	  
 		return super.findBySQL(sql, empid);
 	}
-
+	
 }

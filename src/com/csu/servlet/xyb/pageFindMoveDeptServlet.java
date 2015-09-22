@@ -15,17 +15,16 @@ import javax.servlet.http.HttpSession;
 import com.csu.biz.xyb.MoveEmpBiz;
 
 /**
- * Servlet implementation class MoveDeptServlet
- * 查找调动部门人员信息
+ * Servlet implementation class pageFindMoveDeptServlet
  */
-@WebServlet("/FindMoveDeptServlet")
-public class FindMoveDeptServlet extends HttpServlet {
+@WebServlet("/pageFindMoveDeptServlet")
+public class pageFindMoveDeptServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindMoveDeptServlet() {
+    public pageFindMoveDeptServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,25 +33,23 @@ public class FindMoveDeptServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		doPost(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		Map<String, String[]> map=request.getParameterMap();
+		String page = request.getParameter("index");
+		HttpSession session = request.getSession();
+		Map<String, String[]> map =
+				(Map<String, String[]>) session.getAttribute("movedeptmap");
 		MoveEmpBiz biz=new MoveEmpBiz();
 		List<HashMap<String, String>> item=
-				biz.FindMoveDeptByTime(map,"1");
-		HttpSession session=request.getSession();
-		session.setAttribute("pageindex", 1);
-		session.setAttribute("pagenumber", biz.getPageFindMoveDept(map));
+				biz.FindMoveDeptByTime(map,page);
+		session.setAttribute("pageindex", page);
 		session.setAttribute("info", item);
-		session.setAttribute("movedeptmap", map);
 		response.sendRedirect("movedeptlist.jsp");
 	}
 
