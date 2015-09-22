@@ -1,5 +1,6 @@
 package com.csu.dao.xyb;
 
+import java.security.cert.CertPathValidatorException.Reason;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -96,6 +97,27 @@ public class MoveEmpDao extends BaseDao {
                           +"where emp_number=? and rp.job_number=j.job_number";
 	  
 		return super.findBySQL(sql, empid);
+	}
+
+	public int MoveEmp(String empid, String olddept_name, String oldjob_name, String newjob_number, String move_type,
+			String move_reason, String move_time, String newdept_name, String newdept_number, String newjob_name) {
+		// TODO Auto-generated method stub
+		String sql="insert into changeinfo "
+                           +"values(?,?,?,?,?,?, "
+		                   +"?,?,?,?,?) "
+                           +"upadate relationship "
+                           +"set dept_number=?,job_number=? "
+                            +"where  emp_number=? ";
+		return 	super.exeuteUpdate(sql, empid,olddept_name,newdept_name,move_reason,move_type,move_time,
+				oldjob_name,newjob_name,move_reason,move_type,move_time,newdept_number,newjob_number,empid);
+	}
+
+	public List<HashMap<String, String>> FindInfoToMove(String newjob_number) {
+		// TODO Auto-generated method stub
+		String sql="select dept_number,job_name "
+                +"from job j "
+                +"where job_number=? ";
+		return  super.findBySQL(sql, newjob_number);
 	}
 	
 }

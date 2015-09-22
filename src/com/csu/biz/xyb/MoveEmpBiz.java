@@ -59,5 +59,22 @@ private MoveEmpDao dao;
 		String empid=map.get("empid")[0];
 		return dao.FindJobToMove(empid);	
 	}
+	public int MoveEmp(Map<String, String[]> map) {
+		// TODO Auto-generated method stub
+		String empid=map.get("empid")[0];
+		String olddept_name=map.get("dept_name")[0];
+		String newjob_number=map.get("newjob_id")[0];
+		String move_type=map.get("type")[0];
+		String move_reason=map.get("reason")[0];
+		String move_time=map.get("movetime")[0];
+		String oldjob_name=map.get("job_name")[0];
+		String newdept_name=map.get("newdept_name")[0];
+		List<HashMap<String, String>> item=
+				dao.FindInfoToMove(newjob_number);
+		Map<String,String>info=item.get(0);
+		String  newdept_number=info.get("dept_number");
+		String  newjob_name=info.get("job_name");
+		return dao.MoveEmp(empid,olddept_name,oldjob_name,newjob_number,move_type,move_reason,move_time,newdept_name,newdept_number,newjob_name);
+	}
 	
 }
