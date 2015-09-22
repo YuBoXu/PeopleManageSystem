@@ -7,7 +7,7 @@ import java.util.Map;
 
 import com.csu.dao.hy.hyManagerInfoDao;
 import com.csu.util.hy.Crypt;
-
+//×¢ÊÍ
 public class hyManagerInfoBiz {
 	private hyManagerInfoDao dao=new hyManagerInfoDao();
 	
