@@ -12,7 +12,7 @@ public class hyManagerInfoBiz {
 	private hyManagerInfoDao dao=new hyManagerInfoDao();
 	
 	public boolean doSave(Map<String, String[]> map){
-	   //获取输入的要添加的管理员的信息
+	   //获取输入的要添加的管理员的信息.
 		System.out.println(map);
 		String name=map.get("manager_name")[0];
 		String pwd=map.get("manager_pwd")[0];

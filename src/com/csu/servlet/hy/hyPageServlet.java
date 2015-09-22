@@ -55,8 +55,8 @@ public class hyPageServlet extends HttpServlet {
 				biz.findSignById(managerMap,Integer.parseInt(index));
 		
 		session.setAttribute("pageIndex", index);
-		session.setAttribute("users", map);
-		response.sendRedirect("admin_main.jsp");
+		session.setAttribute("signs", map);
+		response.sendRedirect("selmanager.jsp");
 	}
 
 }
