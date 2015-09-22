@@ -89,4 +89,21 @@ public class DeptBiz {
 		int sum= count%10==0?count/10:count/10+1;
 		return sum;
 	}
+
+	/**
+	 * 
+	 * @param deptnumbet
+	 * @return
+	 * 查询要删除的部门
+	 */
+	public List<HashMap<String, String>> findDropDeptInfo(String deptnumbet) {
+		
+		return dao.findDropDeptInfo(deptnumbet);
+	}
+
+
+	public int updateDeptInfo(String deptnumber) {
+		int row = dao.updateDeptInfo(deptnumber);
+		return row;
+	}
 }

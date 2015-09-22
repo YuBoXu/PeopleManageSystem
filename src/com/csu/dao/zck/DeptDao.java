@@ -104,4 +104,25 @@ public class DeptDao extends BaseDao{
 		int count = Integer.parseInt(quality);
 		return count;
 	}
+
+	public List<HashMap<String, String>> findDropDeptInfo(String deptnumbet) {
+		//System.out.println(deptnumbet);
+		/*String sql="select d.* from dept d,relationship r where d.state=1 and d.dept_number in ? and r.dept_number not in ? ";
+		List<HashMap<String, String>> list = super.findBySQL(sql, deptnumbet,deptnumbet);*/
+		/*String sql="select d.* from dept d,relationship r where "
+				+ " d.state=1 and d.dept_number in "+deptnumbet+""
+						+ "  and r.dept_number not in "+deptnumbet;*/
+		String sql="select d.* from dept d where d.dept_number in"+deptnumbet+" and "
+				+ " d.dept_number not in (select r.dept_number from  relationship r "
+				+ " where r.dept_number in "+deptnumbet+")";
+		
+		List<HashMap<String, String>> list = super.findBySQL(sql);
+		return list;
+	}
+
+	public int updateDeptInfo(String deptnumber) {
+		String sql = " update dept set state=0 where dept_number=?";
+		int row = super.exeuteUpdate(sql, deptnumber);
+		return row;
+	}
 }

@@ -49,13 +49,19 @@
 </table>
 <form id="form1" name="form1" method="post" action="">
   <label>
-  <input type="submit" name="Submit" value="上一页" />
+  <c:if test="${sessionScope.pageindex>1 }">
+  	<input type="button" name="Submit" value="上一页" onclick="mySubmit('PageUpLeavingInfoServlet')" />
+  </c:if>
   </label>
   <label>
-  <input name="textfield" type="text" value="1"  size="3" />
+  
+  <input name="pagetext" type="text" value="${sessionScope.pageindex }"  size="3" />
+  
   </label>
   <label>
-  <input type="submit" name="Submit2" value="下一页" />
+  <c:if test="${sessionScope.pageindex<sessionScope.pagenumber }">
+  <input type="button" name="Submit2" value="下一页" onclick="mySubmit('PageDownLeavingInfoServlet')"/>
+  </c:if>
   </label>
 </form>
 </div>

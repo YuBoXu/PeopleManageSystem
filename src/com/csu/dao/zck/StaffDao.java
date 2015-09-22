@@ -60,7 +60,7 @@ public class StaffDao extends BaseDao {
 		int min =(pageindex-1)*pagecount;
 		int max=pageindex*pagecount;
 		String addsql=sql.append(add).toString();
-		String finallysql = "select * from (select rownum r a.* from ("+addsql+") a where rownum<=?) b where r>?";
+		String finallysql = "select * from (select rownum r ,a.* from ("+addsql+") a where rownum<=?) b where r>?";
 	//	List<HashMap<String, String>> list = super.findBySQL(sql.append(add).toString());
 		List<HashMap<String, String>> list = super.findBySQL(finallysql,max,min);
 		return list;
