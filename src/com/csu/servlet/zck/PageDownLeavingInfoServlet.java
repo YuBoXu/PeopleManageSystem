@@ -14,16 +14,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.csu.biz.zck.StaffBiz;
 
 /**
- * Servlet implementation class FindLeavingOperateServlet
+ * Servlet implementation class PageDownLeavingInfoServlet
  */
-@WebServlet("/FindLeavingOperateServlet")
-public class FindLeavingOperateServlet extends HttpServlet {
+@WebServlet("/PageDownLeavingInfoServlet")
+public class PageDownLeavingInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindLeavingOperateServlet() {
+    public PageDownLeavingInfoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,13 +40,14 @@ public class FindLeavingOperateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Map<String, String[]> map = request.getParameterMap();
+		String page = request.getParameter("pagetext");
+		int pageindex = Integer.parseInt(page);
+		Map<String, String[]> map = 
+				(Map<String, String[]>) request.getSession().getAttribute("leavingmap");
 		StaffBiz biz = new StaffBiz();
-		List<HashMap<String, String>> list = biz.findLeavingInfo(map,"1");
-		request.getSession().setAttribute("leavingmap", map);
+		List<HashMap<String, String>> list = biz.findLeavingInfo(map,String.valueOf(pageindex+1));
 		request.getSession().setAttribute("leavinginfo", list);
-		request.getSession().setAttribute("pageindex", 1);
-		request.getSession().setAttribute("pagenumber", biz.getPageLeavingInfo(map));
+		request.getSession().setAttribute("pageindex", pageindex+1);
 		response.sendRedirect("leavingInformation.jsp");
 	}
 
