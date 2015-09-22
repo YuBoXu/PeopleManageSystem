@@ -15,6 +15,7 @@ import com.csu.biz.zck.EmpInfoBiz;
 
 /**
  * Servlet implementation class PageFindTemporaryByNumberServlet
+ * 通过编号查询试用期员工信息与岗位表关联信息
  */
 @WebServlet("/PageFindTemporaryByNumberServlet")
 public class PageFindTemporaryByNumberServlet extends HttpServlet {

@@ -14,7 +14,11 @@ public class EmpInfoBiz {
 		dao = new EmpInfoDao();
 	}
 	
-
+    /**
+     * 添加员工信息
+     * @param map
+     * @return int
+     */
 	public int  addEmpInfo(Map<String, String[]> map) {
 		int row = 0;
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
@@ -87,19 +91,31 @@ public class EmpInfoBiz {
 		return row;	
 	}
 
-
+    /**
+     * 通过员工编号查找员工信息
+     * @param id
+     * @return list
+     */
 	public List<HashMap<String, String>> findEmpByIdCard(String id) {
 		List<HashMap<String,String>> list = dao.findEmpByIdCard(id);
 		return list;
 	}
 
-
+    /**
+     * 通过编号查找社会关系信息
+     * @param number
+     * @return List<HashMap<String, String>>
+     */
 	public List<HashMap<String, String>> findRlationByNumber(String number) {
 		List<HashMap<String,String>> list = dao.findRelationByNumber(number);
 		return list;
 	}
 
-
+    /**
+     * 通过编号查找职业生涯信息
+     * @param number
+     * @return List<HashMap<String, String>>
+     */
 	public List<HashMap<String, String>> findOccupationByNumber(String number) {
 		List<HashMap<String,String>> list = dao.findOccupationByNumber(number);
 		return list;
@@ -109,7 +125,7 @@ public class EmpInfoBiz {
 	 * 
 	 * @param map
 	 * @param pagenumber
-	 * @return
+	 * @return List<HashMap<String, String>>
 	 * 按分页记录查询，每页10条数据
 	 */
 	public List<HashMap<String, String>> findTemporaeyEmpInfo(Map<String, String[]> map,String pagenumber) {
@@ -123,7 +139,7 @@ public class EmpInfoBiz {
 	}
 	/**
 	 * 
-	 * @return
+	 * @return sum
 	 * 查询总页数
 	 */
 	public int getEmppagenumber(Map<String, String[]> map) {
@@ -135,13 +151,21 @@ public class EmpInfoBiz {
 		int sum = count%10==0?count/10:count/10+1;
 		return sum;
 	}
-
+    /**
+     * 通过编号查找员工信息与岗位表关联信息
+     * @param number
+     * @return List<HashMap<String, String>>
+     */
 	public List<HashMap<String, String>> findTemporaryInfoByNumber(String number) {
 		List<HashMap<String, String>> list = dao.findTemporaryInfoByNumber(number);
 		return list;
 	}
 
-
+   /**
+    * 编辑员工信息与岗位表关联信息
+    * @param map
+    * @return int
+    */
 	public int editTemproryInfo(Map<String, String[]> map) {
 		String state = map.get("zt")[0];
 		String dealtime = map.get("time")[0];
@@ -165,7 +189,7 @@ public class EmpInfoBiz {
 	 * 
 	 * @param map
 	 * @param page
-	 * @return
+	 * @return List<HashMap<String, String>>
 	 * 按翻页、条件查询
 	 */
 	public List<HashMap<String, String>> findSkStaffEmp(Map<String, String[]> map,String page) {
@@ -181,7 +205,7 @@ public class EmpInfoBiz {
 	/**
 	 * 
 	 * @param map
-	 * @return
+	 * @return sum
 	 * 查询转正员工记录数
 	 */
 	public Object getSkStaffpagenumber(Map<String, String[]> map) {

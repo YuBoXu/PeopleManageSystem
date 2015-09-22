@@ -15,6 +15,7 @@ import com.csu.biz.zck.EmpInfoBiz;
 
 /**
  * Servlet implementation class FindTemporaryByNumberServlet
+ * 通过编号查询员工信息与岗位表关联信息
  */
 @WebServlet("/FindTemporaryByNumberServlet")
 public class FindTemporaryByNumberServlet extends HttpServlet {

@@ -14,6 +14,7 @@ import com.csu.biz.zck.DeptBiz;
 
 /**
  * Servlet implementation class PageDeptGoTOServlet
+ * 输入页码分页查询部门信息
  */
 @WebServlet("/PageDeptGoTOServlet")
 public class PageDeptGoTOServlet extends HttpServlet {

@@ -17,6 +17,7 @@ import com.csu.biz.zck.EmpInfoBiz;
 
 /**
  * Servlet implementation class FindEmpByIdcardServlet
+ * 通过编号查询员工信息
  */
 @WebServlet("/FindEmpByIdcardServlet")
 public class FindEmpByIdcardServlet extends HttpServlet {

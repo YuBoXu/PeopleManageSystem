@@ -15,7 +15,7 @@ public class StaffDao extends BaseDao {
 	 * @param empname
 	 * @param pageindex
 	 * @param pagecount
-	 * @return
+	 * @return list
 	 * 按条件分页组合查询
 	 */
 	public List<HashMap<String, String>> findLeavingInfo(String deptnumber, String deptname, String empnumber,
@@ -67,12 +67,12 @@ public class StaffDao extends BaseDao {
 	}
 
 	/**
-	 * 
+	 * 获得离职员工信息分页数目
 	 * @param deptnumber
 	 * @param deptname
 	 * @param empnumber
 	 * @param empname
-	 * @return
+	 * @return count
 	 */
 	public int getPageLeavingInfo(String deptnumber, String deptname, String empnumber, String empname) {
 		StringBuffer sql = new StringBuffer("select count(*) quantity from "
@@ -102,21 +102,39 @@ public class StaffDao extends BaseDao {
 		
 		return count;
 	}
-	
+	/**
+	 * 离职操作
+	 * @param empnumber
+	 * @param jobnumber
+	 * @param place
+	 * @param leavetime
+	 * @param reason
+	 * @param radiobutton
+	 * @return row
+	 */
 	public int leavingOperate(String empnumber, String jobnumber, String place, String leavetime, String reason,
 			String radiobutton) {
 		String sql = "insert into leave (emp_number,jobid,place,leave_time,reason,peoplelibrary) values(?,?,?,?,?,?)";
 		int row =super.exeuteUpdate(sql, empnumber,jobnumber,place,leavetime,reason,radiobutton);
 		return row;
 	}
-
+    /**
+     * 修改员工信息与岗位表关联信息
+     * @param empnumber
+     * @param string
+     * @return row
+     */
 	public int updateSkStaffInfo(String empnumber, String string) {
 		String sql="update skstaff set workstate=? where emp_number=?";
 		int row = super.exeuteUpdate(sql, string,empnumber);
 		return row;
 	}
 
-
+    /**
+     * 通过员工编号获取离职人员信息
+     * @param empnumber
+     * @return list
+     */
 	public List<HashMap<String, String>> findLeavingInfoByEmpNumber(String empnumber) {
 		String sql = "select e.*,d.dept_name,j.job_name,j.job_number,s.cometime from "
 				+ " empinfo e,dept d,job j,relationship r,skstaff s where e.emp_number=r.emp_number "
@@ -128,7 +146,15 @@ public class StaffDao extends BaseDao {
 		return list;
 	}
 
-
+    /**
+     * 获取离职员工信息
+     * @param empnumber
+     * @param empname
+     * @param deptname
+     * @param jobname
+     * @param leavtype
+     * @return list
+     */
 	public List<HashMap<String, String>> findLeavedEmpInfo(String empnumber, String empname, String deptname,
 			String jobname, String leavtype) {
 		StringBuffer sql = new StringBuffer("select e.*,d.dept_name,j.job_name,j.job_number,s.cometime,l.leave_time,l.place,l.reason, l.peoplelibrary from "

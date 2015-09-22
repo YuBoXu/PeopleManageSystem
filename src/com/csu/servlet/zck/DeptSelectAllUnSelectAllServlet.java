@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class DeptSelectAllUNSelectAllServlet
+ * 全选和反选的删除
  */
 @WebServlet("/DeptSelectAllUnSelectAllServlet")
 public class DeptSelectAllUnSelectAllServlet extends HttpServlet {

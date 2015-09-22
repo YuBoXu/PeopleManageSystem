@@ -13,7 +13,11 @@ public class DeptBiz {
 		dao = new DeptDao();
 	}
 	
-	
+	/**
+	 * 编辑部门信息
+	 * @param map
+	 * @return int
+	 */
 	public int EditDept(Map<String, String[]> map){
 		String number = map.get("number")[0];
 		String name = map.get("name")[0];
@@ -27,7 +31,10 @@ public class DeptBiz {
 		
 	}
 
-
+    /**
+     * 添加部门
+     * @param map
+     */
 	public void addDept(Map<String, String[]> map) {
 		String deptname= map.get("deptname")[0];
 		String type = map.get("select")[0];
@@ -40,7 +47,11 @@ public class DeptBiz {
 		
 	}
 
-
+    /**
+     * 查找部门信息
+     * @param number
+     * @return list
+     */
 	public List<HashMap<String, String>> findDeptById(String number) {
 		List<HashMap<String, String>>  list = dao.findDeptById(number);
 		return list;
@@ -58,7 +69,11 @@ public class DeptBiz {
 		return dao.findDeptByPage(pageIndex,10);
 	}
 
-
+    /**
+     * 通过部门编号查找部门信息和员工信息
+     * @param deptnumber
+     * @return
+     */
 	public List<HashMap<String, String>> findDeptEmpInfoByDeptNumber(String deptnumber) {
 		List<HashMap<String, String>> list = dao.findDeptEmpInfoByDeptNumber(deptnumber);
 		return list;

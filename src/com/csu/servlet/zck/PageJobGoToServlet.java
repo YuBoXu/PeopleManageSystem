@@ -14,6 +14,7 @@ import com.csu.biz.zck.JobBiz;
 
 /**
  * Servlet implementation class PageJobGoToServlet
+ *  ‰»Î“≥¬Î∑÷“≥≤È—Ø
  */
 @WebServlet("/PageJobGoToServlet")
 public class PageJobGoToServlet extends HttpServlet {

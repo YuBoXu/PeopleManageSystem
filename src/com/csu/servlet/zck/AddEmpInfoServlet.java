@@ -13,6 +13,7 @@ import com.csu.biz.zck.EmpInfoBiz;
 
 /**
  * Servlet implementation class AddEmpInfoServlet
+ * 添加员工信息
  */
 @WebServlet("/AddEmpInfoServlet")
 public class AddEmpInfoServlet extends HttpServlet {

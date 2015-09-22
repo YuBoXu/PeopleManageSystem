@@ -14,10 +14,10 @@ public class StaffBiz {
 	}
 
 	/**
-	 * 
+	 * 查找离职人员信息
 	 * @param map
 	 * @param page
-	 * @return
+	 * @return list
 	 * 
 	 */
 	public List<HashMap<String, String>> findLeavingInfo(Map<String, String[]> map, String page) {
@@ -30,9 +30,9 @@ public class StaffBiz {
 		return list;
 	}
 	/**
-	 * 
+	 * 获取离职人员信息分页的页数
 	 * @param map
-	 * @return
+	 * @return sum
 	 */
 	public int getPageLeavingInfo(Map<String, String[]> map) {
 		String deptnumber = map.get("bmnum")[0];
@@ -45,7 +45,11 @@ public class StaffBiz {
 	}
 
 
-	
+	/**
+	 * 离职操作表
+	 * @param map
+	 * @return int
+	 */
 	public int leavingOperate(Map<String, String[]> map) {
 		String leavetime = map.get("lztime")[0];
 		String reason =map.get("lztype")[0];
@@ -59,13 +63,21 @@ public class StaffBiz {
 		
 	}
 
-
+    /**
+     * 通过员工编号查找离职员工信息
+     * @param empnumber
+     * @return list
+     */
 	public List<HashMap<String, String>> findLeavingInfoByEmpNumber(String empnumber) {
 		List<HashMap<String, String>> list =dao.findLeavingInfoByEmpNumber(empnumber);
 		return list;
 	}
 
-
+    /**
+     * 查找离职员工信息
+     * @param map
+     * @return list
+     */
 	public List<HashMap<String, String>> findLeavedEmpInfo(Map<String, String[]> map) {
 		String empnumber = map.get("ygnum")[0];
 		String empname=map.get("ygname")[0];

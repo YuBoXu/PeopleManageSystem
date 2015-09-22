@@ -15,6 +15,7 @@ import com.csu.biz.zck.EmpInfoBiz;
 
 /**
  * Servlet implementation class FindTemporaryEmpServlet
+ * 查询员工试用期信息
  */
 @WebServlet("/FindTemporaryEmpServlet")
 public class FindTemporaryEmpServlet extends HttpServlet {

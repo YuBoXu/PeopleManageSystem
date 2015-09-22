@@ -6,12 +6,26 @@ import java.util.List;
 import com.neu.dao.BaseDao;
 
 public class JobDao extends BaseDao{
+	/**
+	 * 添加岗位信息
+	 * @param name
+	 * @param type
+	 * @param count
+	 * @param limit
+	 * @return counts
+	 */
 	public int addJob(String name,String type,String count,String limit) {
 		String sql="insert into job (job_number,job_name,job_type,job_count,job_limit)"
 				+ " values (seq_job_id.nextval,?,?,?,?)";
 		int counts =super.exeuteUpdate(sql, name,type,count,limit);
 		return counts;
 	}
+	/**
+	 * 按页查询岗位信息
+	 * @param pageindex
+	 * @param pageCount
+	 * @return list
+	 */
   public List<HashMap<String, String>> findJobByPage(int pageindex,int pageCount){
 	/*  String sql = "select j.job_number,j.job_name,j.job_type,j.job_count,j.job_limit,d.dept_number,d.dept_name from job j "
 	  		+ " left join relationship r on r.job_number=j.job_number and j.state=1 and r.state=1 "
@@ -28,13 +42,26 @@ public class JobDao extends BaseDao{
 	  return list;
   }
   
-  
+  /**
+   * 按照员工编号查询岗位信息
+   * @param number
+   * @return list
+   */
 public List<HashMap<String, String>> findJobById(String number) {
 	String sql = "select *from job where state=1 and job_number=?";
 	List<HashMap<String, String>> list = super.findBySQL(sql, number);
 	return list;
 }
-
+/**
+ * 编辑岗位信息
+ * @param name
+ * @param type
+ * @param count
+ * @param limit
+ * @param deptname
+ * @param number
+ * @return row
+ */
 public int editJob(String name, String type, String count, String limit, String deptname, String number){
 	String sql = "update job set job_name=?,job_type=?,job_count=?,"
 			+ "job_limit=?,dept_name=? where job_number=?";
@@ -61,7 +88,7 @@ public List<HashMap<String, String>> findJonEmpInfoByJobNumber(String jobnumber)
 
 /**
  * 
- * @return
+ * @return count
  * 查询岗位的记录条数
  */
 public int getPageNumber() {
