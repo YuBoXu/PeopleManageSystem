@@ -6,7 +6,13 @@ import java.util.List;
 import com.neu.dao.BaseDao;
 
 public class FindNewDao extends BaseDao{
-    //查找新进人员的信息的sql语句
+    /**查找新进人员的信息
+     * Sql语句
+     * @param starttime
+     * @param endtime
+     * @param deptname
+     * @return
+     */
 	public List<HashMap<String, String>> findNewByTime(String starttime, String endtime, String deptname) {
 		// TODO Auto-generated method stub
 		String sql="select emp.emp_number,dept_name,job_name,emp_name,emp_sex,toworktime,education "

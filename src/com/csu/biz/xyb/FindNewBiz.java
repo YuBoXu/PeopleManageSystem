@@ -11,7 +11,11 @@ public class FindNewBiz {
 	public FindNewBiz(){
 		dao=new FindNewDao();
 	}
-	//查找新进职员
+	/**查找新进职员
+	 * 
+	 * @param map
+	 * @return List<HashMap<String, String>>
+	 */
 	public List<HashMap<String, String>> findNewByTime(Map<String, String[]> map) {
 		// TODO Auto-generated method stub
 		String starttime=map.get("starttime")[0];
