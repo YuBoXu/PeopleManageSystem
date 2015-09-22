@@ -90,4 +90,20 @@ public class JobBiz {
 		return sum;
 	}
 
+
+	public List<HashMap<String, String>> findDropJobInfo(String jobnumbet) {
+		
+		return dao.findDropJobInfo(jobnumbet);
+	}
+
+
+	public int updateJonInfo(String jobnumber) {
+		return dao.updateJonInfo(jobnumber);
+	}
+
+
+	public List<HashMap<String, String>> findJobByRelationship(String jobnumber) {
+		return dao.findJobByRelationship(jobnumber);
+	}
+
 }
