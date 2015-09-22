@@ -54,7 +54,8 @@ public class MoveEmpDao extends BaseDao {
      * @param endtime
      * @return List<HashMap<String, String>>
      */
-	public List<HashMap<String, String>> FindMoveJobByTime(String starttime, String endtime) {
+	public List<HashMap<String, String>> FindMoveJobByTime(String starttime, String endtime,
+			int pageindex,int pagecount) {
 		// TODO Auto-generated method stub
 		String sql="select newdept,oldjob,newjob,emp_name,emp_sex,jobtime,jobreason " 
 		        +"from EMPINFO emp,Changeinfo ci "
@@ -64,10 +65,28 @@ public class MoveEmpDao extends BaseDao {
 		        +"order by jobtime   ";    
 
 		
-				return super.findBySQL(sql, starttime,endtime);
+			//	return super.findBySQL(sql, starttime,endtime);
+		int min = (pageindex-1)*pagecount;
+		int max = pageindex*pagecount;
+		String pagesql = "select * from (select rownum r, a.* from ("+sql+") a where rownum<=?) b where r>?";
+		return super.findBySQL(pagesql, starttime,endtime,max,min);
 	}
 
-
+	public int getPageMovejob(String starttime, String endtime) {
+		String sql="select count(*) quality " 
+		        +"from EMPINFO emp,Changeinfo ci "
+		       +"where ci.emp_number=emp.emp_number " 
+		       +"and to_date(jobtime,'YYYY-MM-DD ')>=to_date(?,'YYYY-MM-DD') "
+		        +"and to_date(jobtime,'YYYY-MM-DD')<=to_date(?,'YYYY-MM-DD')  "
+		        +"order by jobtime   ";    
+		List<HashMap<String, String>> list = super.findBySQL(sql, starttime,endtime);
+		int number = 0;
+		if(!list.isEmpty()){
+			Map<String, String> map = list.get(0);
+			number = Integer.parseInt(map.get("quality"));
+		}
+		return number;
+	}
 	
 
     /**
@@ -97,5 +116,7 @@ public class MoveEmpDao extends BaseDao {
 	  
 		return super.findBySQL(sql, empid);
 	}
+
+
 	
 }
