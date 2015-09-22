@@ -70,6 +70,7 @@ public class MoveEmpDao extends BaseDao {
 		String sql="select rp.dept_number,rp.job_number,dept_name,job_name "
                           +"from relationship rp,job j "
                           +"where emp_number=? and rp.job_number=j.job_number";
+	  
 		return super.findBySQL(sql, empid);
 	}
 

@@ -69,10 +69,11 @@ function link1(){
                     
                     <tr>
                       <td height="53"><div align="left"></div></td>
-                      <td colspan="3"><div align="left">
+                      <td colspan="3"><div align="left">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="submit" name="Submit" value="²éÑ¯" />
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <input type="reset" name="Submit" value="È¡Ïû" />
+
+
                       </div></td>
                     </tr>
                   </table>

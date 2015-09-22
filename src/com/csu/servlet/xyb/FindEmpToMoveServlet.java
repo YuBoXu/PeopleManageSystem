@@ -47,11 +47,15 @@ public class FindEmpToMoveServlet extends HttpServlet {
 		MoveEmpBiz biz=new MoveEmpBiz();
 		List<HashMap<String, String>> item=
 				biz.FindEmpToMove(map);
-		List<HashMap<String, String>> moveInfo=
-				biz.FindJobToMove(map);
 		HttpSession session=request.getSession();
 		session.setAttribute("info", item);
-		session.setAttribute("moveInfo", moveInfo);
+		List<HashMap<String, String>> moveInfo=
+				biz.FindJobToMove(map);
+		if(!moveInfo.isEmpty()){
+		Map<String,String> moveMap=moveInfo.get(0);
+		//System.out.println(""+moveMap);
+		session.setAttribute("moveInfo", moveMap);
+		}
 		response.sendRedirect("updatesel.jsp");
 	}
 
