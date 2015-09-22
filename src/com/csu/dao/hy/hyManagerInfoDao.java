@@ -12,14 +12,28 @@ import com.neu.dao.BaseDao;
  *
  */
 public class hyManagerInfoDao extends BaseDao {
-	//添加管理员功能中保存输入的管理员信息
+	/**添加管理员功能中保存输入的管理员信息
+	 * 
+	 * @param name
+	 * @param pwd
+	 * @param dept
+	 * @param tel
+	 * @param date
+	 * @return int
+	 */
 	public int save(String name,String pwd,String dept,String tel,String date){
 		String sql="insert into manager "
 				+ "values(seq_manager_id.nextval,?,?,?,?,?,'','','',1)";
 		int i=super.exeuteUpdate(sql, name,pwd,dept,tel,date);
 		return i;
 	}
-    //查询管理员时通过输入的查询条件查询管理员信息
+    /**查询管理员时通过输入的查询条件查询管理员信息
+     * 
+     * @param id
+     * @param name
+     * @param dept
+     * @return HashMap<String, String>
+     */
 	public HashMap<String, String> selectManagerInfo(String id, String name, String dept) {
 		// TODO Auto-generated method stub
         String sql="select * from manager where 1=1 ";
@@ -36,7 +50,13 @@ public class hyManagerInfoDao extends BaseDao {
 		super.findBySQL(sql);
 		return null;
 	}
-    //获取查询到管理员信息的总的数据量
+    /**获取查询到管理员信息的总的数据量
+     * 
+     * @param id
+     * @param name
+     * @param dept
+     * @return  SignCount
+     */
 	public int findSignCount(String id, String name, String dept) {
 		// TODO Auto-generated method stub
 		String sql="select count(manager_id) c from manager where 1=1 ";
@@ -55,7 +75,14 @@ public class hyManagerInfoDao extends BaseDao {
 		
 		return Integer.parseInt(list.get(0).get("c"));
 	}
-//高级查询，分页
+/**高级查询，分页
+ * 
+ * @param id
+ * @param name
+ * @param dept
+ * @param pageIndex
+ * @return List<HashMap<String, String>>
+ */
 	public List<HashMap<String, String>> findSignById(String id, String name, String dept,int pageIndex) {
 		// TODO Auto-generated method stub
 		int max=pageIndex*4;
@@ -77,7 +104,16 @@ public class hyManagerInfoDao extends BaseDao {
 		return super.findBySQL(sql,max,min);
 	
 	}
-//修改管理员信息
+/**修改管理员信息
+ * 
+ * @param id
+ * @param name
+ * @param pwd
+ * @param dept
+ * @param tel
+ * @param date
+ * @return int
+ */
 	public int updateManager(String id,String name, String pwd, String dept, String tel,
 			String date) {
 		// TODO Auto-generated method stub
@@ -87,7 +123,11 @@ public class hyManagerInfoDao extends BaseDao {
 		int i = super.exeuteUpdate(sql, pwd,dept,tel,date,name,id);
 		return i;
 	}
-//删除管理员信息
+/**删除管理员信息
+ * 
+ * @param id
+ * @return int
+ */
 	public int doDeleteManager(String id) {
 		// TODO Auto-generated method stub
 		String sql="delete from manager "
@@ -95,7 +135,10 @@ public class hyManagerInfoDao extends BaseDao {
 		int i=super.exeuteUpdate(sql);
 		return i;
 	}
-//编辑管理员信息时通过此方法获取要修改的管理员的信息
+/**编辑管理员信息时通过此方法获取要修改的管理员的信息
+ * 
+ * @return list
+ */
 	public List<HashMap<String, String>> findAll() {
 		// TODO Auto-generated method stub
 		String sql="select * from manager order by manager_id";
@@ -103,13 +146,22 @@ public class hyManagerInfoDao extends BaseDao {
 				super.findBySQL(sql);
 		return list;
 	}
-
+    /**
+     * 根据id查找信息                                                                                                                                       
+     * @param id
+     * @return
+     */
 	public List<HashMap<String, String>> findSignById(String id) {
 		// TODO Auto-generated method stub
 		String sql="select * from manager where manager_id=?";
 		return super.findBySQL(sql, id);
 	}
-//管理员登录时获取输入信息进行查询验证
+    /**管理员登录时获取输入信息进行查询验证
+     * 
+     * @param name
+     * @param pwd
+     * @return 
+     */
 	public HashMap<String, String> checkLogin(String name, String pwd) {
 		// TODO Auto-generated method stub
 		String sql="select * from manager where "
