@@ -186,7 +186,7 @@ div{
 }
 #right_main_nav {
 	width: 173px;
-	border-top-width: 1px;
+	border-top-width: 2px;
 	border-bottom-width: 1px;
 	border-top-style: solid;
 	border-bottom-style: solid;
@@ -203,7 +203,7 @@ div{
 .list_tilte {
 	background-image: url(../images/list_title.jpg);
 	background-repeat: no-repeat;
-	margin: 0 auto;
+	margin: 10 auto;
 	clear: both;
 	height: 22px;
 	width: 140px;
@@ -227,14 +227,14 @@ div{
 	cursor:pointer;
 }
 .list_detail {
-	margin:1 auto;
+	margin:3auto;
 	color:#ffffff
 }
 .list_detail li{
 	list-style-image: url(../images/direct_blue.gif);
 	list-style-position: inside;
 	padding:10px 4px 10px 4px;
-	color:#fcfbfb
+	color:#fff
 	
     }
 .list_detail li:HOVER{
