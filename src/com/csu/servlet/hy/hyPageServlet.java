@@ -18,7 +18,7 @@ import com.csu.biz.hy.hyManagerInfoBiz;
 
 /**
  * Servlet implementation class PageServlet
- * 分页
+ * 将查询到的管理员信息进行分页
  * 
  */
 @WebServlet("/hyPageServlet")

@@ -16,6 +16,7 @@ import com.csu.biz.xyb.FindNewBiz;
 
 /**
  * Servlet implementation class FindNewServlet
+ * 查找新进人员信息
  */
 @WebServlet("/FindNewServlet")
 public class FindNewServlet extends HttpServlet {

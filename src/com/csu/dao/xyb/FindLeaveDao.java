@@ -6,7 +6,7 @@ import java.util.List;
 import com.neu.dao.BaseDao;
 
 public class FindLeaveDao extends BaseDao{
-
+    //查找离职人员信息
 	public List<HashMap<String, String>> findLeaveByTime(String starttime, String endtime, String deptname) {
 		// TODO Auto-generated method stub
 		String sql="select lv.emp_number,place,job_name,emp_name,emp_sex,leave_time,reason "
