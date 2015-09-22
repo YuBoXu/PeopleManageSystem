@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.csu.dao.xyb.FindLeaveDao;
 import com.csu.dao.xyb.FindNewDao;
 public class FindNewBiz {
 	private FindNewDao dao;
@@ -20,9 +19,7 @@ public class FindNewBiz {
 	
 		String deptname=map.get("deptname")[0];
 		
-		List<HashMap<String, String>> list=
-				dao.findNewByTime(starttime,endtime,deptname);
-		System.out.println(list.toString());
+		
 		return dao.findNewByTime(starttime,endtime,deptname);
 	}
 

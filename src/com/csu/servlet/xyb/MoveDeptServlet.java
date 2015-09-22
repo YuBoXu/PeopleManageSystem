@@ -3,6 +3,7 @@ package com.csu.servlet.xyb;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,19 +12,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.csu.biz.xyb.UserInfoBiz;
+import com.csu.biz.xyb.MoveEmpBiz;
 
 /**
- * Servlet implementation class ShowSignServlet
+ * Servlet implementation class MoveDeptServlet
  */
-@WebServlet("/ShowSignServlet")
-public class ShowSignServlet extends HttpServlet {
+@WebServlet("/MoveDeptServlet")
+public class MoveDeptServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowSignServlet() {
+    public MoveDeptServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,8 +34,8 @@ public class ShowSignServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 		doPost(request, response);
-		
 	}
 
 	/**
@@ -42,14 +43,13 @@ public class ShowSignServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		String time=request.getParameter("time");
-		UserInfoBiz biz=new UserInfoBiz();
-		List<HashMap<String, String>> list=biz.findSignByTime(time);
+		Map<String, String[]> map=request.getParameterMap();
+		MoveEmpBiz biz=new MoveEmpBiz();
+		List<HashMap<String, String>> item=
+				biz.FindMoveDeptByTime(map);
 		HttpSession session=request.getSession();
-		session.setAttribute("signs", list);
-		session.setAttribute("time",time );
-		response.sendRedirect("adminCheck.jsp");
+		session.setAttribute("info", item);
+		response.sendRedirect("movedeptlist.jsp");
 	}
 
 }
