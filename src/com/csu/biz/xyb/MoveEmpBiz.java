@@ -28,9 +28,14 @@ private MoveEmpDao dao;
 
 	public List<HashMap<String, String>> FindEmpToMove(Map<String, String[]> map) {
 		// TODO Auto-generated method stub
-		String deptname=map.get("deptname")[0];	
-		String jobname=map.get("jobname")[0];
+		
 		String empid=map.get("empid")[0];
-		return dao.FindEmpToMove(deptname,jobname,empid);
+		return dao.FindEmpToMove(empid);
+	}
+
+	public List<HashMap<String, String>> FindJobToMove(Map<String, String[]> map) {
+		// TODO Auto-generated method stub
+		String empid=map.get("empid")[0];
+		return dao.FindJobToMove(empid);	
 	}
 }
