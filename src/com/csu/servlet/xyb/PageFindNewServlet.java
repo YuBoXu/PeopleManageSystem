@@ -13,19 +13,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.csu.biz.xyb.FindNewBiz;
+import com.sun.xml.internal.ws.developer.StreamingAttachment;
 
 /**
- * Servlet implementation class FindNewServlet
- * 查找新进人员信息
+ * Servlet implementation class PageFindNewServlet
  */
-@WebServlet("/FindNewServlet")
-public class FindNewServlet extends HttpServlet {
+@WebServlet("/PageFindNewServlet")
+public class PageFindNewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindNewServlet() {
+    public PageFindNewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,26 +34,26 @@ public class FindNewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		doPost(request, response);
+	
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		Map<String, String[]> map=request.getParameterMap();
+		HttpSession session = request.getSession();
+		String page = request.getParameter("index");
+		Map<String, String[]> map=
+				(Map<String, String[]>) session.getAttribute("findnewmap");
 		FindNewBiz biz=new FindNewBiz();
 		List<HashMap<String, String>> item=
-				biz.findNewByTime(map,"1");
-		HttpSession session=request.getSession();
-		session.setAttribute("findnewmap", map);
+				biz.findNewByTime(map,page);
 		session.setAttribute("info", item);
-		session.setAttribute("pageindex", 1);
-		session.setAttribute("pagenumber", biz.getPageFindNewByTime(map));
+		session.setAttribute("pageindex", page);
 		response.sendRedirect("newemplist.jsp");
+		
 	}
 
 }
