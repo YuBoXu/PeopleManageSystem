@@ -42,7 +42,7 @@ function unselectAll(){
 
 <body>
 <div id="man_zone">
-<form name="fom" id="fom" method="post" action="PageDeptGoTOServlet">
+<form name="fom" id="fom" method="post" action="">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" >
   
   <tr>
@@ -64,7 +64,10 @@ function unselectAll(){
         <tr>
           <td><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
           	 <tr>
-               <td height="20"><span class="newfont07">批处理：<a href="#" class="right-font08 STYLE1" onclick="selectAll();">全选</a>-<a href="#" class="right-font08 STYLE1 " onclick="unselectAll();">反选 </a><a href="multidel.html" class="STYLE1" > 删除</a>             </td>
+               <td height="20"><span class="newfont07">批处理：
+               <a href="#" class="right-font08 STYLE1" onclick="selectAll();">全选</a>-
+               <a href="#" class="right-font08 STYLE1 " onclick="unselectAll();">反选 </a>
+               <a href="javascript:mySubmit('DeptSelectAllUnSelectAllServlet');" class="STYLE1" > 删除</a>             </td>
           	   <td align="right"></td>
           	 </tr>
               <tr>
@@ -89,7 +92,7 @@ function unselectAll(){
                <c:forEach var="dept" items="${sessionScope.deptinfo }" varStatus="state">   
                   <tr bgcolor="#FFFFFF">
 				    <td height="20"><div align="center">
-				      <input type="checkbox" name="delid"/>
+				      <input type="checkbox" name="delid" value="${dept.dept_number }"/>
 				      </div></td>
                     <td ><div align="center">${state.index+1 }</div></td>
                     <td ><div align="center">${dept.dept_number }</div></td>
@@ -105,7 +108,7 @@ function unselectAll(){
                     <td><div align="center">${dept.dept_describe }</div></td>
                     <td><div align="center">${dept.dept_top }</div></td>
                     <td><div align="center">${dept.dept_date }</div></td>
-                    <td><div align="center"> <a href="FindDeptByIDServlet?number=${dept.dept_number }">编辑 </a>|<a href="#" onclick="link1();"> 删除 </a>|
+                    <td><div align="center"> <a href="FindDeptByIDServlet?number=${dept.dept_number }">编辑 </a>|<a href="javascript:link1()"> 删除 </a>|
                     <a href="FindDeptEmpInfoServlet?deptnumber=${dept.dept_number }"> 查询部门下员工</a></div></td>
                   </tr>
 				</c:forEach>   
@@ -136,20 +139,20 @@ function unselectAll(){
                  
               <c:if test="${sessionScope.pageindex < sessionScope.pagenumber }">      
                  <a href="PageDeptServlet?index=${sessionScope.pageindex+1 }" class="right-font08">下一页</a> |                 
-                  <a href="PageDeptServlet?index=${sessionScope.pagenumber }" class="right-font08">末页</a>]
+                  <a href="PageDeptServlet?index=${sessionScope.pagenumber }" class="right-font08">末页</a>
                </c:if>  
                
                <c:if test="${sessionScope.pageindex==sessionScope.pagenumber }">   
                    <a  class="right-font08">下一页</a> |
-                   <a  class="right-font08">末页</a>]
+                   <a  class="right-font08">末页</a>
                </c:if>  
-               
+               ]
                    转至：</td>
                    
                 <td width="5%"><table width="20" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                       <td width="1%"><input name="gotopage" type="text" class="right-textfield03" size="3" /></td>
-                      <td width="87%"><input name="Submit23222" type="submit" class="button08" value="GO" />
+                      <td width="87%"><input name="Submit23222" type="button" class="button08" value="GO" onclick="mySubmit('PageDeptGoTOServlet')" />
                       </td>
                     </tr>
                 </table></td>
@@ -169,4 +172,14 @@ function unselectAll(){
  
 </div>
 </body>
+<script type="text/javascript">
+	function mySubmit(url)
+	{
+		var f=document.forms[0];
+		f.action=url;
+		f.submit();
+		
+	}
+	
+</script>
 </html>

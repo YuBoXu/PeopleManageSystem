@@ -42,8 +42,10 @@ public class FindTemporaryEmpServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map<String, String[]> map = request.getParameterMap();
 		EmpInfoBiz biz = new EmpInfoBiz();
-		List<HashMap<String, String>> list=biz.findTemporaeyEmpInfo(map);
-		
+		List<HashMap<String, String>> list=biz.findTemporaeyEmpInfo(map,"1");
+		request.getSession().setAttribute("map",map);
+		request.getSession().setAttribute("pageindex", 1);
+		request.getSession().setAttribute("pagenumber", biz.getEmppagenumber(map));
 		request.getSession().setAttribute("emp_t", list);
 		response.sendRedirect("showsyemp.jsp");
 	}

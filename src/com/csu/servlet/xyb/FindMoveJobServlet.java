@@ -15,16 +15,16 @@ import javax.servlet.http.HttpSession;
 import com.csu.biz.xyb.MoveEmpBiz;
 
 /**
- * Servlet implementation class MoveDeptServlet
+ * Servlet implementation class FindMoveJobServlet
  */
-@WebServlet("/MoveDeptServlet")
-public class MoveDeptServlet extends HttpServlet {
+@WebServlet("/FindMoveJobServlet")
+public class FindMoveJobServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MoveDeptServlet() {
+    public FindMoveJobServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,10 +46,10 @@ public class MoveDeptServlet extends HttpServlet {
 		Map<String, String[]> map=request.getParameterMap();
 		MoveEmpBiz biz=new MoveEmpBiz();
 		List<HashMap<String, String>> item=
-				biz.FindMoveDeptByTime(map);
+				biz.FindMoveJobByTime(map);
 		HttpSession session=request.getSession();
 		session.setAttribute("info", item);
-		response.sendRedirect("movedeptlist.jsp");
+		response.sendRedirect("movebmlist.jsp");
 	}
 
 }

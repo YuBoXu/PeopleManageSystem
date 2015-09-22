@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=GB18030">
 <link rel="stylesheet" href="css/common.css" type="text/css" />
 <script language="javascript" type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
-<title>部门调动员工查询</title>
+<title>岗位调动员工查询</title>
 
 <style type="text/css">
 body {
@@ -26,11 +26,11 @@ body {
 
 <body>
 <div id="man_zone">
-<form id="form" name="form" method="post"  action="FindMoveDeptServlet"  >
-  <p><span class="STYLE5">部门调动员工查询</span></p>
+<form id="form" name="form" method="post"  action="FindMoveJobServlet"  >
+  <p><span class="STYLE5">岗位调动员工查询</span></p>
   <table width="100%" border="0">
     <tr>
-      <td><div align="center"><span class="STYLE5">部门调动员工查询</span></div></td>
+      <td><div align="center"><span class="STYLE5">岗位调动员工查询</span></div></td>
     </tr>
   </table>
   <label><br />

@@ -14,13 +14,15 @@ private MoveEmpDao dao;
 
 	public List<HashMap<String, String>> FindMoveDeptByTime(Map<String, String[]> map) {
 		// TODO Auto-generated method stub
-String starttime=map.get("starttime")[0];
-		
+        String starttime=map.get("starttime")[0];	
 		String endtime=map.get("endtime")[0];
-	
-		
-		
-		
 		return dao.FindMoveDeptByTime(starttime,endtime);
+	}
+
+	public List<HashMap<String, String>> FindMoveJobByTime(Map<String, String[]> map) {
+		// TODO Auto-generated method stub
+		 String starttime=map.get("starttime")[0];	
+			String endtime=map.get("endtime")[0];
+			return dao.FindMoveJobByTime(starttime,endtime);
 	}
 }

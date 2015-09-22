@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GB18030">
 <link rel="stylesheet" href="css/common.css" type="text/css" />
-<title>部门调动员工报表</title>
+<title>岗位调动员工报表</title>
 <SCRIPT language="javascript">
 
 function selectAll(){
@@ -52,9 +52,9 @@ function unselectAll(){
             </tr>
           <tr bgcolor="#EEEEEE">
             <td width="128" height="30" align="center">选择</td>
-            <td width="128">原部门名称</td>
-            <td width="128">新部门名称</td>
-       
+            <td width="128">部门名称</td>
+            <td width="128">原岗位名称</td>
+       <td width="128">新岗位名称</td>
             <td width="128">姓名 </td>
             <td width="128">性别</td>
             <td width="130">调动日期</td>
@@ -63,17 +63,19 @@ function unselectAll(){
           <c:forEach var="info" items="${sessionScope.info }">
           <tr bgcolor="#FFFFFF">
             <td height="20"><input type="checkbox" name="delid"/></td>
-            <td>${info.olddept}
-            </td>
             <td>${info.newdept}
+            </td>
+            <td>${info.oldjob}
+            </td>
+            <td>${info.newjob}
             </td>
             <td>${info.emp_name}
             </td>
             <td>${info.emp_sex}
             </td>
-            <td>${info.depttime}
+            <td>${info.jobtime}
             </td>
-            <td>${info.deptreason}
+            <td>${info.jobreason}
             </td>
           </tr>
          </c:forEach>

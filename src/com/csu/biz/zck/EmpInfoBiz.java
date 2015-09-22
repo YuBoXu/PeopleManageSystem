@@ -105,16 +105,36 @@ public class EmpInfoBiz {
 		return list;
 	}
 
-
-	public List<HashMap<String, String>> findTemporaeyEmpInfo(Map<String, String[]> map) {
+	/**
+	 * 
+	 * @param map
+	 * @param pagenumber
+	 * @return
+	 * 按分页记录查询，每页10条数据
+	 */
+	public List<HashMap<String, String>> findTemporaeyEmpInfo(Map<String, String[]> map,String pagenumber) {
 		String number = map.get("bianhao")[0];
 		String name = map.get("xingming")[0];
 		String starttime = map.get("starttime2")[0];
 		String endtime = map.get("time2")[0];
-		List<HashMap<String, String>> empmap = dao.findTemporaeyEmpInfo(number,name,starttime,endtime);
+		int pageindex = Integer.parseInt(pagenumber);
+		List<HashMap<String, String>> empmap = dao.findTemporaeyEmpInfo(number,name,starttime,endtime,pageindex,10);
 		return empmap;
 	}
-
+	/**
+	 * 
+	 * @return
+	 * 查询总页数
+	 */
+	public int getEmppagenumber(Map<String, String[]> map) {
+		String number = map.get("bianhao")[0];
+		String name = map.get("xingming")[0];
+		String starttime = map.get("starttime2")[0];
+		String endtime = map.get("time2")[0];
+		int count = dao.getEmppagenumber(number,name,starttime,endtime);
+		int sum = count%10==0?count/10:count/10+1;
+		return sum;
+	}
 
 	public List<HashMap<String, String>> findTemporaryInfoByNumber(String number) {
 		List<HashMap<String, String>> list = dao.findTemporaryInfoByNumber(number);
@@ -141,14 +161,38 @@ public class EmpInfoBiz {
 		return row;
 	}
 
-
-	public List<HashMap<String, String>> findSkStaffEmp(Map<String, String[]> map) {
+	/**
+	 * 
+	 * @param map
+	 * @param page
+	 * @return
+	 * 按翻页、条件查询
+	 */
+	public List<HashMap<String, String>> findSkStaffEmp(Map<String, String[]> map,String page) {
 		String number = map.get("bianhao")[0];
 		String name=map.get("xingming")[0];
 		String deptname=map.get("bumen")[0];
 		String time = map.get("time")[0];
-		List<HashMap<String, String>> list = dao.findSkStaffEmp(number,name,deptname,time);
+		int pageindex = Integer.parseInt(page);
+		List<HashMap<String, String>> list = dao.findSkStaffEmp(number,name,deptname,time,pageindex,10);
 		return list;
 	}
+
+	/**
+	 * 
+	 * @param map
+	 * @return
+	 * 查询转正员工记录数
+	 */
+	public Object getSkStaffpagenumber(Map<String, String[]> map) {
+		String number = map.get("bianhao")[0];
+		String name=map.get("xingming")[0];
+		String deptname=map.get("bumen")[0];
+		String time = map.get("time")[0];
+		int count = dao.getSkStaffpagenumber(number,name,deptname,time);
+		int sum = count%10==0?count/10:count/10+1;
+		return sum;
+	}
+	
 
 }

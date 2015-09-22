@@ -49,15 +49,17 @@ public class hyPageServlet extends HttpServlet {
 		String index=request.getParameter("index");
 		HttpSession session=
 				request.getSession();
-		Map<String, String[]> managerMap=(Map<String, String[]>) session.getAttribute("managerMap");
+		Map<String, String[]> managerMap=(Map<String, String[]>) session.getAttribute("mm");
 		hyManagerInfoBiz biz=new hyManagerInfoBiz();
 		List<HashMap<String, String>> map=
 				biz.findSignById(managerMap,Integer.parseInt(index));
-		
+		System.out.println("map:"+map);
 		session.setAttribute("pageIndex", index);
-		session.setAttribute("users", map);
-		response.sendRedirect("admin_main.jsp");
+		session.setAttribute("signs", map);
+		response.sendRedirect("selmanager.jsp");
 	}
 
 }
+
+
 
