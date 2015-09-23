@@ -131,7 +131,7 @@ public class MoveEmpDao extends BaseDao {
 		return 	super.exeuteUpdate(sql, empid,olddept_name,newdept_name,move_reason,move_type,move_time,
 				oldjob_name,newjob_name,move_reason,move_type,move_time,newdept_number,newjob_number,empid);
 	}
-
+//查找其他信息
 	public List<HashMap<String, String>> FindInfoToMove(String newjob_number) {
 		// TODO Auto-generated method stub
 		String sql="select dept_number,job_name "
