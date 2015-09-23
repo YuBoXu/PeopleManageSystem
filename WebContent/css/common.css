@@ -69,7 +69,7 @@ input:active {
 }
 
 a {
-	color: #af9d99;
+	color: #000;
 	text-decoration:none;
 }
 a:hover {
@@ -101,7 +101,7 @@ div{
 	margin: 0 auto;
 	padding:0px;
 	width: 100%;
-	background-color: #af9d99;
+	background-color: #fff;
 }
 .header_content .logo {
 	height: 50px;
@@ -163,7 +163,13 @@ div{
 	float: left;
 	width: 25px;
 	line-height: 13px;
-	color:#af9d99;;
+	color:#000;;
+}
+#left_main_nav:hover {
+	float: left;
+	width: 25px;
+	line-height: 13px;
+	color:#aaa;
 }
 #left_main_nav li{
 	height:69px;
@@ -191,9 +197,9 @@ div{
 	border-top-style: solid;
 	border-bottom-style: solid;
 	border-top-color: #B4C9C6;
-	border-bottom-color: #aaaaaa;
+	border-bottom-color: #fff;
 	float: right;
-	background-color: #757f85;
+	background-color: #e1dbd9;
 	border-right-width: 1px;
 	border-right-style: solid;
 	border-right-color: #B4C9C6;
@@ -269,10 +275,11 @@ div{
 .bg_image{
 	 background: url(../images/manage_r2_c14.jpg) no-repeat;
 	 cursor:pointer;
+	 color:#fcf8f7;
 }
 .bg_image_onclick{
 	 background: url(../images/manage_r2_c13.jpg) no-repeat;
-	 color:#af9d99;
+	 color:#000;
 }
 #sub_info {
 	width: 99%;

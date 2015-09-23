@@ -6,7 +6,11 @@ import java.util.Map;
 
 import com.csu.dao.xyq.YgxxDao;
 
-
+/**
+ * 
+ * @author xiongyuqiong
+ *在职员工查询的业务层
+ */
 public class YgxxBiz {
 	
 	private YgxxDao dao=new YgxxDao();

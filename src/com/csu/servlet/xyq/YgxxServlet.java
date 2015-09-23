@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.csu.biz.xyq.YgxxBiz;
 
 /**
+ * @author xiongyuqiong
  * Servlet implementation class YgxxServlet
+ * 在职员工查询的servlet
  */
 @WebServlet("/YgxxServlet")
 public class YgxxServlet extends HttpServlet {
