@@ -31,12 +31,19 @@ public class JobDao extends BaseDao{
 	/*  String sql = "select j.job_number,j.job_name,j.job_type,j.job_count,j.job_limit,d.dept_number,d.dept_name from job j "
 	  		+ " left join relationship r on r.job_number=j.job_number and j.state=1 and r.state=1 "
 	  		+ " left join dept d on d.dept_number=r.dept_number and d.state=1 order by j.job_number";*/
-	 String sql="select * from "
+	 /*String sql="select * from "
 	 		+ " (select a.*,rownum r from (select j.job_number,j.job_name,j.job_type,"
 	 		+ " j.job_count,j.job_limit,d.dept_number,d.dept_name from job j left join relationship r "
 	 		+ " on r.job_number=j.job_number and j.state=1 and r.state=1 inner join dept d on "
 	 		+ " d.dept_number=r.dept_number and d.state=1 and j.state=1 order by j.job_number) a "
-	 		+ " where rownum<=?) b  where r>?";
+	 		+ " where rownum<=?) b  where r>?";*/
+	  String sql= "select * from (select h.*,rownum r from"
+	  		+ "(select * from (select j.job_number,j.job_name,j.job_type,j.job_count,"
+	  		+ "j.job_limit,tb.dept_number,tb.dept_name,j.state from job j left join (select "
+	  		+ " distinct d.dept_name,d.dept_number,r.job_number from dept d,relationship r "
+	  		+ " where d.dept_number=r.dept_number and d.state=1 and d.state=1) tb  "
+	  		+ " on j.state='1' and tb.job_number=j.job_number) f where state=1) h"
+	  		+ " where rownum<=?) b  where r>?";
 	 int min =(pageindex-1)*pageCount;
 	 int max =pageindex*pageCount;
 	  List<HashMap<String, String>> list = super.findBySQL(sql,max,min);
