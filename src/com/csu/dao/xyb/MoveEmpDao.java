@@ -143,10 +143,10 @@ public class MoveEmpDao extends BaseDao {
 	}
 
 	public List<HashMap<String, String>> FindMovedEmp(String empid, String emp_name, String starttime, String endtime,
-			String moveway, String movereason) {
+			String moveway, String movereason,int pageindex,int pagecount) {
 		// TODO Auto-generated method stub
-		String   SQL;
-		StringBuffer sql = new StringBuffer("select ci.emp_number,emp_name,olddept,oldjob,newdept,newjob,depttime,deptreason,depttime  "
+		String   SQL=null;
+		StringBuffer sql = new StringBuffer("select ci.emp_number,ef.emp_name,ci.olddept,ci.oldjob,ci.newdept,ci.newjob,ci.depttime,ci.deptreason  "
 				+ "from changeinfo ci,empinfo ef "
 				+ "where  ci.emp_number=ef.emp_number ");
 		StringBuffer add = new StringBuffer();
@@ -167,8 +167,45 @@ public class MoveEmpDao extends BaseDao {
 			add.append(" and depttype="+"'"+moveway+"'");		
 		}
 		SQL=sql.append(add).toString();
+		int min = (pageindex-1)*pagecount;
+		int max = pageindex*pagecount;
 		
-		return super.findBySQL(SQL);
+		String pagesql = "select * from (select rownum r,a.* from ( "+ SQL +" ) a where rownum<=? ) b where r>?";
+		return super.findBySQL(pagesql,max,min);
+	}
+
+
+	public int getPageFindMovedInfo(String empid, String emp_name, String starttime, String endtime, String moveway,
+			String movereason) {
+		String   SQL;
+		StringBuffer sql = new StringBuffer("select count(*) quality  "
+				+ "from changeinfo ci,empinfo ef "
+				+ "where  ci.emp_number=ef.emp_number ");
+		StringBuffer add = new StringBuffer();
+		if(empid!=null&&!empid.trim().isEmpty()){
+			add.append(" and ci.emp_number="+"'"+empid+"'");		
+		}
+		if(starttime!=null&&endtime!=null&&!starttime.trim().isEmpty()&&!endtime.trim().isEmpty()){
+			add.append(" and to_date(depttime,'yyyy-mm-dd')>=to_date('"+starttime+"','yyyy-mm-dd')  and to_date(depttime,'yyyy-mm-dd')<=to_date('"+endtime+"','yyyy-mm-dd')");		
+					
+		}
+		if(movereason!=null&&!movereason.trim().isEmpty()){
+			add.append(" and deptreason="+"'"+movereason+"'");		
+		}
+		if(emp_name!=null&&!emp_name.trim().isEmpty()){
+			add.append(" and emp_name="+"'"+emp_name+"'");		
+		}
+		if(moveway!=null&&!moveway.trim().isEmpty()){
+			add.append(" and depttype="+"'"+moveway+"'");		
+		}
+		SQL=sql.append(add).toString();
+		List<HashMap<String, String>> list = super.findBySQL(SQL);
+		int count = 0;
+		if(!list.isEmpty()){
+			HashMap<String, String> pagemap = list.get(0);
+			count = Integer.parseInt(pagemap.get("quality"));
+		}
+		return count;
 	}
 
 }
