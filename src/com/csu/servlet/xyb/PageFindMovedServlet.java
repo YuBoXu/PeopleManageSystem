@@ -16,6 +16,7 @@ import com.csu.biz.xyb.MoveEmpBiz;
 
 /**
  * Servlet implementation class PageFindMovedServlet
+ * 已调动信息分页查询
  */
 @WebServlet("/PageFindMovedServlet")
 public class PageFindMovedServlet extends HttpServlet {

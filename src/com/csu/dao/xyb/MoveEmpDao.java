@@ -32,7 +32,12 @@ public class MoveEmpDao extends BaseDao {
 				+ " where r>?";
 		return super.findBySQL(pagesql, starttime,endtime,max,min);
 	}
-	
+	/**
+	 * 根据输入的时间段获取分页的部门调动信息
+	 * @param starttime
+	 * @param endtime
+	 * @return int
+	 */
 	public int getPageFindMoveDept(String starttime, String endtime) {
 		String sql="select count(*) quality " 
 		        +"from EMPINFO emp,Changeinfo ci "
@@ -72,7 +77,12 @@ public class MoveEmpDao extends BaseDao {
 		String pagesql = "select * from (select rownum r, a.* from ("+sql+") a where rownum<=?) b where r>?";
 		return super.findBySQL(pagesql, starttime,endtime,max,min);
 	}
-
+    /**
+     * 根据输入的时间段获取岗位调动的分页信息
+     * @param starttime
+     * @param endtime
+     * @return int
+     */
 	public int getPageMovejob(String starttime, String endtime) {
 		String sql="select count(*) quality " 
 		        +"from EMPINFO emp,Changeinfo ci "
@@ -108,7 +118,11 @@ public class MoveEmpDao extends BaseDao {
 		
 				return super.findBySQL(sql, empid);
 	}
-
+    /**
+     * 根据员工编号获取岗位调动信息
+     * @param empid
+     * @return List<HashMap<String, String>>
+     */
 	public List<HashMap<String, String>> FindJobToMove(String empid) {
 		// TODO Auto-generated method stub
 		String sql="select rp.dept_number,rp.job_number,dept_name,job_name "
@@ -118,7 +132,20 @@ public class MoveEmpDao extends BaseDao {
 		return super.findBySQL(sql, empid);
 	}
 
-
+    /**
+     * 员工调动信息
+     * @param empid
+     * @param olddept_name
+     * @param oldjob_name
+     * @param newjob_number
+     * @param move_type
+     * @param move_reason
+     * @param move_time
+     * @param newdept_name
+     * @param newdept_number
+     * @param newjob_name
+     * @return int
+     */
 	public int MoveEmp(String empid, String olddept_name, String oldjob_name, String newjob_number, String move_type,
 			String move_reason, String move_time, String newdept_name, String newdept_number, String newjob_name) {
 		// TODO Auto-generated method stub
@@ -134,6 +161,11 @@ public class MoveEmpDao extends BaseDao {
         return result;
 	}
 //查找其他信息.。
+	/**
+	 * 查找新的岗位调动信息
+	 * @param newjob_number
+	 * @return List<HashMap<String, String>>
+	 */
 	public List<HashMap<String, String>> FindInfoToMove(String newjob_number) {
 		// TODO Auto-generated method stub
 		String sql="select dept_number,job_name "
@@ -141,7 +173,18 @@ public class MoveEmpDao extends BaseDao {
                 +"where job_number=? ";
 		return  super.findBySQL(sql, newjob_number);
 	}
-
+    /**
+     * 查找已调动员工信息
+     * @param empid
+     * @param emp_name
+     * @param starttime
+     * @param endtime
+     * @param moveway
+     * @param movereason
+     * @param pageindex
+     * @param pagecount
+     * @return List<HashMap<String, String>>
+     */
 	public List<HashMap<String, String>> FindMovedEmp(String empid, String emp_name, String starttime, String endtime,
 			String moveway, String movereason,int pageindex,int pagecount) {
 		// TODO Auto-generated method stub
@@ -174,7 +217,16 @@ public class MoveEmpDao extends BaseDao {
 		return super.findBySQL(pagesql,max,min);
 	}
 
-
+    /**
+     * 获取调动情况的分页信息
+     * @param empid
+     * @param emp_name
+     * @param starttime
+     * @param endtime
+     * @param moveway
+     * @param movereason
+     * @return int
+     */
 	public int getPageFindMovedInfo(String empid, String emp_name, String starttime, String endtime, String moveway,
 			String movereason) {
 		String   SQL;

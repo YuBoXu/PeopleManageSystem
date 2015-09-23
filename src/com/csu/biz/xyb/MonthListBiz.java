@@ -12,7 +12,11 @@ public class MonthListBiz {
 	public MonthListBiz(){
 		dao = new MonthListDao();
 	}
-
+    /**
+     * 获取要查找信息的时间段
+     * @param map
+     * @return
+     */
 	public List<HashMap<String, String>> findMonthList(Map<String, String[]> map) {
 		
 		String year = map.get("year")[0];

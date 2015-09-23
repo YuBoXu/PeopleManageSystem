@@ -28,7 +28,11 @@ public class FindNewBiz {
 		
 		return dao.findNewByTime(starttime,endtime,deptname,pageindex,10);
 	}
-	
+	/**
+	 * 获取新进员工信息分页的页数
+	 * @param map
+	 * @return int
+	 */
 	public int getPageFindNewByTime(Map<String, String[]> map) {
 		String starttime=map.get("starttime")[0];
 		

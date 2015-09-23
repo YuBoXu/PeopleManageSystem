@@ -29,6 +29,11 @@ public class FindLeaveBiz{
 		int pageindex = Integer.parseInt(page);
 		return dao.findLeaveByTime(starttime,endtime,deptname,pageindex,10);
 	}
+	/**
+	 * 获取员工离职信息分页的页数
+	 * @param map
+	 * @return pagenumber
+	 */
 	public int getLeavePageNumber(Map<String, String[]> map) {
 		String starttime=map.get("starttime")[0];
 		String endtime=map.get("endtime")[0];

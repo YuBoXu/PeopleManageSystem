@@ -16,6 +16,7 @@ import com.csu.biz.xyb.MoveEmpBiz;
 
 /**
  * Servlet implementation class FindEmpToMoveServlet
+ * 去找符合条件的职员来做接下来的调配操作
  */
 @WebServlet("/FindEmpToMoveServlet")
 public class FindEmpToMoveServlet extends HttpServlet {

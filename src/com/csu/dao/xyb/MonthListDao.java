@@ -6,7 +6,12 @@ import java.util.List;
 import com.neu.dao.BaseDao;
 
 public class MonthListDao extends BaseDao{
-
+    /**
+     * 获取月报信息
+     * @param begintime
+     * @param endtime
+     * @return List<HashMap<String, String>>
+     */
 	public List<HashMap<String, String>> findMonthList(String begintime, String endtime) {
 		String sql="select f.*,d.dept_name from dept d,( "
 				+ " select  beginnumber.dept_number, beginmonth,endmonth,enternumber,outputnumber,"
