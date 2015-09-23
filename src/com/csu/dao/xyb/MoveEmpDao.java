@@ -128,7 +128,7 @@ public class MoveEmpDao extends BaseDao {
                            +"set dept_number=? ,job_number=? "
                             +"where  emp_number=? ";
         int   result,tip1,tip2;
-        tip1=super.exeuteUpdate(sql, empid,olddept_name,newdept_name,move_reason,move_type,move_time,oldjob_name,newjob_name,move_reason,move_type,move_time);
+        tip1=super.exeuteUpdate(sql, empid,olddept_name,newdept_name,move_type,move_reason,move_time,oldjob_name,newjob_name,move_reason,move_type,move_time);
 		tip2=super.exeuteUpdate(sql2, newdept_number,newjob_number,empid);
 		result=tip1*tip2;
         return result;
@@ -140,6 +140,35 @@ public class MoveEmpDao extends BaseDao {
                 +"from job j "
                 +"where job_number=? ";
 		return  super.findBySQL(sql, newjob_number);
+	}
+
+	public List<HashMap<String, String>> FindMovedEmp(String empid, String emp_name, String starttime, String endtime,
+			String moveway, String movereason) {
+		// TODO Auto-generated method stub
+		String   SQL;
+		StringBuffer sql = new StringBuffer("select ci.emp_number,emp_name,olddept,oldjob,newdept,newjob,depttime,deptreason,depttime  "
+				+ "from changeinfo ci,empinfo ef "
+				+ "where  ci.emp_number=ef.emp_number ");
+		StringBuffer add = new StringBuffer();
+		if(empid!=null&&!empid.trim().isEmpty()){
+			add.append(" and ci.emp_number="+"'"+empid+"'");		
+		}
+		if(starttime!=null&&endtime!=null&&!starttime.trim().isEmpty()&&!endtime.trim().isEmpty()){
+			add.append(" and to_date(depttime,'yyyy-mm-dd')>=to_date('"+starttime+"','yyyy-mm-dd')  and to_date(depttime,'yyyy-mm-dd')<=to_date('"+endtime+"','yyyy-mm-dd')");		
+					
+		}
+		if(movereason!=null&&!movereason.trim().isEmpty()){
+			add.append(" and deptreason="+"'"+movereason+"'");		
+		}
+		if(emp_name!=null&&!emp_name.trim().isEmpty()){
+			add.append(" and emp_name="+"'"+emp_name+"'");		
+		}
+		if(moveway!=null&&!moveway.trim().isEmpty()){
+			add.append(" and depttype="+"'"+moveway+"'");		
+		}
+		SQL=sql.append(add).toString();
+		
+		return super.findBySQL(SQL);
 	}
 
 }
