@@ -4,7 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.neu.dao.BaseDao;
-
+/**
+ * 
+ * @author xiongyuqiong
+ *在职员工查询 dao文件  
+ */
 public class YgxxDao extends BaseDao {
 	public List<HashMap<String, String>> findYgxx(String idcard, String emp_number){
 		/*String sql="select e.emp_number,e.emp_name,e.emp_sex,e.birthday,e.idcard,"
