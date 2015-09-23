@@ -7,11 +7,13 @@ body {
 }
 html {
 	background-image: url(images/bg1.jpg);
+	background-repeat: repeat;
 	padding-left: 0px;
 	padding-right: 0px;
 	padding-top: 0px;
 	padding-bottom: 0px;
 	margin: 0px;
+	
 }
 body {
 	background:url(images/bg1.jpg);
