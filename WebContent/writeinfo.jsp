@@ -64,7 +64,7 @@ function link(){
           <th class="tablestyle_title" ><div align="left">员工入职页面</div></th>
         </tr>
         <tr>
-          <td class="CPanel"><table width="100%" border="0">
+          <td class="CPanel"><table width="100%" border="1">
               <tr>
                 <td colspan="13"><div align="center">员工入职信息表</div></td>
               </tr>
@@ -210,7 +210,7 @@ function link(){
               </tr>
               
             </table>
-            <table>
+            <table border="1">
 				<tr bgcolor="#EEEEEE">
               <td width="12" rowspan="7" align="center">其他信息</td>
               <td colspan="12"><strong>职业生涯</strong></td>
