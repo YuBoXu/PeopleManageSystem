@@ -103,6 +103,11 @@ public int getPageNumber() {
 	int count = Integer.parseInt(quality);
 	return count;
 }
+/**
+ * 通过岗位编号获取删除岗位信息
+ * @param jobnumbet
+ * @return List<HashMap<String, String>>
+ */
 public List<HashMap<String, String>> findDropJobInfo(String jobnumbet) {
 	String sql = "select j.* from job j where j.job_number in "+jobnumbet+" and j.state=1 and "
 			+ " j.job_number not in (select r.job_number from  relationship r "
@@ -110,13 +115,23 @@ public List<HashMap<String, String>> findDropJobInfo(String jobnumbet) {
 	List<HashMap<String, String>> list = super.findBySQL(sql);
 	return list;
 }
-
+/**
+ * 通过岗位编号获取岗位更新信息
+ * @param jobnumber
+ * @return int
+ */
 public int updateJonInfo(String jobnumber) {
 	String sql="update job set state=0 where job_number=? ";
 	return super.exeuteUpdate(sql, jobnumber);
 }
+
+/**
+ * 通过岗位编号获取岗位社会关系信息
+ * @param jobnumber
+ * @return List<HashMap<String, String>>
+ */
 public List<HashMap<String, String>> findJobByRelationship(String jobnumber) {
-	String sql ="select * from relationship where job_number=?";
+	String sql ="select * from relationship where job_number=? ";
 	List<HashMap<String, String>>  list = super.findBySQL(sql, jobnumber);
 	return list;
 }

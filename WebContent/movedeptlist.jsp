@@ -47,7 +47,7 @@ function unselectAll(){
       <tr>
         <td height="40" class="font42"><table width="100%" border="0" align="center" cellpadding="4" cellspacing="1" class="newfont03">
           <tr class="CTitle" >
-            <td height="22" colspan="6" align="right" style="font-size:16px"><div align="center"><span class="STYLE3">岗位调动员工列表 </span></div></td>
+            <td height="22" colspan="6" align="right" style="font-size:16px"><div align="center"><span class="STYLE3">部门调动员工报表 </span></div></td>
             <td height="22" align="right" style="font-size:16px"><a href="movedeptlist_download.jsp"><input type="button" name="Submit"  value="下载" /></a></td>
             </tr>
           <tr bgcolor="#EEEEEE">
@@ -65,7 +65,7 @@ function unselectAll(){
             <td height="20"><input type="checkbox" name="delid"/></td>
             <td>${info.olddept}
             </td>
-            <td>${info.newdept}
+            <td id="newdept">${info.newdept}
             </td>
             <td>${info.emp_name}
             </td>
@@ -115,6 +115,60 @@ function unselectAll(){
   </tr>
 </table>
 </form>
+<div id="main" style="height:300px"></div>
+<script src="http://echarts.baidu.com/build/dist/echarts.js">
+</script>
+ <script type="text/javascript">
+  // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+		 // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main')); 
+              
+                var option = {
+                    tooltip: {
+                        show: true
+                    },
+                    legend: {
+                        data:['人数']
+                    },
+                    xAxis : [
+                        {
+                   
+                            type : 'category',
+                            data : ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                             
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"人数",
+                            "type":"bar",
+                            "data":[5, 20, 40, 10, 10, 20]
+                        }
+                    ]
+                };
+        
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+            }
+        );
+  </script> 
 
 </body>
 </html>

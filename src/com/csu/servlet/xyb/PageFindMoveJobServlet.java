@@ -16,6 +16,7 @@ import com.csu.biz.xyb.MoveEmpBiz;
 
 /**
  * Servlet implementation class PageFindMoveJobServlet
+ * 岗位调动信息分页
  */
 @WebServlet("/PageFindMoveJobServlet")
 public class PageFindMoveJobServlet extends HttpServlet {

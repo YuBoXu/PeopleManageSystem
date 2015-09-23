@@ -33,7 +33,13 @@ public class FindLeaveDao extends BaseDao{
 		return super.findBySQL(pagesql, starttime,endtime,deptname,max,min);
 
 	}
-
+    /**
+     * 获取离职人员分页信息
+     * @param starttime
+     * @param endtime
+     * @param deptname
+     * @return int
+     */
 	public int getLeavePageNumber(String starttime, String endtime, String deptname) {
 		String sql = "select count(*) quality "
 		        +"from EMPINFO emp,LEAVE lv,JOB job "  

@@ -46,7 +46,7 @@
                    <td width="6%" align="center">编号</td>
 				   <td width="9%" height="30"><div align="center">管理员姓名</div></td>
 				   <td width="11%"><div align="center">密码</div></td>
-				   <td width="9%"><div align="center">职务</div></td>
+				   <td width="9%"><div align="center">部门</div></td>
 				   <td width="9%"><div align="center">联系电话</div></td>
 
 				   <td width="13%"><div align="center">入职日期</div></td>

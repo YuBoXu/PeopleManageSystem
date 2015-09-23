@@ -15,6 +15,7 @@ import com.csu.biz.zck.StaffBiz;
 
 /**
  * Servlet implementation class PageDownLeavingInfoServlet
+ * 离职查询查看  查看下一页
  */
 @WebServlet("/PageDownLeavingInfoServlet")
 public class PageDownLeavingInfoServlet extends HttpServlet {

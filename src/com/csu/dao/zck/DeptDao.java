@@ -108,7 +108,11 @@ public class DeptDao extends BaseDao{
 		int count = Integer.parseInt(quality);
 		return count;
 	}
-
+    /**
+     * 通过部门编号查找删除的部门信息
+     * @param deptnumbet
+     * @return List<HashMap<String, String>>
+     */
 	public List<HashMap<String, String>> findDropDeptInfo(String deptnumbet) {
 		//System.out.println(deptnumbet);
 		/*String sql="select d.* from dept d,relationship r where d.state=1 and d.dept_number in ? and r.dept_number not in ? ";
@@ -123,13 +127,21 @@ public class DeptDao extends BaseDao{
 		List<HashMap<String, String>> list = super.findBySQL(sql);
 		return list;
 	}
-
+    /**
+     * 通过部门编号获取部门更新信息
+     * @param deptnumber
+     * @return int
+     */
 	public int updateDeptInfo(String deptnumber) {
 		String sql = " update dept set state=0 where dept_number=?";
 		int row = super.exeuteUpdate(sql, deptnumber);
 		return row;
 	}
-
+    /**
+     * 通过部门编号获取社会关系表
+     * @param deptnumber
+     * @return List<HashMap<String, String>>
+     */
 	public List<HashMap<String, String>> findRelationship(String deptnumber) {
 		String sql ="select * from relationship where dept_number=?";
 		return super.findBySQL(sql, deptnumber);

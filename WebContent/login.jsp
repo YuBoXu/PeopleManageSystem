@@ -7,9 +7,14 @@
 <link rel="stylesheet" href="css/common.css" type="text/css" />
 <title>登录系统</title>
 <style type="text/css">
-body{
+html{
 background:url("images/91.jpg")
 }
+
+body{
+
+}
+
 </style>
 </head>
 <body>

@@ -14,6 +14,7 @@ import com.csu.biz.zck.JobBiz;
 
 /**
  * Servlet implementation class UpdateDeleteJobServlet
+ * 更新删除岗位后的信息表
  */
 @WebServlet("/UpdateDeleteJobServlet")
 public class UpdateDeleteJobServlet extends HttpServlet {

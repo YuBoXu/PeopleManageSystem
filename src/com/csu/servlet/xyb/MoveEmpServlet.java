@@ -15,6 +15,7 @@ import com.csu.biz.xyb.MoveEmpBiz;
 
 /**
  * Servlet implementation class MoveEmpServlet
+ * 员工调动信息
  */
 @WebServlet("/MoveEmpServlet")
 public class MoveEmpServlet extends HttpServlet {

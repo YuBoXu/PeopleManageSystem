@@ -14,7 +14,7 @@ private MoveEmpDao dao;
     /**
      * 查找调换部门人员信息
      * @param map
-     * @return
+     * @return List<HashMap<String, String>>
      */
 	public List<HashMap<String, String>> FindMoveDeptByTime(Map<String, String[]> map,String page) {
 		// TODO Auto-generated method stub
@@ -23,7 +23,11 @@ private MoveEmpDao dao;
 		int pageindex = Integer.parseInt(page);
 		return dao.FindMoveDeptByTime(starttime,endtime,pageindex,10);
 	}
-	
+	/**
+	 * 获取调动部门的员工信息的分页的页数
+	 * @param map
+	 * @return int
+	 */
 	public int getPageFindMoveDept(Map<String, String[]> map) {
 		String starttime=map.get("starttime")[0];	
 		String endtime=map.get("endtime")[0];
@@ -34,7 +38,7 @@ private MoveEmpDao dao;
 	/**
      * 查找调换岗位人员信息
      * @param map
-     * @return
+     * @return List<HashMap<String, String>>
      */
 	public List<HashMap<String, String>> FindMoveJobByTime(Map<String, String[]> map,String page) {
 		// TODO Auto-generated method stub
@@ -43,7 +47,11 @@ private MoveEmpDao dao;
 			int pageindex = Integer.parseInt(page);
 			return dao.FindMoveJobByTime(starttime,endtime,pageindex,10);
 	}
-	
+	/**
+	 * 获取调动岗位的人员信息的页数
+	 * @param map
+	 * @return int
+	 */
 	public int getPageMovejob(Map<String, String[]> map) {
 		String starttime=map.get("starttime")[0];	
 		String endtime=map.get("endtime")[0];
@@ -55,7 +63,7 @@ private MoveEmpDao dao;
 	/**
      * 查找有岗位或部门变动的人员信息
      * @param map
-     * @return
+     * @return List<HashMap<String, String>>
      */
 	public List<HashMap<String, String>> FindEmpToMove(Map<String, String[]> map) {
 		// TODO Auto-generated method stub
@@ -63,13 +71,22 @@ private MoveEmpDao dao;
 		String empid=map.get("empid")[0];
 		return dao.FindEmpToMove(empid);
 	}
-
+    /**
+     * 获取调动岗位的信息
+     * @param map
+     * @return List<HashMap<String, String>>
+     */
 	public List<HashMap<String, String>> FindJobToMove(Map<String, String[]> map) {
 		// TODO Auto-generated method stub
 		String empid=map.get("empid")[0];
 		return dao.FindJobToMove(empid);	
 	}
 	//调配.
+	/**
+	 * 获取调动员工的信息
+	 * @param map
+	 * @return int
+	 */
 	public int MoveEmp(Map<String, String[]> map) {
 		// TODO Auto-generated method stub
 		String empid=map.get("empid")[0];
@@ -89,6 +106,12 @@ private MoveEmpDao dao;
 		String  newjob_name=info.get("job_name");
 		return dao.MoveEmp(empid,olddept_name,oldjob_name,newjob_number,move_type,move_reason,move_time,newdept_name,newdept_number,newjob_name);
 	}
+	/**
+	 * 按页获取调动员工的信息
+	 * @param map
+	 * @param page
+	 * @return List<HashMap<String, String>>
+	 */
 	public List<HashMap<String, String>> FindMovedEmp(Map<String, String[]> map,String page) {
 		// TODO Auto-generated method stub
 		String empid=map.get("empid")[0];
@@ -101,6 +124,11 @@ private MoveEmpDao dao;
 		int pageindex = Integer.parseInt(page);
 		return dao.FindMovedEmp(empid,emp_name,starttime,endtime,moveway,movereason,pageindex,10);
 	}
+	/**
+	 * 获取调动信息的分页的页数
+	 * @param map
+	 * @return int
+	 */
 	public int  getPageFindMovedInfo(Map<String, String[]> map) {
 		String empid=map.get("empid")[0];
 		String emp_name=map.get("emp_name")[0];
