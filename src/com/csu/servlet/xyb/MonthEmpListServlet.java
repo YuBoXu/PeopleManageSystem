@@ -10,23 +10,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.csu.biz.xyb.FindLeaveBiz;
-import com.sun.javafx.sg.prism.NGWebView;
+import com.csu.biz.xyb.MonthListBiz;
 
 /**
- * Servlet implementation class FindLeaveServlet
- * 查找离职人员信息
+ * Servlet implementation class MonthEmpListServlet
  */
-@WebServlet("/FindLeaveServlet")
-public class FindLeaveServlet extends HttpServlet {
+@WebServlet("/MonthEmpListServlet")
+public class MonthEmpListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindLeaveServlet() {
+    public MonthEmpListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,28 +32,19 @@ public class FindLeaveServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		doPost(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		Map<String, String[]> map=request.getParameterMap();
-		Map<String, String[]> m=new HashMap<String,String[]>();
-		m.putAll(map);
-		FindLeaveBiz biz=new FindLeaveBiz();
-		List<HashMap<String, String>> item=
-				biz.findLeaveByTime(map,"1");
-		HttpSession session=request.getSession();
-		session.setAttribute("pageindex", 1);
-		session.setAttribute("pagenumber",biz.getLeavePageNumber(map) );
-		session.setAttribute("info", item);
-		session.setAttribute("leavemap", m);
-		response.sendRedirect("leaveemplist.jsp");
+		Map<String, String[]> map = request.getParameterMap();
+		MonthListBiz biz = new MonthListBiz();
+		List<HashMap<String, String>> list = biz.findMonthList(map);
+		request.getSession().setAttribute("monthlist", list);
+		response.sendRedirect("renshilist.jsp");
 	}
 
 }
