@@ -38,7 +38,7 @@ public class CheckUserFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse rsp = (HttpServletResponse) response;
-		String uri = req.getRequestURI();
+		/*String uri = req.getRequestURI();
 		if (uri.indexOf("hyLoginServlet")>=0||uri.indexOf("login.jsp")>=0||
 				uri.indexOf("login_error.jsp")>=0) {
 			chain.doFilter(request, response);
@@ -50,7 +50,7 @@ public class CheckUserFilter implements Filter {
 				rsp.sendRedirect("login.jsp");
 				return;
 			}
-		}
+		}*/
 		chain.doFilter(request, response);
 	}
 
