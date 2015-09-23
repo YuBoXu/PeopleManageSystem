@@ -12,9 +12,9 @@
 <body>
 <div id="man_zone">
 <form id="form1" name="form1" method="post" action="LeavingManageServlet">
-  <table width="901" height="190" border="1" bordercolor="#FFFFFF">
+  <table width="500" align="center" height="190" border="1" bordercolor="#FFFFFF">
     <tr>
-      <th colspan="3" scope="col"><strong>填写离职信息</strong>
+      <th colspan="2" scope="col"><strong>填写离职信息</strong>
      <%String empnumber=request.getParameter("empnumber");
 		String jobnumber = request.getParameter("jobnumber");%>
 		<input type="text" name="empnumber" value="<%=empnumber%>" style="visibility: hidden;"/>
@@ -22,11 +22,11 @@
       </th>
     </tr>
     <tr>
-      <td width="117">离职日期：</td>
-      <td width="183" bgcolor="#FFFFFF"><label>
+      <td width="100">离职日期：</td>
+      <td width="50" bgcolor="#FFFFFF"><label>
       <input name="lztime" type="text" id="starttime2"/>
       </label></td>
-      <td width="579" bgcolor="#FFFFFF">&nbsp;</td>
+      
     </tr>
     <tr>
       <td>离职类型：</td>
@@ -40,14 +40,14 @@
           <option value="试用期未通过">试用期未通过</option>
           </select>
       </label></td>
-      <td bgcolor="#FFFFFF">&nbsp;</td>
+      
     </tr>
     <tr>
       <td>离职去向：</td>
       <td bgcolor="#FFFFFF"><label>
         <input type="text" name="lzgoto" />
       </label></td>
-      <td bgcolor="#FFFFFF">&nbsp;</td>
+     
     </tr>
     <tr>
       <td height="40">是否进入人才库：</td>
@@ -56,10 +56,9 @@
       是 
       <input type="radio" name="radiobutton" value="否" />
       否</label></td>
-      <td bgcolor="#FFFFFF">&nbsp;</td>
     </tr>
   </table>
-  <p>
+  <p align="center">
     <label>
     <input type="submit" name="Submit" value="离职" />
     </label>

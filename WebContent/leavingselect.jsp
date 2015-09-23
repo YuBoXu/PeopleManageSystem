@@ -101,25 +101,9 @@
                       </div></td>
                     </tr>
                   </table>
-                <p>&nbsp;</p>                <div align="center">
-                  <label></label>
-                </div></td>
-              </tr>
-              
-          </table></td>
-        </tr>
-      </table>
-      <span style="position:absolute; left:87px;  
-   top:339px; width:910px; height:272px; z-index:1; ">
-      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="910" height="272" align="middle">
-        <param name="allowScriptAccess" value="sameDomain" />
-        <param name="allowFullScreen" value="false" />
-        <param name="movie" value="1.swf" />
-        <param name="quality" value="high" />
-        <param name="bgcolor" value="#FFFFFF" />
-        <embed src="1.swf" quality="high" bgcolor="#FFFFFF" width="910" height="272" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_cn" /></embed>
-      </object>
-    </span></div>
+                <p>&nbsp;</p>              
+                
+
   </form>
 </div>
 </body>

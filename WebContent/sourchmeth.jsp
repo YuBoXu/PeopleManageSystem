@@ -7,10 +7,12 @@
 <link rel="stylesheet" href="css/common.css" type="text/css" />
 <title>已调动员工查询</title>
 <style type="text/css">
-<!--
-.STYLE1 {color: #FF0000}
-.STYLE3 {color: #000000}
--->
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
 </style>
 <script language="javascript" type="text/javascript" src="js/My97DatePicker/WdatePicker.js"></script>
 <script language="javascript">
@@ -33,12 +35,12 @@ return false;  }
 <div id="man_zone">
   <form action="FindMovedServlet" onsubmit="return link1();" method="post"  name="fom" id="fom" target="manFrame" >
     <div class="MainDiv">
-      <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
+      <table width="99%" align="center" border="0" cellpadding="0" cellspacing="0" class="CContent">
         <tr>
           <th class="tablestyle_title" ><div align="left">已调动员工查询</div></th>
         </tr>
         <tr>
-          <td class="CPanel"><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
+          <td class="CPanel"><table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#464646" class="newfont03">
               <tr class="CTitle" >
                 <td height="22" align="center" style="font-size:16px"><div align="center">已调动员工查询</div></td>
               </tr>
@@ -98,8 +100,8 @@ return false;  }
                       </label></td>
                     </tr>
                     <tr>
-                      <td height="53"><div align="left"></div></td>
-                      <td colspan="3"><div align="left">
+                     
+                      <td colspan="4 "><div align="center">
   <input type="submit" name="Submit" value="查询" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="reset" name="Submit" value="清空" />

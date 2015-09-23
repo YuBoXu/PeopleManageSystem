@@ -15,13 +15,6 @@ background:url("images/bg1.jpg")
 <body>
 <form action="hyLoginServlet"  method="post" onsubmit="return checkForm()"  >
 
-  <table width="100%" align="center" height="100%" border="0.5" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-       <tr>
-            <td height="190"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                
                 
 				<form name="form1" method="post" onSubmit=" return yanzheng();"  action="index.html" >
                   <table width="320" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -49,9 +42,8 @@ background:url("images/bg1.jpg")
                     </tr>
                   </table>
                  </form>
-    </tr>
-    </table>        
-</table>
+              </form>
+  
 </body>
 <script language="javascript">
 function checkForm(){

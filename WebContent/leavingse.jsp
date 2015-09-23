@@ -49,7 +49,7 @@ function yanzheng(){
 
 <form  method="post" name="form1" onsubmit="return yanzheng();"action="findLeavedEmpInfoServlet">
     <div class="MainDiv">
-      <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
+      <table width="99%" border="1" cellpadding="0" cellspacing="0" class="CContent">
         <tr>
           <th class="tablestyle_title" ><div align="left">已离职员工查询</div></th>
         </tr>
@@ -115,29 +115,7 @@ function yanzheng(){
  <input type="submit" name="Submit32" value="查询" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="reset" name="Submit222" value="取消" />
-                      </div></td>
-                    </tr>
-                  </table>
-                <p>&nbsp;</p>                <div align="center">
-                  <label></label>
-                </div></td>
-              </tr>
-              
-          </table></td>
-        </tr>
-      </table>
-      <span style="position:absolute; left:65px;  
-   top:406px; width:910px; height:202px; z-index:1; ">
-      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="910" height="200" align="middle">
-        <param name="allowScriptAccess" value="sameDomain" />
-        <param name="allowFullScreen" value="false" />
-        <param name="movie" value="11.swf" />
-        <param name="quality" value="high" />
-        <param name="bgcolor" value="#FFFFFF" />
-        <embed src="11.swf" quality="high" bgcolor="#FFFFFF" width="910" height="200" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_cn" /></embed>
-        </embed>
-      </object>
-    </span></div>
+                    
   </form>
 </div>
 </body>
