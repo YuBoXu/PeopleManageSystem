@@ -52,9 +52,9 @@ body {
       </tr>
     
     <tr>
-      <td><input type="submit" name="Submit" value="查询" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td colspan="2" align="center"><input type="submit" name="Submit" value="查询" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="reset" name="Submit" value="取消"/></td>
-      <td>&nbsp;</td>
+   
       </tr>
   </table>
   <p>&nbsp;</p>

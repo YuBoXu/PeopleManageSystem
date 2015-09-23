@@ -112,7 +112,7 @@ function yanzheng(){
                     <tr>
                       <td height="53"><div align="left"></div></td>
                       <td colspan="3"><div align="left">
-  <input type="submit" name="Submit32" value="查询" />
+ <input type="submit" name="Submit32" value="查询" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="reset" name="Submit222" value="取消" />
                       </div></td>
