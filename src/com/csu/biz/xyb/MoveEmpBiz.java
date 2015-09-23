@@ -69,7 +69,7 @@ private MoveEmpDao dao;
 		String empid=map.get("empid")[0];
 		return dao.FindJobToMove(empid);	
 	}
-	//µ÷Åä
+	//µ÷Åä.
 	public int MoveEmp(Map<String, String[]> map) {
 		// TODO Auto-generated method stub
 		String empid=map.get("empid")[0];
