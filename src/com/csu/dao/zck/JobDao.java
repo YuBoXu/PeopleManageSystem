@@ -131,7 +131,7 @@ public int updateJonInfo(String jobnumber) {
  * @return List<HashMap<String, String>>
  */
 public List<HashMap<String, String>> findJobByRelationship(String jobnumber) {
-	String sql ="select * from relationship where job_number=?";
+	String sql ="select * from relationship where job_number=? ";
 	List<HashMap<String, String>>  list = super.findBySQL(sql, jobnumber);
 	return list;
 }
