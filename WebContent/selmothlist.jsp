@@ -35,7 +35,7 @@ body {
 
 <body>
 <div id="man_zone">
-<form id="form1" name="form1" method="post"  onsubmit="return yanzheng();" action="renshilist.jsp"  >
+<form id="form1" name="form1" method="post"  onsubmit="return yanzheng();" action="MonthEmpListServlet"  >
   <p><span class="STYLE5">人事月报查询</span></p>
   <table width="100%" border="0">
     <tr>
@@ -51,7 +51,7 @@ body {
     
     <tr>
       <td><span class="STYLE4">统计年份：</span></td>
-      <td><select name="select2">
+      <td><select name="year">
         <option value="hehe">---请选择---</option>
         
         <option value="2000">2000</option>
@@ -75,7 +75,7 @@ body {
     <tr>
       <td width="43%"><span class="STYLE4">统计月份：</span></td>
       <td width="57%"><label></label>
-        <select name="select">
+        <select name="month">
           <option value="hehe">---请选择---</option>
           <option value="1">1</option>
           <option value="2">2</option>

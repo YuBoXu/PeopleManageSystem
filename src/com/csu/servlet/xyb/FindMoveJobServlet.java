@@ -45,6 +45,8 @@ public class FindMoveJobServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Map<String, String[]> map=request.getParameterMap();
+		Map<String, String[]> jobmap = new HashMap<>();
+		jobmap.putAll(map);
 		MoveEmpBiz biz=new MoveEmpBiz();
 		List<HashMap<String, String>> item=
 				biz.FindMoveJobByTime(map,"1");
@@ -52,7 +54,7 @@ public class FindMoveJobServlet extends HttpServlet {
 		session.setAttribute("info", item);
 		session.setAttribute("pageindex", 1);
 		session.setAttribute("pagenumber", biz.getPageMovejob(map));
-		session.setAttribute("movejobmap", map);
+		session.setAttribute("movejobmap", jobmap);
 		response.sendRedirect("movebmlist.jsp");
 	}
 
