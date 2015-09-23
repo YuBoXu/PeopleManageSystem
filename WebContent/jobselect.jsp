@@ -170,7 +170,28 @@ function deletejob(id){
 															页 | 第 <span class="right-text09">${sessionScope.pageindex }</span>
 															页
 														</td>
-														<td width="48%" align="right">[ <c:if
+														<td width="48%" align="right">[
+																									 <c:if test="${sessionScope.pageindex==1 }">  
+											                <a  class="right-font08">首页</a> |
+											                <a  class="right-font08">上一页</a> | 
+											             </c:if> 
+											             
+											             <c:if test="${sessionScope.pageindex>1 }">    
+											                [<a href="PageJobServlet?index=1" class="right-font08">首页</a> |                 
+											                  <a href="PageJobServlet?index=${sessionScope.pageindex-1 }" class="right-font08">上一页</a> |
+											             </c:if> 
+											                 
+											              <c:if test="${sessionScope.pageindex < sessionScope.pagenumber }">      
+											                 <a href="PageJobServlet?index=${sessionScope.pageindex+1 }" class="right-font08">下一页</a> |                 
+											                  <a href="PageJobServlet?index=${sessionScope.pagenumber }" class="right-font08">末页</a>
+											               </c:if>  
+											               
+											               <c:if test="${sessionScope.pageindex==sessionScope.pagenumber }">   
+											                   <a  class="right-font08">下一页</a> |
+											                   <a  class="right-font08">末页</a>
+											               </c:if>  
+               
+					<%-- 									 <c:if
 																test="${sessionScope.pageindex==1 }">
 																<a class="right-font08">首页</a> |
                 <a class="right-font08">上一页</a> | 
@@ -190,8 +211,10 @@ function deletejob(id){
                </c:if> <c:if
 																test="${sessionScope.pageindex==sessionScope.pagenumber }">
 																<a class="right-font08">下一页</a> |
-                   <a class="right-font08">末页</a>]
-               </c:if> 转至：
+                   <a class="right-font08">末页</a>
+                   ]
+               </c:if> --%>
+               ] 转至：
 														</td>
 														<td width="1%"><table width="20" border="0"
 																cellspacing="0" cellpadding="0">

@@ -43,7 +43,7 @@ public class PageJobGoToServlet extends HttpServlet {
 		String page = request.getParameter("jobpage");
 		JobBiz biz = new JobBiz();
 		List<HashMap<String, String>> list = biz.findJobByPage(page);
-		request.getSession().setAttribute("deptinfo", list);
+		request.getSession().setAttribute("jobinfo", list);
 		request.getSession().setAttribute("pageindex", page);
 		request.getSession().setAttribute("pagenumber", biz.getpagenumber());
 		response.sendRedirect("jobselect.jsp");

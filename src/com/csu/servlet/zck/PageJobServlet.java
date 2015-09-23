@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.csu.biz.zck.DeptBiz;
+import com.csu.biz.zck.JobBiz;
 
 /**
  * Servlet implementation class PageJobServlet
@@ -41,9 +42,11 @@ public class PageJobServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String page = request.getParameter("index");
-		DeptBiz biz = new DeptBiz();
-		List<HashMap<String, String>> list = biz.findDeptByPage(page);
-		request.getSession().setAttribute("deptinfo", list);
+		/*DeptBiz biz = new DeptBiz();
+		List<HashMap<String, String>> list = biz.findDeptByPage(page);*/
+		JobBiz biz = new JobBiz();
+		List<HashMap<String, String>> list = biz.findJobByPage(page);		
+		request.getSession().setAttribute("jobinfo", list);
 		request.getSession().setAttribute("pageindex", page);
 //		request.getSession().setAttribute("pagenumber", biz.getpagenumber());
 		response.sendRedirect("jobselect.jsp");

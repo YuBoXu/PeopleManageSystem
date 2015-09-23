@@ -168,7 +168,7 @@ function link(){
                 <td>所学专业</td>
                 <td><input name="major" type="text" size="10" /></td>
                 <td>毕业日期</td>
-                <td><input name="graduatedate" type="text" size="12" /></td>
+                <td><input name="graduatedate" type="text" size="12" onClick="WdatePicker()" readonly="readonly"/></td>
               </tr>
               <tr>
                 <td>部门岗位安排</td>
