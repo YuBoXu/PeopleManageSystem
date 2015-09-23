@@ -123,13 +123,15 @@ public class MoveEmpDao extends BaseDao {
 			String move_reason, String move_time, String newdept_name, String newdept_number, String newjob_name) {
 		// TODO Auto-generated method stub
 		String sql="insert into changeinfo "
-                           +"values(?,?,?,?,?,?, "
-		                   +"?,?,?,?,?) "
-                           +"upadate relationship "
-                           +"set dept_number=?,job_number=? "
+                           +"values(?,?,?,?,?,?,?,?,?,?,?,1,'1','1','1') ";
+        String  sql2="update relationship "
+                           +"set dept_number=? ,job_number=? "
                             +"where  emp_number=? ";
-		return 	super.exeuteUpdate(sql, empid,olddept_name,newdept_name,move_reason,move_type,move_time,
-				oldjob_name,newjob_name,move_reason,move_type,move_time,newdept_number,newjob_number,empid);
+        int   result,tip1,tip2;
+        tip1=super.exeuteUpdate(sql, empid,olddept_name,newdept_name,move_reason,move_type,move_time,oldjob_name,newjob_name,move_reason,move_type,move_time);
+		tip2=super.exeuteUpdate(sql2, newdept_number,newjob_number,empid);
+		result=tip1*tip2;
+        return result;
 	}
 //查找其他信息.。
 	public List<HashMap<String, String>> FindInfoToMove(String newjob_number) {

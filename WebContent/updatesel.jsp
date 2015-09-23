@@ -83,7 +83,7 @@
             </tr>
             <c:forEach var="info" items="${sessionScope.info }">
             <tr bgcolor="#EEEEEE">
-           
+           <input type="hidden"  name="empid" value=" ${info. emp_number}"/>
               <td ><div align="center" class="STYLE3" >${info. emp_number}</div></td>
               <td><div align="center" class="STYLE3">${info.emp_name}</div></td>
               <td><div align="center" class="STYLE3">${info.emp_sex}</div></td>
@@ -145,7 +145,8 @@
          
                 </div>
               </span></td>
-              <td bgcolor="#FFFFFF"  name="dept_name"><div align="center" class="STYLE3">
+              <td bgcolor="#FFFFFF"  ><div align="center" class="STYLE3">
+              	<input type="hidden"  name="dept_name" value="${sessionScope.moveInfo.dept_name}">
                   <label>
                    ${sessionScope.moveInfo.dept_name}
                   </label>
@@ -156,6 +157,7 @@
                  ${sessionScope.moveInfo.job_number}
                 </label>
               </span></td>
+              <input type="hidden"  name="job_name" value="${sessionScope.moveInfo.job_name}">
               <td bgcolor="#FFFFFF" name="job_name"><span class="STYLE3">
                 <label></label>
                 <label>

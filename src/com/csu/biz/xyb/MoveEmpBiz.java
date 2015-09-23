@@ -73,8 +73,9 @@ private MoveEmpDao dao;
 	public int MoveEmp(Map<String, String[]> map) {
 		// TODO Auto-generated method stub
 		String empid=map.get("empid")[0];
-		
+		//System.out.println("´íÎóÔÚÕâÀï"+empid);
 		String olddept_name=map.get("dept_name")[0];
+		//System.out.println(""+olddept_name);
 		String newjob_number=map.get("newjob_id")[0];
 		String move_type=map.get("type")[0];
 		String move_reason=map.get("reason")[0];
