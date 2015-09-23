@@ -15,16 +15,16 @@ import javax.servlet.http.HttpSession;
 import com.csu.biz.xyb.MoveEmpBiz;
 
 /**
- * Servlet implementation class FindMovedServlet
+ * Servlet implementation class PageGoFindLeaveServlet
  */
-@WebServlet("/FindMovedServlet")
-public class FindMovedServlet extends HttpServlet {
+@WebServlet("/PageGoFindLeaveServlet")
+public class PageGoFindLeaveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindMovedServlet() {
+    public PageGoFindLeaveServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,25 +33,23 @@ public class FindMovedServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		doPost(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		Map<String, String[]> map=request.getParameterMap();
+		String page = request.getParameter("textfield3");
+		HttpSession session=request.getSession();
+		Map<String, String[]> map = 
+				(Map<String, String[]>) session.getAttribute("moveempmap");
 		MoveEmpBiz biz=new MoveEmpBiz();
 		List<HashMap<String, String>> item=
-				biz.FindMovedEmp(map,"1");
-		HttpSession session=request.getSession();
+				biz.FindMovedEmp(map,page);
+		session.setAttribute("pageindex", page);
 		session.setAttribute("info", item);
-		session.setAttribute("pageindex", 1);
-		session.setAttribute("pagenumber", biz.getPageFindMovedInfo(map));
-		session.setAttribute("moveempmap", map);
 		response.sendRedirect("movedlist.jsp");
 	}
 
