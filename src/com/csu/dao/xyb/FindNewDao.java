@@ -33,7 +33,13 @@ public class FindNewDao extends BaseDao{
 		return super.findBySQL(pagesql, starttime,endtime,deptname,max,min);
 	}
 
-	
+	/**
+	 * 根据输入的时间段获取分页的员工信息
+	 * @param starttime
+	 * @param endtime
+	 * @param deptname
+	 * @return int
+	 */
 	public int getPageFindNewByTime(String starttime, String endtime, String deptname) {
 		String sql="select count(*) quatity "
 		        +"  from EMPINFO emp,JOB job,relationship rp  "  

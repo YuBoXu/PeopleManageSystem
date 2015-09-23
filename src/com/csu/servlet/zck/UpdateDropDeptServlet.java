@@ -11,7 +11,7 @@ import com.csu.biz.zck.DeptBiz;
 
 /**
  * Servlet implementation class UpdateDropDeptServlet
- * 修改部门信息
+ * 删除部门信息
  */
 @WebServlet("/UpdateDropDeptServlet")
 public class UpdateDropDeptServlet extends HttpServlet {

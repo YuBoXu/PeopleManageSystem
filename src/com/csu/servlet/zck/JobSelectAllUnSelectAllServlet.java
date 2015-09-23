@@ -16,6 +16,8 @@ import com.csu.biz.zck.JobBiz;
 
 /**
  * Servlet implementation class JobSelectAllUnSelectAllServlet
+ * 全选和反选
+ * 
  */
 @WebServlet("/JobSelectAllUnSelectAllServlet")
 public class JobSelectAllUnSelectAllServlet extends HttpServlet {

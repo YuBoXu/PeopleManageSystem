@@ -72,7 +72,7 @@ public class DeptBiz {
     /**
      * 通过部门编号查找部门信息和员工信息
      * @param deptnumber
-     * @return
+     * @return List<HashMap<String, String>>
      */
 	public List<HashMap<String, String>> findDeptEmpInfoByDeptNumber(String deptnumber) {
 		List<HashMap<String, String>> list = dao.findDeptEmpInfoByDeptNumber(deptnumber);
@@ -81,7 +81,7 @@ public class DeptBiz {
 
 	/**
 	 * 
-	 * @return
+	 * @return int
 	 * 得到分页数，每页10条记录
 	 */
 	public int getpagenumber() {
@@ -93,7 +93,7 @@ public class DeptBiz {
 	/**
 	 * 
 	 * @param deptnumbet
-	 * @return
+	 * @return List<HashMap<String, String>>
 	 * 查询要删除的部门
 	 */
 	public List<HashMap<String, String>> findDropDeptInfo(String deptnumbet) {
@@ -101,12 +101,20 @@ public class DeptBiz {
 		return dao.findDropDeptInfo(deptnumbet);
 	}
 
-
+    /**
+     * 获取部门更新的数据量
+     * @param deptnumber
+     * @return int
+     */
 	public int updateDeptInfo(String deptnumber) {
 		int row = dao.updateDeptInfo(deptnumber);
 		return row;
 	}
-
+    /**
+     * 按照部门编号获取社会关系表
+     * @param deptnumber
+     * @return List<HashMap<String, String>>
+     */
 	public List<HashMap<String, String>> findRelationship(String deptnumber) {
 		
 		return dao.findRelationship(deptnumber);

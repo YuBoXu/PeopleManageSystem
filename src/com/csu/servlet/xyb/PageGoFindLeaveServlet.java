@@ -16,6 +16,7 @@ import com.csu.biz.xyb.MoveEmpBiz;
 
 /**
  * Servlet implementation class PageGoFindLeaveServlet
+ * 输入页数跳转到对应页
  */
 @WebServlet("/PageGoFindLeaveServlet")
 public class PageGoFindLeaveServlet extends HttpServlet {

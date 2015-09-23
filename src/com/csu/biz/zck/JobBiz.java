@@ -90,18 +90,30 @@ public class JobBiz {
 		return sum;
 	}
 
-
+    /**
+     * 获取删除岗位信息
+     * @param jobnumbet
+     * @return List<HashMap<String, String>>
+     */
 	public List<HashMap<String, String>> findDropJobInfo(String jobnumbet) {
 		
 		return dao.findDropJobInfo(jobnumbet);
 	}
 
-
+    /**
+     * 按照岗位编号获取岗位更新信息
+     * @param jobnumber
+     * @return int
+     */
 	public int updateJonInfo(String jobnumber) {
 		return dao.updateJonInfo(jobnumber);
 	}
 
-
+    /**
+     * 按照岗位编号获取岗位社会关系信息
+     * @param jobnumber
+     * @return List<HashMap<String, String>>
+     */
 	public List<HashMap<String, String>> findJobByRelationship(String jobnumber) {
 		return dao.findJobByRelationship(jobnumber);
 	}

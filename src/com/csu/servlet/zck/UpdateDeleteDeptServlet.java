@@ -14,6 +14,7 @@ import com.csu.biz.zck.DeptBiz;
 
 /**
  * Servlet implementation class UpdateDeleteDeptServlet
+ * 更新删除部门后的信息表
  */
 @WebServlet("/UpdateDeleteDeptServlet")
 public class UpdateDeleteDeptServlet extends HttpServlet {
