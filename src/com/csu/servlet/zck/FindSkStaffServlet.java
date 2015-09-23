@@ -42,10 +42,12 @@ public class FindSkStaffServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map<String, String[]> map = request.getParameterMap();
+		Map<String, String[]> staffmap = new HashMap<>();
+		staffmap.putAll(map);
 		EmpInfoBiz biz = new EmpInfoBiz();
 		List<HashMap<String, String>> list =biz.findSkStaffEmp(map,"1");
 		request.getSession().setAttribute("staffinfo", list);
-		request.getSession().setAttribute("staffmap", map);
+		request.getSession().setAttribute("staffmap", staffmap);
 		request.getSession().setAttribute("pagenumber", biz.getSkStaffpagenumber(map));
 		request.getSession().setAttribute("pageindex", 1);
 		response.sendRedirect("showzsemp.jsp");

@@ -45,11 +45,13 @@ public class FindNewServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Map<String, String[]> map=request.getParameterMap();
+		Map<String, String[]> findmap = new HashMap<>();
+		findmap.putAll(map);
 		FindNewBiz biz=new FindNewBiz();
 		List<HashMap<String, String>> item=
 				biz.findNewByTime(map,"1");
 		HttpSession session=request.getSession();
-		session.setAttribute("findnewmap", map);
+		session.setAttribute("findnewmap", findmap);
 		session.setAttribute("info", item);
 		session.setAttribute("pageindex", 1);
 		session.setAttribute("pagenumber", biz.getPageFindNewByTime(map));

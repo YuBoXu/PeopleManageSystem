@@ -63,7 +63,7 @@
               <td height="22" colspan="15" align="center" style="font-size:16px"><p>部门岗位调动报表</p>
                 <p>&nbsp;</p></td>
             </tr>
-            <tr bgcolor="#EEEEEE">
+            <tr>
               <td rowspan="4" align="center"><div align="center">
                   <p>调动员工基本信息</p>
                 </div></td>
@@ -82,7 +82,7 @@
               <td><div align="center" class="STYLE3">联系电话</div></td>
             </tr>
             <c:forEach var="info" items="${sessionScope.info }">
-            <tr bgcolor="#EEEEEE">
+            <tr>
            <input type="hidden"  name="empid" value=" ${info. emp_number}"/>
               <td ><div align="center" class="STYLE3" >${info. emp_number}</div></td>
               <td><div align="center" class="STYLE3">${info.emp_name}</div></td>
@@ -98,7 +98,7 @@
               <td><div align="center" class="STYLE3">${info.blood}</div></td>
               <td width="85"><div align="center" class="STYLE3">${info.phone}</div></td>
             </tr>
-            <tr bgcolor="#EEEEEE">
+            <tr >
               <td><div align="center" class="STYLE3">出生地</div></td>
               <td><div align="center" class="STYLE3">户口所在地</div></td>
               <td><div align="center" class="STYLE3">最高学历</div></td>
@@ -109,7 +109,7 @@
               <td colspan="4"><div align="center" class="STYLE3">毕业日期</div></td>
               <td colspan="2"><div align="center" class="STYLE3">电子邮件</div></td>
               </tr>
-            <tr bgcolor="#EEEEEE">
+            <tr >
               <td height="37"><div align="center" class="STYLE3">${info.birthplace}</div></td>
               <td><div align="center" class="STYLE3">${info.home}</div></td>
               <td><div align="center" class="STYLE3">${info.education}</div></td>
@@ -123,7 +123,7 @@
               <td colspan="2" ><div align="center" class="STYLE3">${info.email}</div></td>
               </tr>
               </c:forEach>
-            <tr bgcolor="#EEEEEE">
+            <tr >
               <td width="55" rowspan="2" align="center"><div align="center" class="STYLE3">调转信息</div></td>
               <td width="70" height="30"><div align="center" class="STYLE3">原部门编号<span class="STYLE4">*</span></div></td>
               <td width="70"><div align="center" class="STYLE3">原部门名称<span class="STYLE4">*</span></div></td>
@@ -136,35 +136,35 @@
               <td colspan="2"><div align="center" class="STYLE3">调转日期<span class="STYLE4">*</span></div></td>
               </tr>
     
-            <tr bgcolor="#EEEEEE">
-              <td width="70" height="32" bgcolor="#FFFFFF" ><span class="STYLE3">
+            <tr >
+              <td width="70" height="32" >
                 <label></label>
                 <label> </label>
                 <div align="center">
                   ${sessionScope.moveInfo.dept_number}
-         
+ 
                 </div>
-              </span></td>
-              <td bgcolor="#FFFFFF"  ><div align="center" class="STYLE3">
+              </td>
+              <td ><div align="center" class="STYLE3">
               	<input type="hidden"  name="dept_name" value="${sessionScope.moveInfo.dept_name}">
                   <label>
                    ${sessionScope.moveInfo.dept_name}
                   </label>
               </div></td>
-              <td bgcolor="#FFFFFF"><span class="STYLE3">
+              <td ><span class="STYLE3">
                 <label></label>
                 <label>
                  ${sessionScope.moveInfo.job_number}
                 </label>
               </span></td>
               <input type="hidden"  name="job_name" value="${sessionScope.moveInfo.job_name}">
-              <td bgcolor="#FFFFFF" name="job_name"><span class="STYLE3">
+              <td  name="job_name"><span class="STYLE3">
                 <label></label>
                 <label>
                  ${sessionScope.moveInfo.job_name}
                 </label>
               </span></td>
-              <td bgcolor="#FFFFFF" colspan="4"><span class="STYLE3">
+              <td colspan="4"><span class="STYLE3">
                 <label></label>
                 <label>
 					<select name="newdept_name" onChange="changeJob()">
@@ -182,7 +182,7 @@
 				  
                 </label>
               </span></td>
-              <td colspan="2" bgcolor="#FFFFFF"><div align="center" class="STYLE3">
+              <td colspan="2"><div align="center" class="STYLE3">
                   <label>
                   <select name="type">
                     <option value="主动">主动</option>
@@ -194,13 +194,13 @@
                     <label></label>
                   </div>
                 <div align="center" class="STYLE3"></div></td>
-              <td colspan="2" bgcolor="#FFFFFF"><span class="STYLE3">
+              <td colspan="2" ><span class="STYLE3">
                 <select name="reason">
                   <option value="升职">升职</option>
                   <option value="降职">降职</option>
                 </select>
               </span></td>
-              <td colspan="2" bgcolor="#FFFFFF"><div align="center" class="STYLE3">
+              <td colspan="2" ><div align="center" class="STYLE3">
                   <label></label>
                   <label>
                   <input name="movetime" type="text" size="12" />
