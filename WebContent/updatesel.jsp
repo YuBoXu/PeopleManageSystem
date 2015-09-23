@@ -14,20 +14,44 @@
 -->
 </style>
 <script language="javascript" type="text/javascript">
+ 
+  function changeJob( ){  
+        
+     var dept=document.form.newdept_name.value;   
+     var newOption1,newOption2,newOption3;  
+     switch(dept){  
+         //根据用户选择的省份动态创建城市下拉列表  
+       case  "行政部" :  
+            newOption1= new Option("经理","1");  
+            newOption2= new Option("副经理","2");  
+            newOption3= new Option("职员","3"); 
+            break;  
+       case "技术部" :   
+            newOption1= new Option("技术总监","5");  
+            newOption2= new Option("CTO","6");
+            newOption3= new Option("工程师","4");  
+            break;  
+       case "生产部" :   
+           newOption1= new Option("部长","7");  
+           newOption2= new Option("职员","8");  
+           newOption3= new Option("副部长","9");  
+            break;
+           
+      }  
+      //清除原有选项  
+     document.form.newjob_id.options.length=0;  
+     //将选项添加到选项数组  
+     document.form.newjob_id.options.add(newOption1);  
+     document.form.newjob_id.options.add(newOption2);  
+     document.form.newjob_id.options.add(newOption2); 
+  }  
 
-
-
-function link(){                                                                                                  
-			return true;                                                                   
-	                                                                                         
-	                                       
-}
 </script>
 </head>
 
 <body>
 <div id="man_zone">
-  <form action="MoveEmpServlet" onsubmit="return link();" method="post" name="fom" id="fom" target="manFrame" >
+  <form action="MoveEmpServlet" onsubmit="return link();" method="post" name="form" id="form" target="manFrame" >
     <div class="MainDiv">
       <table width="97%" border="0" cellpadding="0" cellspacing="0" class="CContent">
         <tr>
@@ -43,7 +67,7 @@ function link(){
               <td rowspan="4" align="center"><div align="center">
                   <p>调动员工基本信息</p>
                 </div></td>
-              <td height="30"><div align="center" class="STYLE3">员工编号</div></td>
+              <td height="30" name="empid"><div align="center" class="STYLE3">员工编号</div></td>
               <td><div align="center" class="STYLE3">员工姓名</div></td>
               <td><div align="center" class="STYLE3">性别</div></td>
               <td><div align="center" class="STYLE3">出生日期</div></td>
@@ -96,7 +120,7 @@ function link(){
               <td colspan="4"><div align="center" class="STYLE3">
                 <div align="center" class="STYLE3">${info.graduatedata}</div>
               </div></td>
-              <td colspan="2"><div align="center" class="STYLE3">${info.email}</div></td>
+              <td colspan="2" ><div align="center" class="STYLE3">${info.email}</div></td>
               </tr>
               </c:forEach>
             <tr bgcolor="#EEEEEE">
@@ -121,7 +145,7 @@ function link(){
          
                 </div>
               </span></td>
-              <td bgcolor="#FFFFFF" ><div align="center" class="STYLE3">
+              <td bgcolor="#FFFFFF"  name="dept_name"><div align="center" class="STYLE3">
                   <label>
                    ${sessionScope.moveInfo.dept_name}
                   </label>
@@ -132,7 +156,7 @@ function link(){
                  ${sessionScope.moveInfo.job_number}
                 </label>
               </span></td>
-              <td bgcolor="#FFFFFF"><span class="STYLE3">
+              <td bgcolor="#FFFFFF" name="job_name"><span class="STYLE3">
                 <label></label>
                 <label>
                  ${sessionScope.moveInfo.job_name}
@@ -141,12 +165,17 @@ function link(){
               <td bgcolor="#FFFFFF" colspan="4"><span class="STYLE3">
                 <label></label>
                 <label>
-					<select name="jobId">
-						<option value="1">行政部--行政总监</option>
-						<option value="2">技术部--行政主管</option>
-						<option value="3">技术部--技术研发</option>
-						<option value="4">销售部--销售总监</option>
-						<option value="5">生产部--生产经理</option>
+					<select name="newdept_name" onChange="changeJob()">
+					    <option value="无">请选择部门</option>
+						<option value="行政部">行政部</option>
+						<option value="技术部">技术部</option>
+						<option value="销售部">销售部</option>
+						<option value="生产部">生产部</option>
+				  </select>
+				    </div>
+                  
+				  <select name="newjob_id" >
+				  
 				  </select>
                 </label>
               </span></td>
@@ -171,7 +200,7 @@ function link(){
               <td colspan="2" bgcolor="#FFFFFF"><div align="center" class="STYLE3">
                   <label></label>
                   <label>
-                  <input name="movedate" type="text" size="12" />
+                  <input name="movetime" type="text" size="12" />
                   </label>
               </div></td>
               </tr>

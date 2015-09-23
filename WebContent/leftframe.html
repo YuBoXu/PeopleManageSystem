@@ -163,11 +163,27 @@ outlookbar.getbytitle(sortname);
 }
 document.write("<script src=js/nav.js></" + "script>");
 </script>
+
+<script type="text/javascript">   
+   setInterval("timer.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
+</script>
 <body onload="initinav('组织管理')">
 <div id="left_content">
   <div id="user_info">欢迎您，<strong></strong><br />  
        <span class="STYLE2">
-       <!-- #BeginDate format:fcCh2m -->2012年4月04日 星期三  <!-- #EndDate -->
+       <!-- #BeginDate format:fcCh2m 2012年4月04日 星期三  <!-- #EndDate -->
+        <div id="timer"></div><!--显示时间 -->
+     <!--   <SCRIPT language=JavaScript>
+var today=new Date();
+function initArray(){
+this.length=initArray.arguments.length
+for(var i=0;i<this.length;i++)
+this[i+1]=initArray.arguments[i]}
+var d=new initArray("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+document.write("<font color=#0099ff> ",today.getYear(),"年",today.getMonth()+1,"月",today.getDate(),"日 ",d[today.getDay()+1],"</font>" );
+</SCRIPT> -->
+       
+       <!-- <a href="time.html"></a> -->
      </span></div>
   <div id="main_nav">
 	     <div id="left_main_nav"></div>
