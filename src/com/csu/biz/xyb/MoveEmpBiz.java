@@ -89,6 +89,16 @@ private MoveEmpDao dao;
 		String  newjob_name=info.get("job_name");
 		return dao.MoveEmp(empid,olddept_name,oldjob_name,newjob_number,move_type,move_reason,move_time,newdept_name,newdept_number,newjob_name);
 	}
+	public List<HashMap<String, String>> FindMovedEmp(Map<String, String[]> map) {
+		// TODO Auto-generated method stub
+		String empid=map.get("empid")[0];
+		String emp_name=map.get("emp_name")[0];
+		String starttime=map.get("starttime")[0];
+		String endtime=map.get("endtime")[0];
+		String moveway=map.get("moveway")[0];
+		String movereason=map.get("movereason")[0];
+		return dao.FindMovedEmp(empid,emp_name,starttime,endtime,moveway,movereason);
+	}
 	
 	
 }
