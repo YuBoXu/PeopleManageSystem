@@ -44,6 +44,8 @@ public class FindMovedServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Map<String, String[]> map=request.getParameterMap();
+		Map<String, String[]> movmap = new HashMap<String,String[]>();
+		movmap.putAll(map);
 		MoveEmpBiz biz=new MoveEmpBiz();
 		List<HashMap<String, String>> item=
 				biz.FindMovedEmp(map,"1");
@@ -51,7 +53,7 @@ public class FindMovedServlet extends HttpServlet {
 		session.setAttribute("info", item);
 		session.setAttribute("pageindex", 1);
 		session.setAttribute("pagenumber", biz.getPageFindMovedInfo(map));
-		session.setAttribute("moveempmap", map);
+		session.setAttribute("moveempmap", movmap);
 		response.sendRedirect("movedlist.jsp");
 	}
 

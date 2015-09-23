@@ -45,6 +45,8 @@ public class FindMoveDeptServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Map<String, String[]> map=request.getParameterMap();
+		Map<String, String[]> map1 = new HashMap<String, String[]>();
+		map1.putAll(map);
 		MoveEmpBiz biz=new MoveEmpBiz();
 		List<HashMap<String, String>> item=
 				biz.FindMoveDeptByTime(map,"1");
@@ -52,7 +54,7 @@ public class FindMoveDeptServlet extends HttpServlet {
 		session.setAttribute("pageindex", 1);
 		session.setAttribute("pagenumber", biz.getPageFindMoveDept(map));
 		session.setAttribute("info", item);
-		session.setAttribute("movedeptmap", map);
+		session.setAttribute("movedeptmap", map1);
 		response.sendRedirect("movedeptlist.jsp");
 	}
 
