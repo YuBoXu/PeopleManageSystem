@@ -33,7 +33,7 @@
                 <td width="123"><div align="center">确认密码<span class="STYLE1">*</span></div></td>
                 <td width="99"><div align="center">部门</div></td>
                 <td width="99"><div align="center">联系电话</div></td>
-                <td width="147"><div align="center">入职日期</div></td>
+                <td width="147"><div align="center">添加日期</div></td>
                 <td width="219"><div align="center">操作</div></td>
               </tr>
               <tr bgcolor="#FFFFFF">

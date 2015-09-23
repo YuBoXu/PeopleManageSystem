@@ -2,7 +2,7 @@
 var outlookbar=new outlook();
 var t;
 t=outlookbar.addtitle('部门管理','组织管理',1)
-outlookbar.additem('部门添加',t,'adddept.jsp')
+outlookbar.additem('部门添加',t,'FindDeptNameServlet')
 outlookbar.additem('部门查询',t,'SelectDeptServlet')
 t=outlookbar.addtitle('岗位管理','组织管理',1)
 outlookbar.additem('岗位添加',t,'addjob.jsp')

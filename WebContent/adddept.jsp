@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=GBK"
     pageEncoding="GBK"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -101,11 +102,14 @@ function link1(){
                     <td><div align="center">
                       <label>
                       <select name="super">
-							<option value="行政部">行政部</option>
+                      		<c:forEach var="dept" items="${sessionScope.deptlist1 }">
+                      				<option value="${dept.dept_name }">${dept.dept_name }</option>
+                      		</c:forEach>
+							<!-- <option value="行政部">行政部</option>
 							<option value="生产部">生产部</option>
 							<option value="技术部">技术部</option>
 							<option value="销售部">销售部</option>
-							<option value="财务部">财务部</option>
+							<option value="财务部">财务部</option> -->
 					  </select>
                       </label>
                     </div></td>
