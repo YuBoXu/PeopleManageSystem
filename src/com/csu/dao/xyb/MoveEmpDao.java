@@ -160,6 +160,9 @@ public class MoveEmpDao extends BaseDao {
 		if(movereason!=null&&!movereason.trim().isEmpty()){
 			add.append(" and deptreason="+"'"+movereason+"'");		
 		}
+		if(emp_name!=null&&!emp_name.trim().isEmpty()){
+			add.append(" and emp_name="+"'"+emp_name+"'");		
+		}
 		if(moveway!=null&&!moveway.trim().isEmpty()){
 			add.append(" and depttype="+"'"+moveway+"'");		
 		}
