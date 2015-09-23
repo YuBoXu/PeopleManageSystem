@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=GB18030"
     pageEncoding="GB18030"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -174,21 +175,26 @@ function link(){
                 <td class="newfont03" colspan="2">部门名称<span class="STYLE4">*</span></td>
                 <td class="newfont03"  colspan="3"><label>
                   <select name="job_dept_r_id">
-						<option value="1">行政部</option>
-						<option value="2">技术部</option>
-						<option value="3">技术部</option>
-						<option value="4">销售部</option>
-						<option value="5">生产部</option>
+                  	<c:forEach var="dept" items="${sessionScope.deptlist }">
+						<option value="${dept.dept_number }">${dept.dept_name }</option>
+					</c:forEach>	
+						<!-- <option value="2">技术部</option>
+						<option value="4">财务部</option>
+						<option value="5">销售部</option>
+						<option value="6">生产部</option> -->
 				  </select>
                 </label></td>
 				<td class="newfont03" colspan="2">岗位名称<span class="STYLE4">*</span></td>
                 <td class="newfont03"  colspan="5"><label>
                   <select name="job_job_r_id">
-						<option value="1">行政总监</option>
-						<option value="2">行政主管</option>
-						<option value="3">技术研发</option>
-						<option value="4">销售总监</option>
-						<option value="5">生产经理</option>
+                  	<c:forEach var="job" items="${sessionScope.joblist }">
+                  		<option value="${job.job_number }">${job.job_name }</option>
+                  	</c:forEach>	
+						<!-- <option value="2">行政总监</option>
+						<option value="3">行政主管</option>
+						<option value="4">技术研发</option>
+						<option value="5">销售总监</option>
+						<option value="6">生产经理</option> -->
 				  </select>
                 </label></td>
               </tr>

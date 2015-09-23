@@ -10,7 +10,7 @@ outlookbar.additem('岗位查询',t,'SelectAllJobServlet')
 
 
 t=outlookbar.addtitle('入职管理','人员管理',1)
-outlookbar.additem('输入员工',t,'writeinfo.jsp')
+outlookbar.additem('输入员工',t,'WriteInfoServlet')
 outlookbar.additem('查询人才库',t,'newempinsert.jsp')
 
 
