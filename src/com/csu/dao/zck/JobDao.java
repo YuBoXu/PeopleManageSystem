@@ -3,7 +3,8 @@ package com.csu.dao.zck;
 import java.util.HashMap;
 import java.util.List;
 
-import com.neu.dao.BaseDao;
+import com.csu.dao.BaseDao;
+
 
 public class JobDao extends BaseDao{
 	/**

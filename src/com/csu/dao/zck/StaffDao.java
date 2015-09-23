@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.neu.dao.BaseDao;
+import com.csu.dao.BaseDao;
+
 
 public class StaffDao extends BaseDao {
 	/**
