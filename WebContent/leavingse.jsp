@@ -49,7 +49,7 @@ function yanzheng(){
 
 <form  method="post" name="form1" onsubmit="return yanzheng();"action="findLeavedEmpInfoServlet">
     <div class="MainDiv">
-      <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
+      <table width="99%" border="1" cellpadding="0" cellspacing="0" class="CContent">
         <tr>
           <th class="tablestyle_title" ><div align="left">已离职员工查询</div></th>
         </tr>

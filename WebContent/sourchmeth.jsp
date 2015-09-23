@@ -33,18 +33,18 @@ return false;  }
 <div id="man_zone">
   <form action="FindMovedServlet" onsubmit="return link1();" method="post"  name="fom" id="fom" target="manFrame" >
     <div class="MainDiv">
-      <table width="99%" border="0" cellpadding="0" cellspacing="0" class="CContent">
+      <table width="99%" border="0" cellpadding="1" cellspacing="0" class="CContent">
         <tr>
           <th class="tablestyle_title" ><div align="left">已调动员工查询</div></th>
         </tr>
         <tr>
-          <td class="CPanel"><table width="100%" border="0" cellpadding="4" cellspacing="1" bgcolor="#464646" class="newfont03">
+          <td class="CPanel"><table width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#464646" class="newfont03">
               <tr class="CTitle" >
                 <td height="22" align="center" style="font-size:16px"><div align="center">已调动员工查询</div></td>
               </tr>
               <tr bgcolor="#EEEEEE">
                 <td align="center"><br/>
-                  <table width="55%" border="0" align="center">
+                  <table width="55%" border="1" align="center">
                     <tr>
                       <td colspan="4"><div align="left"><span class="STYLE3">请输入查询条件：（至少填写一项）</span></div></td>
                     </tr>
