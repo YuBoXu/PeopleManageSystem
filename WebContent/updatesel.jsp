@@ -67,7 +67,7 @@
               <td rowspan="4" align="center"><div align="center">
                   <p>调动员工基本信息</p>
                 </div></td>
-              <td height="30" name="empid"><div align="center" class="STYLE3">员工编号</div></td>
+              <td height="30" ><div align="center" class="STYLE3">员工编号</div></td>
               <td><div align="center" class="STYLE3">员工姓名</div></td>
               <td><div align="center" class="STYLE3">性别</div></td>
               <td><div align="center" class="STYLE3">出生日期</div></td>
@@ -83,8 +83,8 @@
             </tr>
             <c:forEach var="info" items="${sessionScope.info }">
             <tr bgcolor="#EEEEEE">
-              
-              <td><div align="center" class="STYLE3">${info. emp_number}</div></td>
+           
+              <td ><div align="center" class="STYLE3" >${info. emp_number}</div></td>
               <td><div align="center" class="STYLE3">${info.emp_name}</div></td>
               <td><div align="center" class="STYLE3">${info.emp_sex}</div></td>
               <td><div align="center" class="STYLE3">${info.birthday}</div></td>
@@ -177,6 +177,7 @@
 				  <select name="newjob_id" >
 				  
 				  </select>
+				  
                 </label>
               </span></td>
               <td colspan="2" bgcolor="#FFFFFF"><div align="center" class="STYLE3">
@@ -213,8 +214,10 @@
        &nbsp;&nbsp;
 &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     
 <input type="button" name="ca" value="取消" onclick="window.history.back()"/>
+  
       </div>
     </div>
+  
   </form>
 </div>
 </body>
