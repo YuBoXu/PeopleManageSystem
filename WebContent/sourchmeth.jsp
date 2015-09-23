@@ -44,7 +44,7 @@ return false;  }
               </tr>
               <tr bgcolor="#EEEEEE">
                 <td align="center"><br/>
-                  <table width="55%" border="0" align="center">
+                  <table width="55%" border="1" align="center">
                     <tr>
                       <td colspan="4"><div align="left"><span class="STYLE3">请输入查询条件：（至少填写一项）</span></div></td>
                     </tr>
