@@ -115,29 +115,7 @@ function yanzheng(){
  <input type="submit" name="Submit32" value="²éÑ¯" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <input type="reset" name="Submit222" value="È¡Ïû" />
-                      </div></td>
-                    </tr>
-                  </table>
-                <p>&nbsp;</p>                <div align="center">
-                  <label></label>
-                </div></td>
-              </tr>
-              
-          </table></td>
-        </tr>
-      </table>
-      <span style="position:absolute; left:65px;  
-   top:406px; width:910px; height:202px; z-index:1; ">
-      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="910" height="200" align="middle">
-        <param name="allowScriptAccess" value="sameDomain" />
-        <param name="allowFullScreen" value="false" />
-        <param name="movie" value="11.swf" />
-        <param name="quality" value="high" />
-        <param name="bgcolor" value="#FFFFFF" />
-        <embed src="11.swf" quality="high" bgcolor="#FFFFFF" width="910" height="200" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_cn" /></embed>
-        </embed>
-      </object>
-    </span></div>
+                    
   </form>
 </div>
 </body>
