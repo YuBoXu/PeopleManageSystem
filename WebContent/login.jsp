@@ -39,7 +39,7 @@ background:url("images/91.jpg")
                       <td height="40">&nbsp;</td>
                       <td height="40">&nbsp;</td>
                       <td height="60"><label>
-                        <input type="submit" name="submit"   value="登录系统">
+                        <input type="submit" name="submit"  value="登录系统">
                         </label>
                       </td>
                     </tr>
