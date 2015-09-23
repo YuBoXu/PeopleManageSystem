@@ -48,7 +48,7 @@ function unselectAll(){
         <td height="40" class="font42"><table width="100%" border="0" cellpadding="4" cellspacing="1" class="newfont03">
           <tr class="CTitle" >
             <td height="22" colspan="7" align="right" style="font-size:16px"><div align="center"><span class="STYLE4">新聘员工列表</span></div></td>
-            <td height="22" align="right" style="font-size:16px"></td>
+                         <td height="22" align="right" style="font-size:16px"><td height="22" align="right" style="font-size:16px"><a href="leaveemplist_download.jsp"><input type="button" name="Submit"  value="下载" /></a></td>
           </tr>
           <tr bgcolor="#EEEEEE">
             <td width="4%" align="center" height="30">选择</td>
