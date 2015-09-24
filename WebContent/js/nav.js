@@ -50,6 +50,6 @@ outlookbar.additem('查询管理员',t,'selectmanager.jsp')
 outlookbar.additem('退出登录',t,'out.jsp')
 
 
-t=outlookbar.addtitle('内部邮件','发送邮件',1)
+t=outlookbar.addtitle('内部邮件','内部邮件',1)
 outlookbar.additem('发送邮件',t,'sendemail.jsp')
 outlookbar.additem('群发邮件',t,'sendallemail.jsp')
