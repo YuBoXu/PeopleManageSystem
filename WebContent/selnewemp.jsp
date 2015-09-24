@@ -52,11 +52,18 @@ body {
     <tr>
       <td><span class="STYLE4">指定部门：</span></td>
       <td><select name="deptname">
-							<option value="行政部">行政部</option>
-							<option value="生产部">生产部</option>
-							<option value="技术部">技术部</option>
-							<option value="销售部">销售部</option>
-							<option value="财务部">财务部</option>
+							<option value="无">请选择部门</option>
+						<option value="行政部">行政部</option>
+						<option value="技术部">技术部</option>
+						<option value="销售部">销售部</option>
+						<option value="人事部">人事部</option>
+						
+						<option value="财务部">财务部</option>
+						<option value="采购部">采购怒</option>
+						<option value="促销部">促销部</option>
+						<option value="广告部">广告部</option>
+						<option value="公关部">公关部</option>
+						<option value="生产部">生产部</option>
 					  </select>
         <span class="STYLE8">        选填</span></td>
     </tr>

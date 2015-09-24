@@ -22,20 +22,50 @@
      switch(dept){  
          //根据用户选择的省份动态创建城市下拉列表  
        case  "行政部" :  
-            newOption1= new Option("经理","1");  
-            newOption2= new Option("副经理","2");  
-            newOption3= new Option("职员","3"); 
+            newOption1= new Option("行政总监","2");  
+            newOption3= new Option("","");  
+            newOption2= new Option("",""); 
             break;  
        case "技术部" :   
-            newOption1= new Option("技术总监","5");  
-            newOption2= new Option("CTO","6");
-            newOption3= new Option("工程师","4");  
+            newOption1= new Option("技术研发","5");  
+            newOption3= new Option("","");  
+            newOption2= new Option("","");  
             break;  
        case "生产部" :   
-           newOption1= new Option("部长","7");  
-           newOption2= new Option("职员","8");  
-           newOption3= new Option("副部长","9");  
+           newOption1= new Option("生产总经理","6");  
+           newOption2= new Option("",""); 
+           newOption3= new Option("",""); 
             break;
+      case "人事部" :   
+          newOption1= new Option("秘书","14");  
+          newOption2= new Option("","");  
+          newOption3= new Option("","");  
+           break;
+      case "财务部" :   
+          newOption1= new Option("薪酬分析师","10");  
+          newOption2= new Option("财务助理","11");
+          newOption3= new Option("财务专员","税务专员");  
+          break;  
+     case "广告部" :   
+         newOption1= new Option("培训师","9");  
+         newOption2= new Option("","");  
+         newOption3= new Option("","");  
+          break;
+     case "采购部" :   
+         newOption1= new Option("运营总监","8");  
+         newOption2= new Option("","");
+         newOption3= new Option("","");  
+         break;  
+    case "促销部" :   
+        newOption1= new Option("","");  
+        newOption2= new Option("","");  
+        newOption3= new Option("","");  
+         break;
+    case "公关部" :   
+        newOption1= new Option("主管","7");  
+        newOption2= new Option("","");  
+        newOption3= new Option("","");  
+         break;
            
       }  
       //清除原有选项  
@@ -172,7 +202,16 @@
 						<option value="行政部">行政部</option>
 						<option value="技术部">技术部</option>
 						<option value="销售部">销售部</option>
+						<option value="人事部">人事部</option>
+						
+						<option value="财务部">财务部</option>
+						<option value="采购部">采购怒</option>
+						<option value="促销部">促销部</option>
+						<option value="广告部">广告部</option>
+						<option value="公关部">公关部</option>
 						<option value="生产部">生产部</option>
+						
+
 				  </select>
 				    </div>
                   

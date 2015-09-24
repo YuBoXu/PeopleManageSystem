@@ -33,7 +33,7 @@ public class FindJobByIdServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	//	response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -43,9 +43,12 @@ public class FindJobByIdServlet extends HttpServlet {
 		String number = request.getParameter("number");
 		JobBiz biz = new JobBiz();
 		List<HashMap<String, String>> list = biz.findJobById(number);
-		HashMap<String, String> map = list.get(0);
-		request.getSession().setAttribute("job", map);
-		response.sendRedirect("jobmod.jsp");
+		if (!list.isEmpty()) {
+			HashMap<String, String> map = list.get(0);
+			request.getSession().setAttribute("job", map);
+			response.sendRedirect("jobmod.jsp");
+		}
+		
 	}
 
 }

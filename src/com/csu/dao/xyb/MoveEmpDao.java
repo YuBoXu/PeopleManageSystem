@@ -125,7 +125,7 @@ public class MoveEmpDao extends BaseDao {
      */
 	public List<HashMap<String, String>> FindJobToMove(String empid) {
 		// TODO Auto-generated method stub
-		String sql="select rp.dept_number,rp.job_number,dept_name,job_name "
+		String sql="select j.dept_number,rp.job_number,dept_name,job_name "
                           +"from relationship rp,job j "
                           +"where emp_number=? and rp.job_number=j.job_number";
 	  

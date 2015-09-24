@@ -2,7 +2,7 @@
 var outlookbar=new outlook();
 var t;
 t=outlookbar.addtitle('部门管理','组织管理',1)
-outlookbar.additem('部门添加',t,'adddept.jsp')
+outlookbar.additem('部门添加',t,'FindDeptNameServlet')
 outlookbar.additem('部门查询',t,'SelectDeptServlet')
 t=outlookbar.addtitle('岗位管理','组织管理',1)
 outlookbar.additem('岗位添加',t,'addjob.jsp')
@@ -10,7 +10,7 @@ outlookbar.additem('岗位查询',t,'SelectAllJobServlet')
 
 
 t=outlookbar.addtitle('入职管理','人员管理',1)
-outlookbar.additem('输入员工',t,'writeinfo.jsp')
+outlookbar.additem('输入员工',t,'WriteInfoServlet')
 outlookbar.additem('查询人才库',t,'newempinsert.jsp')
 
 
@@ -48,3 +48,8 @@ outlookbar.additem('添加管理员',t,'addmanager.jsp')
 outlookbar.additem('查询管理员',t,'selectmanager.jsp')
 
 outlookbar.additem('退出登录',t,'out.jsp')
+
+
+t=outlookbar.addtitle('内部邮件','内部邮件',1)
+outlookbar.additem('发送邮件',t,'sendemail.jsp')
+outlookbar.additem('群发邮件',t,'sendallemail.jsp')

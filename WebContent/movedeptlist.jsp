@@ -65,7 +65,7 @@ function unselectAll(){
             <td height="20"><input type="checkbox" name="delid"/></td>
             <td>${info.olddept}
             </td>
-            <td>${info.newdept}
+            <td id="newdept">${info.newdept}
             </td>
             <td>${info.emp_name}
             </td>

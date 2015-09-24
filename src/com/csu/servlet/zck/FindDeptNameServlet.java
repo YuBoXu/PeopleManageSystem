@@ -9,22 +9,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.csu.biz.zck.DeptBiz;
-import com.csu.biz.zck.JobBiz;
+import com.csu.biz.zck.WriteInfoBiz;
 
 /**
- * Servlet implementation class PageJobServlet
- * 分页查询岗位信息
+ * Servlet implementation class FindDeptNameServlet
  */
-@WebServlet("/PageJobServlet")
-public class PageJobServlet extends HttpServlet {
+@WebServlet("/FindDeptNameServlet")
+public class FindDeptNameServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PageJobServlet() {
+    public FindDeptNameServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,15 +40,11 @@ public class PageJobServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String page = request.getParameter("index");
-		/*DeptBiz biz = new DeptBiz();
-		List<HashMap<String, String>> list = biz.findDeptByPage(page);*/
-		JobBiz biz = new JobBiz();
-		List<HashMap<String, String>> list = biz.findJobByPage(page);		
-		request.getSession().setAttribute("jobinfo", list);
-		request.getSession().setAttribute("pageindex", page);
-//		request.getSession().setAttribute("pagenumber", biz.getpagenumber());
-		response.sendRedirect("jobselect.jsp");
+		WriteInfoBiz biz = new WriteInfoBiz();
+		HttpSession session = request.getSession();
+		List<HashMap<String, String>> deptlist = biz.findDept();
+		session.setAttribute("deptlist1", deptlist);
+		response.sendRedirect("adddept.jsp");
 	}
 
 }
