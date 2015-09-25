@@ -18,7 +18,7 @@ body{
 </style>
 </head>
 <body>
-<form action="hyLoginServlet"  method="post" onsubmit="return checkForm()"  >
+<form action="hyLoginServlet"  method="post" onsubmit="return checkForm()" target="_top" >
 
                 
 				<form name="form1" method="post" onSubmit=" return yanzheng();"  action="index.html" >

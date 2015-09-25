@@ -34,7 +34,27 @@ public class hyLoginServlet<SignInfoBiz> extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doPost(request, response);
+	/*	hyManagerInfoBiz biz=new hyManagerInfoBiz();
+		HashMap<String, String> item=biz
+				.checkLogin(request.getParameterMap());
+		if(item!=null && item.size()>0){
+			HttpSession session=request.getSession();
+			session.setAttribute("info", item);
+			response.sendRedirect("index.html");
+			
+		}else{
+			//从服务中获取存储数据的空间
+		//	request.getRequestDispatcher("login.jsp").forward(request, response);
+		//	RequestDispatcher.f
+		//	response.("login_error.jsp");
+			response.sendRedirect("login_error.jsp");
+		}*/
+	}
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		hyManagerInfoBiz biz=new hyManagerInfoBiz();
 		HashMap<String, String> item=biz
 				.checkLogin(request.getParameterMap());
@@ -50,13 +70,6 @@ public class hyLoginServlet<SignInfoBiz> extends HttpServlet {
 		//	response.("login_error.jsp");
 			response.sendRedirect("login_error.jsp");
 		}
-	}
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

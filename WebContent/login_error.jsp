@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	alert("登录失败！");
+//	window.location.href='login.jsp';
 	window.history.back();
 </script>
 </head>
